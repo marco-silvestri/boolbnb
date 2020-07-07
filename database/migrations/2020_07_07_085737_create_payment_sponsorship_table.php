@@ -21,7 +21,7 @@ class CreatePaymentSponsorshipTable extends Migration
             $table->foreign('payment_id')
             ->references('id')
             ->on('payments');
-
+            //USELESS COMMENT
             $table->foreign('sponsorship_id')
             ->references('id')
             ->on('sponsorships');
