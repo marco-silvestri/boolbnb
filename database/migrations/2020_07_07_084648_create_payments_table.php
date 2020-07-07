@@ -14,8 +14,15 @@ class CreatePaymentsTable extends Migration
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
             $table->id();
-            $table->timestamps();
+            $table->float('price', 3, 2);
+            $table->timestamps();//Sarebbe la data?
+            $table->unsignedTinyInteger('sponsorship_duration');
+
+            $table->foreign('user_id')
+                ->references('user_id')
+                ->on('apartments');
         });
     }
 
