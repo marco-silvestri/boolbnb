@@ -13,9 +13,15 @@ class CreateGeolocTable extends Migration
      */
     public function up()
     {
-        Schema::create('geoloc', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('geoloc', function (Blueprint $table) { 
+            $table->unsignedBigInteger('apartment_id');
+            $table->double('lat', 10, 8);
+            $table->double('long', 10, 8);
+
+            $table->foreign('apartment_id')
+                ->references('id')
+                ->on('apartments');
+
         });
     }
 
