@@ -15,7 +15,16 @@ class CreatePaymentSponsorshipTable extends Migration
     {
         Schema::create('payment_sponsorship', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('payment_id');
+            $table->unsignedBigInteger('sponsorship_id');
+
+            $table->foreign('payment_id')
+            ->references('id')
+            ->on('payments');
+
+            $table->foreign('sponsorship_id')
+            ->references('id')
+            ->on('sponsorships');
         });
     }
 

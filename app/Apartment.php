@@ -35,4 +35,8 @@ class Apartment extends Model
     public function geoloc() {
         return $this->hasOne('App\Geoloc');
     }
+
+    public function payments() {
+        return $this->belongsToMany('App\Payment');
+    }
 }
