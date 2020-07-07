@@ -17,8 +17,6 @@ class CreateApartmentOptionTable extends Migration
             $table->unsignedBigInteger('option_id');
             $table->unsignedBigInteger('apartment_id');
             
-
-            
             $table->foreign('option_id')
                 ->references('id')
                 ->on('options');
