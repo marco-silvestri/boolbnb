@@ -16,8 +16,9 @@ class Apartment extends Model
         'beds',
         'square_meters',
         'address',
+        'img',
         'visibility',
-        'sponsorship_timestamps',
+        'sponsorship_expiration',
     ];
 
     public function user() {

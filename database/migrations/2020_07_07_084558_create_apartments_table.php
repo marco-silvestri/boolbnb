@@ -24,9 +24,9 @@ class CreateApartmentsTable extends Migration
             $table->unsignedTinyInteger('beds');
             $table->unsignedSmallInteger('square_meters');
             $table->text('address');
-            //$table->/////img
+            $table->string('img');
             $table->boolean('visibility');
-            //$table->//////Mettere il timestamp sponsorship
+            $table->timestamp('sponsorship_expiration');
             $table->timestamps();
 
             $table->foreign('user_id')

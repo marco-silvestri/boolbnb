@@ -9,7 +9,8 @@ class Payment extends Model
     protected $fillable = [
         'user_id',
         'price',
-        'sponsorship_duration'
+        'status',
+        'sponsorship_duration',
     ];
 
     public function apartments() {
