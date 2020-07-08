@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Guest\IndexController@index')->name('guest.index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//UPR/UPRA
+Route::prefix('user')
+    ->namespace('User')
+    ->middleware('auth')
+    ->group(function() {
+
+        Route::get('/home', 'HomeController@index')->name('user.index');
+});
+
+
