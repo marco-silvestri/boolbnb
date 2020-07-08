@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             MessagesTableSeeder::class,
             OptionsTableSeeder::class,
             SponsorshipsTableSeeder::class,
+            GeolocsTableSeeder::class
         ]);
     }
 }

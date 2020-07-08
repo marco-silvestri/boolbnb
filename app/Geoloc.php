@@ -11,6 +11,7 @@ class Geoloc extends Model
        'lat', 
        'long',
     ];
+    public $timestamps = false;
 
     public function apartment() {
         return $this->hasOne('App\Apartment');

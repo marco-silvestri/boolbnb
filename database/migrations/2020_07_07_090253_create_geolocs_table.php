@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGeolocTable extends Migration
+class CreateGeolocsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateGeolocTable extends Migration
      */
     public function up()
     {
-        Schema::create('geoloc', function (Blueprint $table) { 
+        Schema::create('geolocs', function (Blueprint $table) { 
             $table->unsignedBigInteger('apartment_id');
-            $table->double('lat', 10, 8);
-            $table->double('long', 10, 8);
+            $table->double('lat', 11, 8);
+            $table->double('long', 11, 8);
 
             $table->foreign('apartment_id')
                 ->references('id')
@@ -32,6 +32,6 @@ class CreateGeolocTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('geoloc');
+        Schema::dropIfExists('geolocs');
     }
 }
