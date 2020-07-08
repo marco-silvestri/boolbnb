@@ -9,7 +9,9 @@ class Sponsorship extends Model
     protected $fillable = [
         'price',
         'duration',
+        'name'
     ];
+    public  $timestamps = false;
 
     public function payments() {
         return $this->belongsToMany('App\Payment');
