@@ -9,6 +9,4 @@
         @endif
     </div>
 
-        
-
 @endsection
