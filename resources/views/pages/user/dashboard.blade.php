@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
        
-        <h1>Questa sarà la index</h1>
+        <h1>Questa sarà la dashboard</h1>
         <a href="{{route('index')}}">Index</a>
     </div>
 
