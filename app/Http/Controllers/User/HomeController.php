@@ -11,6 +11,6 @@ class HomeController extends Controller
     public function index()
     {
         $apartments = Apartment::all();
-        return view('pages.index', compact('apartments'));
+        return view('pages.user.dashboard', compact('apartments'));
     }
 }

@@ -20,6 +20,7 @@
         <table class="table">
             <thead>
                 <tr class="text-primary">
+                    <th>id</th>
                     <th>Name</th>
                     <th>Beds</th>
                     <th>Rooms Number</th>
@@ -29,14 +30,16 @@
                 </tr> 
             </thead>
             <tbody>
-                @foreach ($apartmentsForUser as $item)
+                @foreach ($apartmentsForUser as $apartment)
                 <tr>
-                    <td> {{ $item->name }}</td>
-                    <td>{{ $item->beds }}</td>
-                    <td>{{ $item->room_numbers }}</td>
-                    <td>{{ $item->square_meters }}</td>
-                    <td>{{ $item->address }}</td>
-                    <td><a class="btn btn-primary" href="#">SHOW</a></td>
+                    
+                    <td>{{ $apartment->id }}</td>
+                    <td>{{ $apartment->name }}</td>
+                    <td>{{ $apartment->beds }}</td>
+                    <td>{{ $apartment->room_numbers }}</td>
+                    <td>{{ $apartment->square_meters }}</td>
+                    <td>{{ $apartment->address }}</td>
+                    <td><a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a></td>
                     <td><a class="btn btn-success" href="#">EDIT</a></td>
                     <td><a class="btn btn-danger" href="#">DELETE</a></td>
                 </tr>
