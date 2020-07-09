@@ -15,6 +15,7 @@
         </form>
 
         <div class="container">
+            
             {{-- @dump($apartments) --}}
         </div>
     </div>

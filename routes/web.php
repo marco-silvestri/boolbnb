@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Guest\IndexController@index')->name('index');
+Route::get('/', 'Guest\ApartmentController@index')->name('index');
+
+//Guest
+Route::namespace('guest')
+->name('guest.')
+->prefix('guest')
+->group(function () {
+        Route::resource('apartment', 'ApartmentController');
+});
+
 
 Auth::routes();
 
@@ -25,6 +34,6 @@ Route::prefix('user')
     ->group(function() {
         Route::get('/dashboard', 'ApartmentController@index');
         Route::resource('apartment', 'ApartmentController');
-    });
+});
 
 

@@ -4,7 +4,15 @@
             <img class="card-img-top" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            @guest       
+                @if (Route::has('register'))
+                    {{-- se sei un guest, vai alla show dei guest --}}
+                    <a href="{{route('guest.apartment.show', $apartment->id)}}">show guest</a>
+                @endif
+            @else
+                {{-- se sei un user, vai alla show degli user --}}
+                <a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">show user</a>
+            @endguest
             <div id="map{{ $loop->iteration }}"></div>
         </div>
     </div>
