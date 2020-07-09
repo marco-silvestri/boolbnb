@@ -23,6 +23,9 @@ Route::prefix('user')
     ->middleware('auth')
     ->group(function() {
 
+
+
+        //prova
         Route::get('/home', 'HomeController@index')->name('user.index');
 });
 
