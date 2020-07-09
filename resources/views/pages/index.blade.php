@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@include('shared.components.Leaflet-include')
 @section('content')
+@include('shared.components.Leaflet-include')
     <div class="container">
         <div class="row justify-content-center">
             <h1>Questa sarà la index</h1>
@@ -19,14 +19,18 @@
         </div>
     </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <h1>Questa sarà la index</h1>
-    </div>
     <div class="container">
-        @foreach ($apartments as $apartment)
-            @include('shared.components.Card')
-        @endforeach
+        <div class="row justify-content-center">
+            <h1>Questa sarà la index</h1>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                @foreach ($apartments as $apartment)
+
+                    @include('shared.components.Card')
+                @endforeach
+            </div>
+        </div>
     </div>
-</div>
 @endsection
