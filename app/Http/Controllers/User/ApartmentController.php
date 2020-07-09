@@ -22,7 +22,7 @@ class ApartmentController extends Controller
         if ( !empty($apartmentsForUser[0]) ) {
             $hasApartments = true;
             //Return the view with the value
-            return view('pages.user.dashboard', compact('apartmentsForUser'))->with('hasApartments', $hasApartments); 
+            return view('pages.user.dashboard', compact('apartmentsForUser', 'user_id'))->with('hasApartments', $hasApartments); 
         } else {
             $hasApartments = false;
             $options = Option::all();
