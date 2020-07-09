@@ -24,7 +24,7 @@ Route::prefix('user')
     ->middleware('auth')
     ->group(function() {
         Route::get('/dashboard', 'ApartmentController@index');
-        Route::resource('/', 'ApartmentController');
+        Route::resource('apartment', 'ApartmentController');
     });
 
 
