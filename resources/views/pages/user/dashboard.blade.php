@@ -10,7 +10,7 @@
         
     
     {{-- Per far apparire l'user_id lo passo nel compact in Apartment controller --}}
-    <h1>Ciao utente numero  {{ $user_id }}, qua di seguito trovi i tuoi appartamenti:</h1>
+    <h1 class="mb-5">Ciao utente numero  {{ $user_id }}, qua di seguito trovi i tuoi appartamenti:</h1>
    
    
     {{-- @dump($hasApartments)
