@@ -13,18 +13,15 @@ class ApartmentController extends Controller
 {
     //Show all apartments for the logged user
     public function index(){
-        //Check the id for the logged user
         $user_id = Auth::id();
         //Retrieve all his apartments
         $apartmentsForUser = Apartment::where('user_id', $user_id)->get();
-
+        $hasApartments = $this->countApartments($apartmentsForUser);
         //Set a value to adjust the views
-        if ( !empty($apartmentsForUser[0]) ) {
-            $hasApartments = true;
+        if ( $hasApartments ) {
             //Return the view with the value
             return view('pages.user.dashboard', compact('apartmentsForUser', 'user_id'))->with('hasApartments', $hasApartments); 
         } else {
-            $hasApartments = false;
             $options = Option::all();
             return view('pages.user.apartment.create', compact('options'))->with('hasApartments', $hasApartments);
         } 
@@ -32,9 +29,16 @@ class ApartmentController extends Controller
 
     //Return the create view
     public function create(){
+
+        $user_id = Auth::id();
+        //Retrieve all his apartments
+        $apartmentsForUser = Apartment::where('user_id', $user_id)->get();
+        $hasApartments = $this->countApartments($apartmentsForUser);
+
         //Retrieve all the extra option and pass them to the view for printing
         $options = Option::all();
-        return view('pages.user.apartment.create', compact('options'));
+
+        return view('pages.user.apartment.create', compact('options'))->with('hasApartments', $hasApartments);
     }
 
     //Store the data passed in the create view
@@ -114,5 +118,16 @@ class ApartmentController extends Controller
         if ($hasDeleted){
             return redirect()->route('pages.index')->with('hasDeleted', $oldApartment);
         }
+    }
+
+    protected function countApartments($apartmentsForUser){
+        
+        if ( !empty($apartmentsForUser[0]) ) {
+            $hasApartments = true;
+        } else {
+            $hasApartments = false;
+        } 
+
+        return $hasApartments;
     }
 }

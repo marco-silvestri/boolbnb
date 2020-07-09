@@ -3,7 +3,7 @@
 @section('content')
 <div class="container text-center">
 
-       
+      
         {{-- <h1>Questa sarà la index</h1> --}}
         <div><a href="{{route('index')}}">Index</a></div>
         
