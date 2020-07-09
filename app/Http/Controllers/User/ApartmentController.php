@@ -20,7 +20,7 @@ class ApartmentController extends Controller
         //Set a value to adjust the views
         if ( $hasApartments ) {
             //Return the view with the value
-            return view('pages.user.dashboard', compact('apartmentsForUser'))->with('hasApartments', $hasApartments); 
+            return view('pages.user.dashboard', compact('apartmentsForUser', 'user_id'))->with('hasApartments', $hasApartments); 
         } else {
             $options = Option::all();
             return view('pages.user.apartment.create', compact('options'))->with('hasApartments', $hasApartments);
