@@ -17,16 +17,17 @@ class ApartmentController extends Controller
         $user_id = Auth::id();
         //Retrieve all his apartments
         $apartmentsForUser = Apartment::where('user_id', $user_id)->get();
+
         //Set a value to adjust the views
-        if (!empty($apartmentsForUser)){
+        if ( !empty($apartmentsForUser[0]) ) {
+            $hasApartments = true;
+            //Return the view with the value
+            return view('pages.user.dashboard', compact('apartmentsForUser'))->with('hasApartments', $hasApartments); 
+        } else {
             $hasApartments = false;
             $options = Option::all();
             return view('pages.user.apartment.create', compact('options'))->with('hasApartments', $hasApartments);
-        } else {
-            $hasApartments = true;
-            //Return the view with the value
-            return view('pages.index', compact('apartmentsForUser'))->with('hasApartments', $hasApartments);
-        }
+        } 
     }
 
     //Return the create view

@@ -13,20 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Guest\IndexController@index')->name('guest.index');
+Route::get('/', 'Guest\IndexController@index')->name('index');
 
 Auth::routes();
 
 //UPR/UPRA
 Route::prefix('user')
+    ->name('user.')
     ->namespace('User')
     ->middleware('auth')
     ->group(function() {
 
-
-
-        //prova
-        Route::get('/home', 'HomeController@index')->name('user.index');
-});
+        Route::get('/dashboard', 'ApartmentController@index');
+    });
 
 
