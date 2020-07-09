@@ -1,19 +1,21 @@
-<article>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
-        <div id="map{{ $loop->iteration }}"></div>
+<div class="col-sm-3">
+    <div class="card">
         <div class="card-body">
+            <img class="card-img-top" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
-            <a href="#" class="btn btn-primary">Dettagli appartmento</a>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div id="map{{ $loop->iteration }}"></div>
         </div>
     </div>
-</article>
+</div>
+
+
 
 <style>
     #map{{ $loop->iteration }}{
-        height: 200px;
-        width: 300px;
+        height: 150px;
+        width: 200px;
     }
 </style>
 
