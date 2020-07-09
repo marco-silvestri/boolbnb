@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Apartment;
+use App\User;
 use App\Option;
 
 class ApartmentController extends Controller
@@ -14,13 +15,15 @@ class ApartmentController extends Controller
     //Show all apartments for the logged user
     public function index(){
         $user_id = Auth::id();
+        $user_name = Auth::user()->name;
+
         //Retrieve all his apartments
         $apartmentsForUser = Apartment::where('user_id', $user_id)->get();
         $hasApartments = $this->countApartments($apartmentsForUser);
         //Set a value to adjust the views
         if ( $hasApartments ) {
             //Return the view with the value
-            return view('pages.user.dashboard', compact('apartmentsForUser', 'user_id'))->with('hasApartments', $hasApartments); 
+            return view('pages.user.dashboard', compact('apartmentsForUser', 'user_id', 'user_name'))->with('hasApartments', $hasApartments); 
         } else {
             $options = Option::all();
             return view('pages.user.apartment.create', compact('options'))->with('hasApartments', $hasApartments);
