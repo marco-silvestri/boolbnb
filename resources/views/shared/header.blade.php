@@ -57,16 +57,17 @@
                                     <a class="dropdown-item" href="{{ route('index') }}">
                                        Vai alla index
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('user.') }}">
+                                    <a class="dropdown-item text-success" href="{{ route('user.') }}">
                                         Vai ai tuoi appartamenti
-                                     </a>
+                                    </a>
+                                    <a class="dropdown-item text-primary" href="{{ route('user.create') }}">
+                                        Aggiungi appartamento
+                                    </a>
                                      <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    <a href="{{route('user.create')}}">Crea</a>
 
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
