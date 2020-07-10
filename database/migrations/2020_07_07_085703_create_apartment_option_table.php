@@ -14,6 +14,7 @@ class CreateApartmentOptionTable extends Migration
     public function up()
     {
         Schema::create('apartment_option', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('option_id');
             $table->unsignedBigInteger('apartment_id');
             

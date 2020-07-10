@@ -5,7 +5,12 @@
     <div class="container">
 
         <div class="jumbotron pt-5 pb-5">
-            <img width="50%" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
+            {{-- Need a review before going to production --}}
+            @if ($apartment->id <= 5 )
+                <img width="50%" src="{{$apartment->img}}" alt="{{ $apartment->name }}">
+            @else
+                <img width="50%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->name }}">
+            @endif
             <h1>{{ $apartment->name }}</h1>   
         </div>
         
@@ -26,7 +31,7 @@
             </div>
         </div>
 
-        @include('shared.components.Maps')
+        {{-- @include('shared.components.Maps') --}}
         
     </div>
     

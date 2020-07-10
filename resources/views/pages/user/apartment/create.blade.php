@@ -36,22 +36,22 @@
 
             <div class="form-group">
                 <label for="beds">Numero Letti</label>
-                <input id="beds" type="number" min = "1" class="form-control" name="beds" placeholder="Numero letti" value ="{{ old('beds') }}">
+                <input id="beds" type="number" min="1" class="form-control" name="beds" placeholder="Numero letti" value ="{{ old('beds') }}">
             </div>            
 
             <div class="form-group">
                 <label for="room_number">Numero Stanze</label>
-                <input id="room_number" type="number" min = "1" class="form-control" name="room_numbers" placeholder="Numero stanze" value ="{{ old('room_numbers') }}">
+                <input id="room_number" type="number" min="1" class="form-control" name="room_numbers" placeholder="Numero stanze" value ="{{ old('room_numbers') }}">
             </div>
 
             <div class="form-group">
                 <label for="bathrooms">Numero Bagni</label>
-                <input id="bathrooms" type="number" min = "1" class="form-control" name="bathrooms" placeholder="Numero bagni" value ="{{ old('bathrooms') }}">
+                <input id="bathrooms" type="number" min="1" class="form-control" name="bathrooms" placeholder="Numero bagni" value ="{{ old('bathrooms') }}">
             </div>
 
             <div class="form-group">
                 <label for="square_meters">Metri quadrati</label>
-                <input id="square_meters" type="number" min = "1" class="form-control" name="square_meters" placeholder="Numero metri quadrati" value ="{{ old('square_meters') }}">
+                <input id="square_meters" type="number" min="1" class="form-control" name="square_meters" placeholder="Numero metri quadrati" value ="{{ old('square_meters') }}">
             </div>
 
             <div class="form-group">

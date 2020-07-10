@@ -1,17 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container text-center">
-
-      
-        {{-- <h1>Questa sarà la index</h1> --}}
-        <div><a href="{{route('index')}}">Index</a></div>
-        
-        
+<div class="container text-center"> 
     
     {{-- Per far apparire l'user_id lo passo nel compact in Apartment controller --}}
     <h1 class="mb-5">Ciao utente {{ $user_name }}, qua di seguito trovi i tuoi appartamenti:</h1>
-   
    
     {{-- @dump($hasApartments)
         @dump($apartmentsForUser) --}}
@@ -40,15 +33,12 @@
                     <td>{{ $apartment->square_meters }}</td>
                     <td>{{ $apartment->address }}</td>
                     <td><a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a></td>
-                    <td><a class="btn btn-success" href="#">EDIT</a></td>
+                    <td><a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">EDIT</a></td>
                     <td><a class="btn btn-danger" href="#">DELETE</a></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-        
-
-
     </div>
 </div>
 

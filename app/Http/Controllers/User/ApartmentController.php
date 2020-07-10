@@ -94,21 +94,25 @@ class ApartmentController extends Controller
     //Store the updated value
     public function update(Request $request, Apartment $apartment)
     {
+       
         $request->validate($this->validationRules());
-
         $data = $request->all();
-        //Return a boolean
-        $hasUpdated = $apartment->update($data);
 
-        if ($hasUpdated){
-            if (!empty($data['options'])){
-                $apartment->options()->sync($data['options']);
-            } else {
-                $apartment->options()->detach();
+        if (!empty($data['img'])) {
+            //delete img
+            if (!empty($apartment->img)) {
+                Storage::disk('public')->delete($apartment->img);
             }
+            //remplace img
+            $data['img'] = Storage::disk('public')->put('images', $data['img']);
         }
 
-        return redirect()->route('pages.user.apartment.show', $apartment->id);
+        $updated = $apartment->update($data);
+
+        if ($updated){
+            return redirect()->route('user.apartment.show', $apartment->id);
+        }
+
     }
 
     //Destroy the aparment and all its linked resources
@@ -153,7 +157,7 @@ class ApartmentController extends Controller
             'beds' => 'required|numeric|min:1',
             'square_meters' => 'required|numeric|min:1',
             'address' => 'required',
-            'img' => 'image',
+            'img' => 'image|required',
             'options' => 'required|min:1',
         ];
     }
