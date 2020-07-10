@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Apartment;
 use App\User;
 use App\Option;
@@ -47,7 +48,7 @@ class ApartmentController extends Controller
     //Store the data passed in the create view
     public function store(Request $request)
     {
-        //$request->validate($this->validationRules());
+        $request->validate($this->validationRules());
 
         $data = $request->all();
         $data['user_id'] = Auth::id();
@@ -56,14 +57,19 @@ class ApartmentController extends Controller
 
         $newApartment = new Apartment();
         $newApartment->fill($data);
+
+        if(!empty($newApartment['img'])){
+            $newApartment['img'] = Storage::disk('public')->put('images' , $newApartment['img']);
+        }
+        
         $hasSaved = $newApartment->save();
 
         if ($hasSaved) {
             if (!empty($data['options'])){
-                $newPost->options()->attach($data['options']);
+                $newApartment->options()->attach($data['options']);
             }
         }
-        return redirect()->route('pages.index');
+        return redirect()->route('user.apartment.index');
     }
 
     //Show a single apartment
@@ -88,7 +94,7 @@ class ApartmentController extends Controller
     //Store the updated value
     public function update(Request $request, Apartment $apartment)
     {
-        //$request->validate($this->validationRules());
+        $request->validate($this->validationRules());
 
         $data = $request->all();
         //Return a boolean
@@ -134,5 +140,20 @@ class ApartmentController extends Controller
         } 
 
         return $hasApartments;
+    }
+
+    
+    private function validationRules()
+    {
+        return[
+            'name' => 'required',
+            'description' => 'required',
+            'room_numbers' => 'required|numeric|min:1',
+            'bathrooms' => 'required|numeric|min:1',
+            'beds' => 'required|numeric|min:1',
+            'square_meters' => 'required|numeric|min:1',
+            'address' => 'required',
+            'img' => 'image',
+        ];
     }
 }
