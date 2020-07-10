@@ -154,6 +154,7 @@ class ApartmentController extends Controller
             'square_meters' => 'required|numeric|min:1',
             'address' => 'required',
             'img' => 'image',
+            'options' => 'required|min:1',
         ];
     }
 }
