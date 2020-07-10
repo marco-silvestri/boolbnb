@@ -16,17 +16,13 @@
 
         <div class="container">
             
-            {{-- @dump($apartments) --}}
         </div>
     </div>
 
     <div class="container">
-        
         <div class="container">
-
             <div class="row">
                 @foreach ($apartments as $apartment)
-
                     @include('shared.components.Card')
                 @endforeach
             </div>

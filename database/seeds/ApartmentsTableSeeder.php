@@ -26,7 +26,7 @@ class ApartmentsTableSeeder extends Seeder
                 'beds' => 2,
                 'square_meters' => 150,
                 'address' => 'Corso Europa 16, Milano (MI)',
-                'img' => 'https://a0.muscache.com/im/pictures/1edd64b9-31d3-4e9a-a9a8-5ff215fe8f77.jpg?im_w=1200',
+                'img' => 'https://a0.muscache.com/im/pictures/871a423d-c66d-45fc-b8d0-f98718b61a1a.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
             ],
