@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-body">
             {{--  --}}
-            @if ($apartment->id <= 6)
-                <img class="apt-image" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
+            @if ($apartment->id )
+                <img width="100%" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
             @else
-                <img class="apt-image" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
+                <img width="100%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
             @endif
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
