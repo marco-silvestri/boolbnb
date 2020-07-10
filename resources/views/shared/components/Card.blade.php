@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
             {{--  --}}
-            @if ($apartment->id )
+            @if ($apartment->id <= 5 )
                 <img width="100%" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
             @else
                 <img width="100%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
