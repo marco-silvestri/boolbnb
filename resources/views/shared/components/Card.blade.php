@@ -24,12 +24,16 @@
     </div>
 </div>
 
+
 <style>
     #map{{ $loop->iteration }}{
         height: 150px;
         width: 200px;
     }
 </style>
+
+
+
 
 <script>
     var map = L.map("map{{ $loop->iteration }}",{ zoomControl: false })
