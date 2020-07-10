@@ -1,7 +1,11 @@
 <div class="col-sm-3">
     <div class="card">
         <div class="card-body">
-            <img class="card-img-top" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
+            @if ($apartment->id <= 6)
+                <img class="apt-image" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
+            @else
+                <img class="apt-image" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
+            @endif
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
             
