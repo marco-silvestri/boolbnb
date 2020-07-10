@@ -1,7 +1,13 @@
 <div class="col-sm-3">
     <div class="card">
         <div class="card-body">
-            
+            {{--  --}}
+            @if ($apartment->id <= 5 )
+                <img width="100%" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
+            @else
+                <img width="100%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
+            @endif
+
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
             @guest       
