@@ -1,17 +1,33 @@
 @extends('layouts.app')
 @section('content')
+@include('shared.components.Leaflet-include')
 
-<div class="container">
-    <h1>show user</h1>
-    <div class="col-sm-3 ">
-        <div class="card">
-            <div class="card-body">
-                <img class="card-img-top" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
-                <h5 class="card-title">{{ $apartment->name }}</h5>
-                <p class="card-text">{{ $apartment->description }}</p>
+    <div class="container">
+
+        <div class="jumbotron pt-5 pb-5">
+            <img width="50%" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
+            <h1>{{ $apartment->name }}</h1>   
+        </div>
+        
+        <div class="description d-flex pb-20">
+            <div class="col">
+                <h2 class="mb-10">Descrizione</h2>
+                <p>{{ $apartment->description }}</p>
+            </div>
+            <div class="col">
+                <h2>Servizi</h2>
+                <ul>
+                    <li>Numero di stanze: {{$apartment->room_numbers}}</li>
+                    <li>Numero di posti letto: {{$apartment->beds}}</li>
+                    <li>Numero di bagni: {{$apartment->bathrooms}}</li>
+                    <li>Metri quadrati: {{$apartment->square_meters}} mq</li>
+                    <li>Indirizzo: {{$apartment->address}}</li>
+                </ul>
             </div>
         </div>
+
+        @include('shared.components.Maps')
+        
     </div>
-</div>
-               
+    
 @endsection
