@@ -4,7 +4,6 @@
             <img class="card-img-top" src="{{ $apartment->img }}" alt="{{ $apartment->title }}">
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
-            
             @guest       
             {{-- Conditional redirect to Guest Show --}}
             <a href="{{route('guest.apartment.show', $apartment->id)}}">show guest</a>
