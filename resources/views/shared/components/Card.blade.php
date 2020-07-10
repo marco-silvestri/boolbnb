@@ -1,6 +1,7 @@
 <div class="col-sm-3">
     <div class="card">
         <div class="card-body">
+            {{--  --}}
             @if ($apartment->id <= 6)
                 <img class="apt-image" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
             @else
