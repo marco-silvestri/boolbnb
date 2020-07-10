@@ -1,2 +1,2 @@
 require('./bootstrap');
-import "places.js";
+import 'places.js';
