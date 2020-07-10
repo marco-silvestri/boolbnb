@@ -24,6 +24,7 @@
     </div>
 </div>
 
+
 <style>
     /* #map{{ $loop->iteration }}{
         height: 150px;
