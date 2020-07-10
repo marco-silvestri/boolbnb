@@ -65,7 +65,7 @@
             </label>
             <input class="form-control p-1" type="file" name="img" id="img" accept="image/*">
         </div>
-
+        {{--  --}}
         @foreach ($options as $option)
             <div class="form-check">
                 <input type="checkbox" name="options[]" id="option-{{ $loop->iteration }}" value="{{$option->id }}"
