@@ -7,9 +7,9 @@
             @else
                 <img width="100%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
             @endif
+
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
-            
             @guest       
             {{-- Conditional redirect to Guest Show --}}
             <a href="{{route('guest.apartment.show', $apartment->id)}}">show guest</a>
