@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Guest\ApartmentController@index')->name('index');
 
 //Guest
-Route::namespace('guest')
-->name('guest.')
-->prefix('guest')
-->group(function () {
+Route::prefix('guest')
+    ->namespace('Guest')
+    ->name('guest.')
+    ->group(function () {
         Route::resource('apartment', 'ApartmentController');
+        Route::get('search', 'ApartmentController@searchApartment')->name('search');
 });
 
 

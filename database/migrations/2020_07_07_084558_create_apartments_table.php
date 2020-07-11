@@ -27,8 +27,9 @@ class CreateApartmentsTable extends Migration
             $table->string('img');
             $table->boolean('visibility')->nullable();
             $table->timestamp('sponsorship_expiration')->nullable();
+            $table->double('lat', 11, 8);
+            $table->double('long', 11, 8);
             $table->timestamps();
-
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');

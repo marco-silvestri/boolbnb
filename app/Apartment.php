@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Apartment extends Model
 {
+    use Searchable;
+
     protected $fillable = [
         'user_id',
         'name',
@@ -19,6 +22,8 @@ class Apartment extends Model
         'img',
         'visibility',
         'sponsorship_expiration',
+        'lat',
+        'long'
     ];
 
     public function user() {
@@ -33,11 +38,21 @@ class Apartment extends Model
         return $this->belongsToMany('App\Option');
     }
 
-    public function geoloc() {
-        return $this->hasOne('App\Geoloc');
-    }
-
     public function payments() {
         return $this->belongsToMany('App\Payment');
+    }
+
+    public function toSearchableArray(){
+        $record = $this->toArray();
+
+        $record['_geoloc'] = [
+            'lat' => $record['lat'],
+            'lng' => $record['long'],
+        ];
+
+        //unset($record['created_at'], $record['updated_at']); // Remove unrelevant data
+        //unset($record['latitude'], $record['longitude']);
+
+        return $record;
     }
 }

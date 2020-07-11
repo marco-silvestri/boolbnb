@@ -29,6 +29,8 @@ class ApartmentsTableSeeder extends Seeder
                 'img' => 'https://a0.muscache.com/im/pictures/871a423d-c66d-45fc-b8d0-f98718b61a1a.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
+                'lat' => 45.46980000,
+                'long' => 9.19684700,
             ],
             [
                 'user_id' => 1,
@@ -42,6 +44,8 @@ class ApartmentsTableSeeder extends Seeder
                 'img' => 'https://a0.muscache.com/im/pictures/c9db035f-7239-4b52-a8fa-b3e8622c8171.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
+                'lat' => 41.90890500,
+                'long' => 12.47923200,
             ],
             [
                 'user_id' => 1,
@@ -55,6 +59,8 @@ class ApartmentsTableSeeder extends Seeder
                 'img' => 'https://a0.muscache.com/im/pictures/35597864/3702e233_original.jpg?aki_policy=x_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
+                'lat' => 41.12552000,
+                'long' => 16.87064600,
             ],
             [
                 'user_id' => 2,
@@ -69,6 +75,8 @@ class ApartmentsTableSeeder extends Seeder
                 'img' => 'https://a0.muscache.com/im/pictures/3f4db92f-c393-484a-9b4d-7a3816fee26a.jpg?aki_policy=large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
+                'lat' => 45.06633800,
+                'long' => 7.69358900,
             ],
             [
                 'user_id' => 2,
@@ -83,12 +91,11 @@ class ApartmentsTableSeeder extends Seeder
                 'img' => 'https://a0.muscache.com/im/pictures/c1ea79f7-f6ce-4cb9-939d-e6ccdcd5c0a5.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
+                'lat' => 43.73238000,
+                'long' => 11.21652200,
             ],
             
         ];
-
-       
-
 
         foreach ($Apartments as $Apartment) {
             $newApartment = new Apartment();
@@ -106,6 +113,8 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->img = $Apartment['img'];
             $newApartment->visibility = $Apartment['visibility'];
             $newApartment->sponsorship_expiration = $Apartment['sponsorship_expiration'];
+            $newApartment->lat = $Apartment['lat'];
+            $newApartment->long = $Apartment['long'];
 
             $newApartment->save();
         }

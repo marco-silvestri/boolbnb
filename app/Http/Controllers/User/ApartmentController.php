@@ -142,6 +142,8 @@ class ApartmentController extends Controller
         return $hasApartments;
     }
 
+    public function search(){
+    }
     
     private function validationRules()
     {

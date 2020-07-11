@@ -12,5 +12,7 @@ class HomeController extends Controller
     {
         $apartments = Apartment::all();
         return view('pages.user.dashboard', compact('apartments'));
+
+        
     }
 }
