@@ -21,7 +21,7 @@ Route::prefix('guest')
     ->name('guest.')
     ->group(function () {
         Route::resource('apartment', 'ApartmentController');
-        Route::get('search', 'ApartmentController@searchApartment')->name('search');
+        Route::post('search', 'ApartmentController@searchApartment')->name('search');
 });
 
 
