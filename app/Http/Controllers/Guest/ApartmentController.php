@@ -19,33 +19,6 @@ class ApartmentController extends Controller
         return view('pages.index', compact('apartments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Apartment $apartment)
     {
         if (empty($apartment)) {
@@ -55,37 +28,30 @@ class ApartmentController extends Controller
         return view('pages.guest.show', compact('apartment'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function searchApartment(Request $request){
+        
+    $appId = 'plZON97PJS4T';
+    $apiKey = '485e6334a610b0b3d89ac65d5c4ca0a4';
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    $places = \Algolia\AlgoliaSearch\PlacesClient::create($appId, $apiKey);
+    $data = $request->all();
+    
+    //Query the Algolia DB to get a geoc oded address
+    $result = $places->search($data['address']);
+    
+    //Return the result and filter to get the lat/long
+    $latLong = $result['hits'][0]['_geoloc'];
+    $lat = $latLong['lat'];
+    $lng = $latLong['lng'];
+    $radius = 20000; //20km
+    
+    $apartments = Apartment::search()
+        ->with([
+            'aroundLatLng' => $lat . ',' . $lng ,
+            'aroundRadius' => 30000,
+        ])->get();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    dd($apartments);
+    //return view('pages.index', compact('apartments'));
     }
 }
