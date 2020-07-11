@@ -14,6 +14,7 @@ $(document).ready(function () {
         language: 'it',
         countries: ['it'],
         type: ['address','city'],
+        aroundLatLngViaIP: true,
     };
     
     //Invoke the Places instance and pass it the options

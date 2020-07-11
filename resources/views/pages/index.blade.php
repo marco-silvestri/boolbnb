@@ -10,7 +10,7 @@
         <form action="{{ route('guest.search') }}" method="POST">
             @csrf
             @method('POST')
-            <input type="text" name="address" id="address-input" placeholder="Cerca un appartamento">
+            <input type="text" name="address" id="address-input" placeholder="Trova un appartamento... o lascia il campo vuoto per trovare appartamenti intorno a te">
             <input type="submit" value="Cerca">
         </form>
 

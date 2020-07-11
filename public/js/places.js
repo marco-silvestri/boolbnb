@@ -10794,7 +10794,8 @@ $(document).ready(function () {
   var reconfigurableOptions = {
     language: 'it',
     countries: ['it'],
-    type: ['address', 'city']
+    type: ['address', 'city'],
+    aroundLatLngViaIP: true
   }; //Invoke the Places instance and pass it the options
 
   var placesInstance = places(fixedOptions).configure(reconfigurableOptions);

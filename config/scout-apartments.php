@@ -25,7 +25,6 @@ return [
         'square_meters',
         'address',
         'visibility',
-        'sponsorship_expiration',
         '_geoloc.lat',
         '_geoloc.lng',
     ],
@@ -44,7 +43,7 @@ return [
     |
     */
 
-    'customRanking' => ['desc(id)', 'desc(name)'],
+    'customRanking' => ['desc(created_at)', 'desc(updated_at)'],
 
     /*
     |--------------------------------------------------------------------------
