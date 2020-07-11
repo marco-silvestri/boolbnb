@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('shared.components.Leaflet-include')
+
     <div class="container">
         <div class="row justify-content-center">
             <h1>Questa sarà la index</h1>

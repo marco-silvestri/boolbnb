@@ -2,21 +2,29 @@
 
 @section('content')
     <div class="container">
-        <h1>Aggiungi un nuovo Appartamento </h1>
+
+        @if (session('hasDeleted'))
+            <div class="alert alert-success">
+                <p>L'appartamento {{session('hasDeleted')}} è stato eliminato correttamente </p>
+                <p>Non hai nessun appartamento creane uno</p>
+            </div>
+        @endif
 
         @if ($hasApartments == false)
-        <h2>Aggiungi il tuo primo appartamento</h2>
+            <h2>Aggiungi il tuo primo appartamento</h2>
+        @else
+            <h1>Aggiungi un nuovo Appartamento </h1>
         @endif
 
         @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <!-- //form create -->
 
@@ -64,12 +72,13 @@
                 <input class = "form-control" type="file" name="img" id="img" accept="image/*">
             </div>
 
+            <label>Aggiungi opzioni</label>
             @foreach ($options as $option)
-            <div class="form-check">
-                <input type="checkbox" name="options[]" id="option-{{ $loop->iteration }}" value="{{ $option->id }}">
-                <label for="option-{{ $loop->iteration }}"> {{ $option->name }}</label>
-            </div>
-             @endforeach
+                <div class="form-check">
+                    <input type="checkbox" name="options[]" id="option-{{ $loop->iteration }}" value="{{ $option->id }}">
+                    <label for="option-{{ $loop->iteration }}"> {{ $option->name }}</label>
+                </div>
+            @endforeach
             
             <input class ="btn btn-primary" type="submit" value="Crea Appartamento">
         </form>

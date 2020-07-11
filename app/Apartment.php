@@ -16,6 +16,8 @@ class Apartment extends Model
         'beds',
         'square_meters',
         'address',
+        'lat',
+        'long',
         'img',
         'visibility',
         'sponsorship_expiration',
@@ -33,9 +35,6 @@ class Apartment extends Model
         return $this->belongsToMany('App\Option');
     }
 
-    public function geoloc() {
-        return $this->hasOne('App\Geoloc');
-    }
 
     public function payments() {
         return $this->belongsToMany('App\Payment');

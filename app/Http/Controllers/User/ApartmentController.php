@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Apartment;
 use App\User;
 use App\Option;
+use App\Message;
+use App\Geoloc;
 
 class ApartmentController extends Controller
 {
@@ -118,22 +120,45 @@ class ApartmentController extends Controller
     //Destroy the aparment and all its linked resources
     public function destroy(Apartment $apartment)
     {
+        
         //Check if exists
         if (empty($apartment)){
             abort('404');
         }
+
         //Store some values to pass as feedback
-        $oldApartment = $apartment->id . ' ' . $apartment->title;
+        $oldApartment = $apartment->name;
+        
         //Remove elements in the pivots
+        
         $apartment->options()->detach();
-        $apartment->messages()->delete(); //Create messages()
+        $apartment->messages()->delete();
         //Return a boolean
-        $hasdeleted = $apartment->delete();
+        $hasDeleted = $apartment->delete();
 
         if ($hasDeleted){
-            return redirect()->route('pages.index')->with('hasDeleted', $oldApartment);
+            //Retrieve all his apartments
+            $user_id = Auth::id();
+            $user_name = Auth::user()->name;
+            $apartmentsForUser = Apartment::where('user_id', $user_id)->get();
+            $hasApartments = $this->countApartments($apartmentsForUser);
+
+            //delet image
+            if (!empty($apartment->img)) {
+                Storage::disk('public')->delete($apartment->img);
+            }
+
+            //Set a value to adjust the views
+            if ( $hasApartments ) {
+                //Return the view with the value
+                return redirect()->route('user.dashboard')->with('hasDeleted', $oldApartment);
+            } else {
+                return redirect()->route('user.apartment.create')->with('hasDeleted', $oldApartment);
+            } 
         }
-    }
+    } 
+
+        
 
     protected function countApartments($apartmentsForUser){
         
@@ -157,7 +182,7 @@ class ApartmentController extends Controller
             'beds' => 'required|numeric|min:1',
             'square_meters' => 'required|numeric|min:1',
             'address' => 'required',
-            'img' => 'image|required',
+            'img' => 'image',
             'options' => 'required|min:1',
         ];
     }
