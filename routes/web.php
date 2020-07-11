@@ -33,7 +33,7 @@ Route::prefix('user')
     ->namespace('User')
     ->middleware('auth')
     ->group(function() {
-        Route::get('/dashboard', 'ApartmentController@index');
+        Route::get('dashboard', 'ApartmentController@index')->name('dashboard');
         Route::resource('apartment', 'ApartmentController');
 });
 

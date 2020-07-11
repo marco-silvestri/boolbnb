@@ -57,7 +57,7 @@
                                     <a class="dropdown-item" href="{{ route('index') }}">
                                        Vai alla index
                                     </a>
-                                    <a class="dropdown-item text-success" href="{{route('user.')}}">
+                                    <a class="dropdown-item text-success" href="{{route('user.dashboard')}}">
                                         Vai ai tuoi appartamenti
                                     </a>
                                     <a class="dropdown-item text-primary" href="{{ route('user.apartment.create')}}">

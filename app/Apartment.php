@@ -19,6 +19,8 @@ class Apartment extends Model
         'beds',
         'square_meters',
         'address',
+        'lat',
+        'long',
         'img',
         'visibility',
         'sponsorship_expiration',

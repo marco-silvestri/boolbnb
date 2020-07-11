@@ -26,6 +26,8 @@ class ApartmentsTableSeeder extends Seeder
                 'beds' => 2,
                 'square_meters' => 150,
                 'address' => 'Corso Europa 16, Milano (MI)',
+                'lat' => 45.4698,
+                'long' => 9.196847,
                 'img' => 'https://a0.muscache.com/im/pictures/871a423d-c66d-45fc-b8d0-f98718b61a1a.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
@@ -41,6 +43,8 @@ class ApartmentsTableSeeder extends Seeder
                 'beds' => 2,
                 'square_meters' => 50,
                 'address' => 'Via Margutta 33, Roma (Rm)',
+                'lat' => 41.908905,
+                'long' => 12.479232,
                 'img' => 'https://a0.muscache.com/im/pictures/c9db035f-7239-4b52-a8fa-b3e8622c8171.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
@@ -56,6 +60,8 @@ class ApartmentsTableSeeder extends Seeder
                 'beds' => 3,
                 'square_meters' => 75,
                 'address' => 'Via Nicolò Piccini 28, Bari (BA)',
+                'lat' => 41.125520,
+                'long' => 16.870646,
                 'img' => 'https://a0.muscache.com/im/pictures/35597864/3702e233_original.jpg?aki_policy=x_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
@@ -72,6 +78,8 @@ class ApartmentsTableSeeder extends Seeder
                 'beds' => 3,
                 'square_meters' => 95,
                 'address' => 'Via Po 95, Torino (TO)',
+                'lat' => 45.066338,
+                'long' => 7.693589,
                 'img' => 'https://a0.muscache.com/im/pictures/3f4db92f-c393-484a-9b4d-7a3816fee26a.jpg?aki_policy=large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
@@ -88,6 +96,8 @@ class ApartmentsTableSeeder extends Seeder
                 'beds' => 2,
                 'square_meters' => 45,
                 'address' => 'Via Volterrana 89, Firenze (FI)',
+                'lat' => 43.732380,
+                'long' => 11.216522,
                 'img' => 'https://a0.muscache.com/im/pictures/c1ea79f7-f6ce-4cb9-939d-e6ccdcd5c0a5.jpg?aki_policy=xx_large',
                 'visibility' => true,
                 'sponsorship_expiration' => null,
@@ -110,6 +120,8 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->beds = $Apartment['beds'];
             $newApartment->square_meters = $Apartment['square_meters'];
             $newApartment->address = $Apartment['address'];
+            $newApartment->lat = $Apartment['lat'];
+            $newApartment->long = $Apartment['long'];
             $newApartment->img = $Apartment['img'];
             $newApartment->visibility = $Apartment['visibility'];
             $newApartment->sponsorship_expiration = $Apartment['sponsorship_expiration'];

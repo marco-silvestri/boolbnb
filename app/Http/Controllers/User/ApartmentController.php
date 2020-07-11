@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Apartment;
 use App\User;
 use App\Option;
+use App\Message;
+use App\Geoloc;
 
 class ApartmentController extends Controller
 {
@@ -94,42 +96,69 @@ class ApartmentController extends Controller
     //Store the updated value
     public function update(Request $request, Apartment $apartment)
     {
+       
         $request->validate($this->validationRules());
-
         $data = $request->all();
-        //Return a boolean
-        $hasUpdated = $apartment->update($data);
 
-        if ($hasUpdated){
-            if (!empty($data['options'])){
-                $apartment->options()->sync($data['options']);
-            } else {
-                $apartment->options()->detach();
+        if (!empty($data['img'])) {
+            //delete img
+            if (!empty($apartment->img)) {
+                Storage::disk('public')->delete($apartment->img);
             }
+            //remplace img
+            $data['img'] = Storage::disk('public')->put('images', $data['img']);
         }
 
-        return redirect()->route('pages.user.apartment.show', $apartment->id);
+        $updated = $apartment->update($data);
+
+        if ($updated){
+            return redirect()->route('user.apartment.show', $apartment->id);
+        }
+
     }
 
     //Destroy the aparment and all its linked resources
     public function destroy(Apartment $apartment)
     {
+        
         //Check if exists
         if (empty($apartment)){
             abort('404');
         }
+
         //Store some values to pass as feedback
-        $oldApartment = $apartment->id . ' ' . $apartment->title;
+        $oldApartment = $apartment->name;
+        
         //Remove elements in the pivots
+        
         $apartment->options()->detach();
-        $apartment->messages()->delete(); //Create messages()
+        $apartment->messages()->delete();
         //Return a boolean
-        $hasdeleted = $apartment->delete();
+        $hasDeleted = $apartment->delete();
 
         if ($hasDeleted){
-            return redirect()->route('pages.index')->with('hasDeleted', $oldApartment);
+            //Retrieve all his apartments
+            $user_id = Auth::id();
+            $user_name = Auth::user()->name;
+            $apartmentsForUser = Apartment::where('user_id', $user_id)->get();
+            $hasApartments = $this->countApartments($apartmentsForUser);
+
+            //delet image
+            if (!empty($apartment->img)) {
+                Storage::disk('public')->delete($apartment->img);
+            }
+
+            //Set a value to adjust the views
+            if ( $hasApartments ) {
+                //Return the view with the value
+                return redirect()->route('user.dashboard')->with('hasDeleted', $oldApartment);
+            } else {
+                return redirect()->route('user.apartment.create')->with('hasDeleted', $oldApartment);
+            } 
         }
-    }
+    } 
+
+        
 
     protected function countApartments($apartmentsForUser){
         

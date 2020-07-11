@@ -1,7 +1,7 @@
 <div class="col-sm-3">
     <div class="card">
         <div class="card-body">
-            {{--  --}}
+            {{-- Need a review before going to production --}}
             @if ($apartment->id <= 5 )
                 <img width="100%" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
             @else
