@@ -48,7 +48,7 @@ class ApartmentController extends Controller
     $apartments = Apartment::search()
         ->with([
             'aroundLatLng' => $lat . ',' . $lng ,
-            'aroundRadius' => 30000,
+            'aroundRadius' => $radius,
         ])->get();
 
     return view('pages.index', compact('apartments'));
