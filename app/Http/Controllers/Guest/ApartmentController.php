@@ -51,7 +51,6 @@ class ApartmentController extends Controller
             'aroundRadius' => 30000,
         ])->get();
 
-    dd($apartments);
-    //return view('pages.index', compact('apartments'));
+    return view('pages.index', compact('apartments'));
     }
 }
