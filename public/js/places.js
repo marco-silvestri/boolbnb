@@ -10782,13 +10782,22 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 $(document).ready(function () {
-  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js"); //Compile Places instance
 
-  var placesAutocomplete = places({
+
+  var fixedOptions = {
     appId: 'plZON97PJS4T',
     apiKey: '485e6334a610b0b3d89ac65d5c4ca0a4',
     container: document.querySelector('#address-input')
-  });
+  }; //Compile Places Options
+
+  var reconfigurableOptions = {
+    language: 'it',
+    countries: ['it'],
+    type: ['address', 'city']
+  }; //Invoke the Places instance and pass it the options
+
+  var placesInstance = places(fixedOptions).configure(reconfigurableOptions);
 });
 
 /***/ }),
