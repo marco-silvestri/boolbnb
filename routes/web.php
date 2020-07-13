@@ -27,6 +27,8 @@ Route::prefix('guest')
 
 Auth::routes();
 
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
 //UPR/UPRA
 Route::prefix('user')
     ->name('user.')

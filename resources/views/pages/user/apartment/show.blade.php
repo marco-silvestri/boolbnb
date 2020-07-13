@@ -32,7 +32,56 @@
         </div>
 
         @include('shared.components.Maps')
+
+        <div class="options">
+            @foreach ($sponsorships as $sponsorship)
+                <div class="form-check">
+                    @if ($sponsorship->duration == 24)
+                        <input type="hidden" name="duration" value="{{$sponsorship->duration}}">
+                        <input class="form-check-input" type="radio" name="sponsorship" value="{{$sponsorship->id}}" checked>
+                        <label>{{$sponsorship->price}}€ per {{$sponsorship->duration / 24}} giorno</label>
+                    @else
+                        <input type="hidden" name="duration" value="{{$sponsorship->duration}}">
+                        <input class="form-check-input" type="radio" name="sponsorship" value="{{$sponsorship->id}}">
+                        <label>{{$sponsorship->price}}€ per {{$sponsorship->duration / 24}} giorni</label>
+                    @endif
+                </div>
+            @endforeach
+            <button class="go-to-payment btn btn-primary">Sponsorizza</button>
+        </div>
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div id="dropin-container"></div>
+                <button id="submit-button">Request payment method</button>
+              </div>
+            </div>
+        </div>
+
         
+       <script>
+         var button = document.querySelector('#submit-button');
+     
+         braintree.dropin.create({
+           authorization: "{{ Braintree\ClientToken::generate() }}",
+           container: '#dropin-container'
+         }, function (createErr, instance) {
+           button.addEventListener('click', function () {
+             instance.requestPaymentMethod(function (err, payload) {
+               $.get('{{ route('payment.process') }}', {payload}, function (response) {
+                 if (response.success) {
+                   alert('Payment successfull!');
+                 } else {
+                   alert('Payment failed');
+                 }
+               }, 'json');
+             });
+           });
+         });
+       </script>
+
+      
     </div>
     
 @endsection

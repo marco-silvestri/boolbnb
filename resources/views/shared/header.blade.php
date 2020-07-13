@@ -17,7 +17,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Leaflet Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
-</head>
+
+    <!-- includes the Braintree JS client SDK -->
+    <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
+
+    <!-- includes jQuery -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">

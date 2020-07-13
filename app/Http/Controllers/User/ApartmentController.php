@@ -11,6 +11,7 @@ use App\Apartment;
 use App\User;
 use App\Option;
 use App\Message;
+use App\Sponsorship;
 
 class ApartmentController extends Controller
 {
@@ -83,13 +84,14 @@ class ApartmentController extends Controller
     //Show a single apartment
     public function show(Apartment $apartment){
 
-        
+        $sponsorships = Sponsorship::all();
+
 
         if (empty($apartment)) {
             abort('404');
         }
 
-        return view('pages.user.apartment.show', compact('apartment'));
+        return view('pages.user.apartment.show', compact('apartment', 'sponsorships'));
     }
 
     //Edit 
