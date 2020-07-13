@@ -49,10 +49,7 @@ class Apartment extends Model
             'lat' => $record['lat'],
             'lng' => $record['long'],
         ];
-
-        //unset($record['created_at'], $record['updated_at']); // Remove unrelevant data
-        //unset($record['latitude'], $record['longitude']);
-
+        
         return $record;
     }
 }

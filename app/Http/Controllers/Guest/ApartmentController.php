@@ -36,7 +36,7 @@ class ApartmentController extends Controller
     $places = \Algolia\AlgoliaSearch\PlacesClient::create($appId, $apiKey);
     $data = $request->all();
     
-    //Query the Algolia DB to get a geoc oded address
+    //Query the Algolia DB to get a geocoded address
     $result = $places->search($data['address']);
     
     //Return the result and filter to get the lat/long
