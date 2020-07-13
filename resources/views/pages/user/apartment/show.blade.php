@@ -34,6 +34,16 @@
         
 
         {{-- @include('shared.components.Maps') --}}
+
+        @guest       
+             @include('shared.components.message')
+            @else
+                {{-- Conditional redirect to User Owner --}} 
+                    @if ($apartment->user_id != Auth::id())
+                        @include('shared.components.message')                    
+                    @endif
+                </a>
+            @endguest
         
     </div>
     

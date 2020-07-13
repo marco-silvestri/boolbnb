@@ -77,8 +77,6 @@ class ApartmentController extends Controller
     //Show a single apartment
     public function show(Apartment $apartment){
 
-        
-
         if (empty($apartment)) {
             abort('404');
         }

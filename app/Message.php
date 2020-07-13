@@ -13,6 +13,7 @@ class Message extends Model
         'body',
     ];
 
+
     public function apartment() {
         return $this->belongsTo('App\Apartment');
     }

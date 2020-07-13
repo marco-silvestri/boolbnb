@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Guest\ApartmentController@index')->name('index');
+Route::resource('message', 'MessageController');
 
 //Guest
 Route::prefix('guest')
@@ -22,6 +23,7 @@ Route::prefix('guest')
     ->group(function () {
         Route::resource('apartment', 'ApartmentController');
         Route::post('search', 'ApartmentController@searchApartment')->name('search');
+        
 });
 
 
