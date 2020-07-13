@@ -60,6 +60,9 @@
                                     <a class="dropdown-item text-success" href="{{route('user.dashboard')}}">
                                         Vai ai tuoi appartamenti
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('user.message') }}">
+                                       Vai ai tuoi messaggi
+                                    </a>
                                     <a class="dropdown-item text-primary" href="{{ route('user.apartment.create')}}">
                                         Aggiungi appartamento
                                     </a>

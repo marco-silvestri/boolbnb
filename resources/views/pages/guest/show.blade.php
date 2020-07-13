@@ -3,6 +3,7 @@
 @include('shared.components.Leaflet-include')
 
     <div class="container">
+     @include('shared.components.ShowFeedback')
 
         <div class="jumbotron pt-5 pb-5">
             {{-- Need a review before going to production --}}
