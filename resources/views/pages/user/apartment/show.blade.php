@@ -32,9 +32,7 @@
             </div>
         </div>
 
-        
-
-        {{-- @include('shared.components.Maps') --}}
+        @include('shared.components.Maps')
 
         @guest       
              @include('shared.components.message')
@@ -45,7 +43,6 @@
                     @endif
                 </a>
             @endguest
-        
     </div>
     
 @endsection
