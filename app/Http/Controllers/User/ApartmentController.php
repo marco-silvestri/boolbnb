@@ -32,6 +32,22 @@ class ApartmentController extends Controller
         } 
     }
 
+        public function messageIndex()
+        {
+            $user_id = Auth::id();
+            $user_name = Auth::user()->name;
+
+            //Retrieve all his apartments
+            $apartmentForUser = Apartment::where('user_id', $user_id)->get();
+            $messageForApartment=[];
+            foreach($apartmentForUser as $item){
+                //Retrieve all his messages for all Apartments
+                $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
+            }
+            
+            return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name')); 
+        }
+
     //Return the create view
     public function create(){
 
@@ -82,8 +98,6 @@ class ApartmentController extends Controller
 
     //Show a single apartment
     public function show(Apartment $apartment){
-
-        
 
         if (empty($apartment)) {
             abort('404');
