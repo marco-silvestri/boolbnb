@@ -36,5 +36,3 @@ Route::prefix('user')
         Route::get('dashboard', 'ApartmentController@index')->name('dashboard');
         Route::resource('apartment', 'ApartmentController');
 });
-
-

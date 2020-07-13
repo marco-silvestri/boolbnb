@@ -52,10 +52,23 @@ class ApartmentController extends Controller
     {
         $request->validate($this->validationRules());
 
+        $appId = 'plZON97PJS4T';
+        $apiKey = '485e6334a610b0b3d89ac65d5c4ca0a4';
+
+        $places = \Algolia\AlgoliaSearch\PlacesClient::create($appId, $apiKey);
+
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $sluggable = $data['name'] . ' ' . $data['address'];
         $data['slug'] = Str::slug($sluggable, '-');
+
+        //Query the Algolia DB to get a geocoded address
+        $result = $places->search($data['address']);
+                
+        //Return the result and filter to get the lat/long
+        $latLong = $result['hits'][0]['_geoloc'];
+        $data['lat'] = $latLong['lat'];
+        $data['long'] = $latLong['lng'];
 
         $newApartment = new Apartment();
         $newApartment->fill($data);
