@@ -11,7 +11,6 @@ use App\Apartment;
 use App\User;
 use App\Option;
 use App\Message;
-use App\Geoloc;
 
 class ApartmentController extends Controller
 {
@@ -52,21 +51,15 @@ class ApartmentController extends Controller
     {
         $request->validate($this->validationRules());
 
-        $appId = 'plZON97PJS4T';
-        $apiKey = '485e6334a610b0b3d89ac65d5c4ca0a4';
-
-        $places = \Algolia\AlgoliaSearch\PlacesClient::create($appId, $apiKey);
-
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $sluggable = $data['name'] . ' ' . $data['address'];
         $data['slug'] = Str::slug($sluggable, '-');
 
-        //Query the Algolia DB to get a geocoded address
-        $result = $places->search($data['address']);
+        $latLong = geoCode('plZON97PJS4T', 
+        '485e6334a610b0b3d89ac65d5c4ca0a4', 
+        $request);
                 
-        //Return the result and filter to get the lat/long
-        $latLong = $result['hits'][0]['_geoloc'];
         $data['lat'] = $latLong['lat'];
         $data['long'] = $latLong['lng'];
 
@@ -107,9 +100,7 @@ class ApartmentController extends Controller
     }
 
     //Store the updated value
-    public function update(Request $request, Apartment $apartment)
-    {
-       
+    public function update(Request $request, Apartment $apartment){   
         $request->validate($this->validationRules());
         $data = $request->all();
 
@@ -169,9 +160,7 @@ class ApartmentController extends Controller
                 return redirect()->route('user.apartment.create')->with('hasDeleted', $oldApartment);
             } 
         }
-    } 
-
-        
+    }  
 
     protected function countApartments($apartmentsForUser){
         
@@ -182,9 +171,6 @@ class ApartmentController extends Controller
         } 
 
         return $hasApartments;
-    }
-
-    public function search(){
     }
     
     private function validationRules()
