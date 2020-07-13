@@ -1,14 +1,3 @@
-{{-- <div class="row container-margin">
-    <div class="col-12">
-        <div class="map-container">
-          <iframe width="100%" height="200" frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDDdTa4Rc01xKmqdHC8SOVLoGyJ9mBAYmE&amp&q={{$apartment->address}}&center={{ $apartment->geoloc->lat }},{{ $apartment->geoloc->long }}">
-          </iframe>
-        </div>
-    </div>
-</div>   --}}
-
-
 <div id="map"></div>
 
 <style>
@@ -18,10 +7,9 @@
     }
 </style>
 
-
 <script>
     var map = L.map("map",{ zoomControl: false })
-    .setView([{{ $apartment->geoloc->lat }}, {{ $apartment->geoloc->long }}], 18);
+    .setView([{{ $apartment->lat }}, {{ $apartment->long }}], 18);
 
     map.dragging.disable();
     map.touchZoom.disable();
@@ -34,5 +22,5 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.marker([{{ $apartment->geoloc->lat }}, {{ $apartment->geoloc->long }}]).addTo(map);
+    L.marker([{{ $apartment->lat }}, {{ $apartment->long }}]).addTo(map);
 </script>

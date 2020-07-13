@@ -31,9 +31,7 @@
             </div>
         </div>
 
-        
-
-        {{-- @include('shared.components.Maps') --}}
+        @include('shared.components.Maps')
         
     </div>
     
