@@ -39,13 +39,25 @@ class ApartmentController extends Controller
 
             //Retrieve all his apartments
             $apartmentForUser = Apartment::where('user_id', $user_id)->get();
-            $messageForApartment=[];
+            if(count($apartmentForUser) == 0){
+                $options = Option::all();
+                 return view('pages.user.apartment.create', compact('options'))->with('hasApartments', 1);
+            }else{
+                $messageForApartment=[];
             foreach($apartmentForUser as $item){
                 //Retrieve all his messages for all Apartments
                 $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
             }
-            
-            return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name')); 
+                foreach($messageForApartment as $message){
+                    if(count($message) != 0){
+                        $mex=true;
+                    break;
+                    }else{
+                        $mex=false;
+                    }
+                }
+            return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
+            }
         }
 
     //Return the create view
