@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "handlebars": "^4.7.6",
         "places.js": "^1.19.0"
     }
 }

@@ -43,7 +43,7 @@ class ApartmentController extends Controller
         //Invoke helper geoSearch
         $apartments = geoSearch($lat, $lng, $radius);
         $jsonData = json_encode($apartments);
-        return view('pages.index', compact('apartments', 'jsonData'));
+        return view('pages.search', compact('apartments', 'jsonData', 'latLong'));
     }
 }
 
