@@ -9,22 +9,20 @@
         <table class="table">
             <thead>
                 <tr class="text-primary">
-                    <th>id</th>
-                    <th>Title</th>
+                    <th>Appartamento:</th>
+                    <th>Title:</th>
+                    <th>Contenuto:</th>
                     <th>Ricevuto:</th>
-                    <th colspan="3"></th>
                 </tr> 
             </thead>
             <tbody>
                 @foreach ($messageForApartment as $message)
                     @foreach ($message as $item)
                     <tr>
-                        
-                        <td>{{ $item['id'] }}</td>
+                        <td>{{ $item->apartment->name }}</td>
                         <td>{{ $item['title'] }}</td>
+                        <td>{{ $item['body'] }}</td>
                         <td>{{ $item['created_at'] }}</td>
-                        
-                        <td><a class="btn btn-primary" href=#>SHOW</a></>
                     </tr>
                     @endforeach
                 @endforeach
