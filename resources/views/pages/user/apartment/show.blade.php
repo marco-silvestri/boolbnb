@@ -3,7 +3,7 @@
 @include('shared.components.Leaflet-include')
 
     <div class="container">
-     @include('shared.components.ShowFeedback')
+        @include('shared.components.ShowFeedback')
 
         <div class="jumbotron pt-5 pb-5">
             {{-- Need a review before going to production --}}
@@ -35,7 +35,7 @@
         @include('shared.components.Maps')
 
         @guest       
-             @include('shared.components.message')
+            @include('shared.components.message')
             @else
                 {{-- Conditional redirect to User Owner --}} 
                     @if ($apartment->user_id != Auth::id())
