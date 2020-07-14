@@ -18,6 +18,10 @@
             <div class="form-group">
                 <label for="roomNumber">Numero minimo stanze:</label>
                 <input type="number" class="form-control" id="roomNumber" placeholder="Stanze da letto">
+                <label for="bathroomNumber">Numero minimo di bagni:</label>
+                <input type="number" class="form-control" id="bathroomNumber" placeholder="Bagni">
+                <label for="squareMeter">Numero minimo di metri quadri:</label>
+                <input type="number" class="form-control" id="squareMeter" placeholder="Metri quadri">
             </div>
         </div>
     </div>
@@ -46,12 +50,32 @@
 
             // jQuery refs
             var context = $('#context');
-            var input = $('#roomNumber');
+            var inputRoom = $('#roomNumber');
+            var inputBathroom = $('#bathroomNumber');
+            var inputSurface = $('#squareMeter');
+            
+            var condition = [0, 0, 0];
+            
+            inputRoom.on('input', function() {
+                condition[0] = inputRoom.val();
+                console.log(condition);
+                cleanAll(context);
+                for (var i = 0; i<data.length; i++){
+                    printCard(data, template, context, i, condition);
+                }
+            });
 
-            var condition;
+            inputBathroom.on('input', function() {
+                condition[1] = inputBathroom.val();
+                console.log(condition);
+                cleanAll(context);
+                for (var i = 0; i<data.length; i++){
+                    printCard(data, template, context, i, condition);
+                }
+            });
 
-            input.on('input', function() {
-                var condition = input.val();
+            inputSurface.on('input', function() {
+                condition[2] = inputSurface.val();
                 console.log(condition);
                 cleanAll(context);
                 for (var i = 0; i<data.length; i++){
@@ -61,7 +85,7 @@
 
             //Print on load
             for (var i = 0; i<data.length; i++){
-                printCard(data, template, context, i, 0)
+                printCard(data, template, context, i, condition)
             }
     });
 
@@ -71,7 +95,9 @@
 
         function printCard(data, template, destination, index, condition){
             var thisCard = JSON.parse(data)[index];
-            if (thisCard['beds'] >= condition){
+            if (thisCard['beds'] >= condition[0] &&
+                thisCard['bathrooms'] >= condition[1] &&
+                thisCard['square_meters'] >= condition[2]){
             var templateData = {
                 cardName: thisCard['name'],
                 cardDescription: thisCard['description'],
