@@ -37,6 +37,5 @@ Route::prefix('user')
     ->group(function() {
         Route::get('dashboard', 'ApartmentController@index')->name('dashboard');
         Route::resource('apartment', 'ApartmentController');
-
         Route::get('message', 'ApartmentController@messageIndex')->name('message');
 });
