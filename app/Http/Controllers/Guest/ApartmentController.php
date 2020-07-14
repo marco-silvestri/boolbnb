@@ -42,6 +42,10 @@ class ApartmentController extends Controller
         //Invoke helper geoSearch
         $apartments = geoSearch($lat, $lng, $radius);
 
-        return view('pages.index', compact('apartments'));
+        //return view('pages.index', compact('apartments'));
+        return response()->json([
+            $apartments,
+        ]);
+        }
     }
-}
+

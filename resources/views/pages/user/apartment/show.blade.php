@@ -39,7 +39,7 @@
             @else
                 {{-- Conditional redirect to User Owner --}} 
                     @if ($apartment->user_id != Auth::id())
-                        @include('shared.components.message')                    
+                        @include('shared.components.Message')                    
                     @endif
                 </a>
             @endguest
