@@ -28,4 +28,10 @@
             </div>
         </div>
     </div>
+
+    {{-- Parsing the JSON from the controller and passing it to a JS variable --}}
+    <script type="text/javascript">
+        var data = @json($jsonData);
+        console.log(JSON.parse(data));
+    </script>
 @endsection
