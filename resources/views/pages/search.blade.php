@@ -41,9 +41,6 @@
         
         $(document).ready(function () {
 
-            var data = @json($jsonData);
-            console.log(JSON.parse(data));
-
             // Handlebars refs
             var source = $('#card-template').html();
             var template = Handlebars.compile(source);
@@ -55,39 +52,70 @@
             var inputSurface = $('#squareMeter');
             
             var condition = [0, 0, 0];
+            var lat = '{{ $latLong['lat'] }}';
+            var long =  '{{ $latLong['lng'] }}';
+            var radius = 20000;
+
+            geoSearch(parseFloat(lat), 
+                    parseFloat(long), 
+                    radius, 
+                    template, 
+                    context, 
+                    condition);
+
             
             inputRoom.on('input', function() {
                 condition[0] = inputRoom.val();
                 console.log(condition);
                 cleanAll(context);
-                for (var i = 0; i<data.length; i++){
-                    printCard(data, template, context, i, condition);
-                }
+                    geoSearch(parseFloat(lat), 
+                    parseFloat(long), 
+                    radius, 
+                    template, 
+                    context, 
+                    condition);
             });
 
             inputBathroom.on('input', function() {
                 condition[1] = inputBathroom.val();
                 console.log(condition);
                 cleanAll(context);
-                for (var i = 0; i<data.length; i++){
-                    printCard(data, template, context, i, condition);
-                }
+                    geoSearch(parseFloat(lat), 
+                    parseFloat(long), 
+                    radius, 
+                    template, 
+                    context, 
+                    condition);
             });
 
             inputSurface.on('input', function() {
                 condition[2] = inputSurface.val();
                 console.log(condition);
                 cleanAll(context);
-                for (var i = 0; i<data.length; i++){
-                    printCard(data, template, context, i, condition);
-                }
+                    geoSearch(parseFloat(lat), 
+                    parseFloat(long), 
+                    radius, 
+                    template, 
+                    context, 
+                    condition);
             });
-
-            //Print on load
-            for (var i = 0; i<data.length; i++){
-                printCard(data, template, context, i, condition)
-            }
     });
+
+        //Search
+        function geoSearch(lat, long, radius, template, context, condition ){
+            const client = algoliasearch('4FF6JXK2K0', '86e9c61811af66cf6fc6209ec6715464');
+            const index = client.initIndex('apartments');
+            index.search('', {
+                aroundLatLng : lat + ',' + long, 
+                aroundRadius : radius,
+            }).then(({ hits }) => {
+                var data = JSON.stringify(hits);
+                for (var i = 0; i<data.length; i++){
+                    printCard(data, template, context, i, condition)
+                }   
+            });
+        }
+
 
         function cleanAll (destination){
             destination.html('');
