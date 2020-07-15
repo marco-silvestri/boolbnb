@@ -7,17 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     protected $fillable = [
-        'user_id',
-        'price',
+        'apartment_id',
+        'sponsorship_id',
         'status',
-        'sponsorship_duration',
     ];
 
     public function apartments() {
         return $this->belongsToMany('App\Apartment');
     }
 
-    public function sponsorships() {
-        return $this->belongsToMany('App\Sponsorship');
+    public function sponsorship() {
+        return $this->belongsTo('App\Sponsorship');
     }
 }

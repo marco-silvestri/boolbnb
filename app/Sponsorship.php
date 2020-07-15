@@ -14,6 +14,6 @@ class Sponsorship extends Model
     public  $timestamps = false;
 
     public function payments() {
-        return $this->belongsToMany('App\Payment');
+        return $this->hasmany('App\Payment');
     }
 }
