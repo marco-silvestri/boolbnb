@@ -16,7 +16,8 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::all();
-        return view('pages.index', compact('apartments'));
+        $jsonData = json_encode($apartments);
+        return view('pages.index', compact('apartments', 'jsonData'));
     }
 
     public function show(Apartment $apartment)
@@ -34,14 +35,10 @@ class ApartmentController extends Controller
         $latLong = geoCode('plZON97PJS4T', 
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
         $request);
-
-        $lat = $latLong['lat'];
-        $lng = $latLong['lng'];
-        $radius = 50000;
         
         //Invoke helper geoSearch
-        $apartments = geoSearch($lat, $lng, $radius);
-
-        return view('pages.index', compact('apartments'));
+        $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
+        return view('pages.search', compact('apartments', 'latLong'));
     }
 }
+

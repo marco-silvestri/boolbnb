@@ -82,7 +82,19 @@
                 <label for="option-{{ $loop->iteration }}"> {{ $option->name}}</label>
             </div>
         @endforeach
-    
+
+        {{-- Gestione visibilità annuncio --}}
+        <div class="form-group">
+            <p>Visibilità annuncio:</p>
+            <input type="radio" id="yes" name="visibility" value="1" @if ($apartment->visibility == 1)
+            checked
+        @endif>
+            <label for="yes">Visibile</label><br>
+            <input type="radio" id="no" name="visibility" value="0"  @if ($apartment->visibility == 0)
+                checked
+            @endif>
+            <label for="no">Non visibile</label><br>
+        </div>
     
         <input class="btn btn-primary" type="submit" value="Edit"> 
         </form>

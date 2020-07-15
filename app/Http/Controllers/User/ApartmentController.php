@@ -33,6 +33,34 @@ class ApartmentController extends Controller
         } 
     }
 
+        public function messageIndex()
+        {
+            $user_id = Auth::id();
+            $user_name = Auth::user()->name;
+
+            //Retrieve all his apartments
+            $apartmentForUser = Apartment::where('user_id', $user_id)->get();
+            if(count($apartmentForUser) == 0){
+                $mex = 1;
+                return view('pages.user.message.index', compact('user_name','mex'));
+            }else{
+                $messageForApartment=[];
+            foreach($apartmentForUser as $item){
+                //Retrieve all his messages for all Apartments
+                $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
+            }
+                foreach($messageForApartment as $message){
+                    if(count($message) != 0){
+                        $mex=2;
+                    break;
+                    }else{
+                        $mex=3;
+                    }
+                }
+            return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
+            }
+        }
+
     //Return the create view
     public function create(){
 
@@ -83,10 +111,8 @@ class ApartmentController extends Controller
 
     //Show a single apartment
     public function show(Apartment $apartment){
-
+      
         $sponsorships = Sponsorship::all();
-
-
         if (empty($apartment)) {
             abort('404');
         }
@@ -105,6 +131,14 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment){   
         $request->validate($this->validationRules());
         $data = $request->all();
+        //dd($data);
+       
+            if (!empty($data['options'])){
+                $apartment->options()->sync($data['options']);
+            } else {
+                $apartment->options()->detach();
+            }
+           
 
         if (!empty($data['img'])) {
             //delete img
@@ -187,6 +221,7 @@ class ApartmentController extends Controller
             'address' => 'required',
             'img' => 'image',
             'options' => 'required|min:1',
+            'visibility' => 'numeric',
         ];
     }
 }
