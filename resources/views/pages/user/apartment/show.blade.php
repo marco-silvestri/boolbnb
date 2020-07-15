@@ -83,7 +83,7 @@
 
 
         
-       <script>
+        <script>
 
             //======= visualizzazione box pagamento
             $('button.go-to-payment').on('click', function () {
@@ -108,53 +108,53 @@
 
             }, function (createErr, instance) {
 
-            button.addEventListener('click', function () {
+                button.addEventListener('click', function () {
 
-                instance.requestPaymentMethod(function (err, payload) {
+                    instance.requestPaymentMethod(function (err, payload) {
 
-                    $.get('{{ route('payment.process') }}', {payload}, function (response) {
-                        if (response.success) {
+                        $.get('{{ route('payment.process') }}', {payload}, function (response) {
+                            if (response.success) {
 
-                            var inputSponsorship = $("input[name='sponsorship']:checked").val();
-                            var apartmentId = $("input[name='id']").val();
-                            console.log(inputSponsorship);
-                            console.log("app" + apartmentId);
+                                var inputSponsorship = $("input[name='sponsorship']:checked").val();
+                                var apartmentId = $("input[name='id']").val();
+                                console.log(inputSponsorship);
+                                console.log("app" + apartmentId);
 
-                            console.log('Payment success');
+                                console.log('Payment success');
 
-                            $.ajaxSetup({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
-                                }
-                            });
-                
-                            $.ajax({
-                                url: "/user/store_sponsorship",
-                                type: "POST",
-                                data: {
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+                                    }
+                                });
+                    
+                                $.ajax({
+                                    url: "/user/store_sponsorship",
+                                    type: "POST",
+                                    data: {
 
-                                    radioVal: inputSponsorship,
-                                    apartId: apartmentId
+                                        radioVal: inputSponsorship,
+                                        apartId: apartmentId
 
-                                },
-                                success: function (data) {
-                                    console.log('data: ',  data);
-                                },
-                                error: function (data) {
-                                    console.log('Error:', data);
-                                }
-                            });
+                                    },
+                                    success: function (data) {
+                                        console.log('data: ',  data);
+                                    },
+                                    error: function (data) {
+                                        console.log('Error:', data);
+                                    }
+                                });
 
-                        
+                            
 
-                        } else {
-                        alert('Payment failed');
-                        }
-                    }, 'json');
+                            } else {
+                            alert('Payment failed');
+                            }
+                        }, 'json');
+                    });
                 });
             });
-            });
-       </script>
+        </script>
     </div>
     
 @endsection
