@@ -77,21 +77,19 @@
 
             // Query and print on params change
             inputRoom.on('change', function() {
-                condition[0] = inputRoom.val();
+                geoArgs.conditions[0] = inputRoom.val();
                 cleanAll(context);
-                    geoSearch(geoArgs, 
-                    template, 
-                    context);
+                geoSearch(geoArgs, printArgs);
             });
 
             inputBathroom.on('change', function() {
-                condition[1] = inputBathroom.val();
+                geoArgs.conditions[1] = inputBathroom.val();
                 cleanAll(context);
                 geoSearch(geoArgs, printArgs);
             });
 
             inputSurface.on('change', function() {
-                condition[2] = inputSurface.val();
+                geoArgs.conditions[2] = inputSurface.val();
                 cleanAll(context);
                 geoSearch(geoArgs, printArgs);
             });
