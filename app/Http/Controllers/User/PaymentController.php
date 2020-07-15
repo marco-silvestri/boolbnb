@@ -19,6 +19,10 @@ class PaymentController extends Controller
         $data = $request->all();
         $id = $data['apartId'];
 
+
+
+        
+
         // Storia delle sponsorizzazioni
         $new_sponsorship = new Payment;
         $exist = Payment::where('apartment_id', $id )->exists(); 
