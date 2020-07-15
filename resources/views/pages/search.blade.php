@@ -78,26 +78,23 @@
             // Query and print on params change
             inputRoom.on('change', function() {
                 geoArgs.conditions[0] = inputRoom.val();
-                cleanAll(context);
+                
                 geoSearch(geoArgs, printArgs);
             });
 
             inputBathroom.on('change', function() {
                 geoArgs.conditions[1] = inputBathroom.val();
-                cleanAll(context);
                 geoSearch(geoArgs, printArgs);
             });
 
             inputSurface.on('change', function() {
                 geoArgs.conditions[2] = inputSurface.val();
-                cleanAll(context);
                 geoSearch(geoArgs, printArgs);
             });
 
             //Query and print on range change
             inputRange.on('change', function() {
                 geoArgs.radius = inputRange.val()*1000
-                cleanAll(context);
                 geoSearch(geoArgs, printArgs);
             });
 
@@ -124,6 +121,7 @@
                 aroundRadius : radius,
             }).then(({ hits }) => {
                 var data = JSON.stringify(hits);
+                cleanAll(context);
                 for (var i = 0; i<data.length; i++){
                     printCard(data, template, context, i, condition)
                 }   
