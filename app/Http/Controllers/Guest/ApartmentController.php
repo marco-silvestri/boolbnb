@@ -35,15 +35,10 @@ class ApartmentController extends Controller
         $latLong = geoCode('plZON97PJS4T', 
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
         $request);
-
-        $lat = $latLong['lat'];
-        $lng = $latLong['lng'];
-        $radius = 50000;
         
         //Invoke helper geoSearch
-        $apartments = geoSearch($lat, $lng, $radius);
-        $jsonData = json_encode($apartments);
-        return view('pages.search', compact('apartments', 'jsonData', 'latLong'));
+        $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
+        return view('pages.search', compact('apartments', 'latLong'));
     }
 }
 
