@@ -22,7 +22,6 @@ class PaymentController extends Controller
         // Storia delle sponsorizzazioni
         $new_sponsorship = new Payment;
         $exist = Payment::where('apartment_id', $id )->exists(); 
-
         
         if($exist){ // se esiste
             $actual_exp_date = Payment::find($id)->expiration_date; // stringa con il datetime

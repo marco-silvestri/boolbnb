@@ -2,7 +2,6 @@
 @section('content')
 @include('shared.components.Leaflet-include')
 
-  
     <div class="container">
         @include('shared.components.ShowFeedback')
 
@@ -43,24 +42,22 @@
                         @include('shared.components.Message')                    
                     @endif
                 </a>
-         @endguest
+        @endguest
 
         <div class="options">
-            <input type="hidden" name="id" value="{{$apartment->id}}">
-            @foreach ($sponsorships as $sponsorship)
             <div class="form-check">
-                @if ($sponsorship->duration == 24)
+                @foreach ($sponsorships as $sponsorship)
+                <div class="form-group">
                     <input type="hidden" name="duration" value="{{$sponsorship->duration}}">
-                    <input class="form-check-input" type="radio" name="sponsorship" value="{{$sponsorship->id}}" checked>
-                    <label>{{$sponsorship->price}}€ per {{$sponsorship->duration / 24}} giorno</label>
-                @else
-                    <input type="hidden" name="duration" value="{{$sponsorship->duration}}">
-                    <input class="form-check-input" type="radio" name="sponsorship" value="{{$sponsorship->id}}">
-                    <label>{{$sponsorship->price}}€ per {{$sponsorship->duration / 24}} giorni</label>
-                @endif
+                    <input class="form-check-input" type="radio" name="sponsorship" value="{{$sponsorship->id}}" 
+                        @if($loop->first) 
+                            checked 
+                            @endif>
+                    <label>{{$sponsorship->price}}€ per {{$sponsorship->duration}} ore</label>
+                </div>
+                @endforeach
+                <input type="hidden" name="id" value="{{$apartment->id}}">
             </div>
-        @endforeach
- 
             <button class="go-to-payment btn btn-primary">Sponsorizza</button>
         </div>
 
@@ -79,11 +76,7 @@
             </div>
         </div>
 
-        
-
-
-        
-       <script>
+        <script>
 
             //======= visualizzazione box pagamento
             $('button.go-to-payment').on('click', function () {
@@ -154,7 +147,7 @@
                 });
             });
             });
-       </script>
+        </script>
     </div>
     
 @endsection
