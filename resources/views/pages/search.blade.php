@@ -22,6 +22,10 @@
                 <input type="number" class="form-control" id="bathroomNumber" placeholder="Bagni">
                 <label for="squareMeter">Numero minimo di metri quadri:</label>
                 <input type="number" class="form-control" id="squareMeter" placeholder="Metri quadri">
+                <label for="volumeKm">Distanza:</label>
+                <input type="range" id="rangeKm" name="rangeKm" min="1" max="50" value="20" step="1"> 
+                <span id="rangeKmPrint"></span>
+                <span>Km</span>
             </div>
         </div>
     </div>
@@ -50,63 +54,75 @@
             var inputRoom = $('#roomNumber');
             var inputBathroom = $('#bathroomNumber');
             var inputSurface = $('#squareMeter');
-            
-            var condition = [0, 0, 0];
-            var lat = '{{ $latLong['lat'] }}';
-            var long =  '{{ $latLong['lng'] }}';
-            var radius = 20000;
+            var inputRange = $('#rangeKm');
+            var rangeLabel = $('#rangeKmPrint');
 
-            geoSearch(parseFloat(lat), 
-                    parseFloat(long), 
-                    radius, 
-                    template, 
-                    context, 
-                    condition);
+            // Pack functions args
+            var geoArgs = {
+                'lat' : parseFloat('{{ $latLong['lat'] }}'),
+                'long' : parseFloat('{{ $latLong['lng'] }}'),
+                'radius' : inputRange.val()*1000,
+                'conditions' : [0, 0, 0],
+            };
 
-            
-            inputRoom.on('input', function() {
+            var printArgs = {
+                'template' : template,
+                'context' : context,
+            };
+
+            // Query and print on load
+            geoSearch(geoArgs, printArgs);
+            var radiusKm = geoArgs.radius/1000;
+            rangeLabel.html(radiusKm);
+
+            // Query and print on params change
+            inputRoom.on('change', function() {
                 condition[0] = inputRoom.val();
-                console.log(condition);
                 cleanAll(context);
-                    geoSearch(parseFloat(lat), 
-                    parseFloat(long), 
-                    radius, 
+                    geoSearch(geoArgs, 
                     template, 
-                    context, 
-                    condition);
+                    context);
             });
 
-            inputBathroom.on('input', function() {
+            inputBathroom.on('change', function() {
                 condition[1] = inputBathroom.val();
-                console.log(condition);
                 cleanAll(context);
-                    geoSearch(parseFloat(lat), 
-                    parseFloat(long), 
-                    radius, 
-                    template, 
-                    context, 
-                    condition);
+                geoSearch(geoArgs, printArgs);
             });
 
-            inputSurface.on('input', function() {
+            inputSurface.on('change', function() {
                 condition[2] = inputSurface.val();
-                console.log(condition);
                 cleanAll(context);
-                    geoSearch(parseFloat(lat), 
-                    parseFloat(long), 
-                    radius, 
-                    template, 
-                    context, 
-                    condition);
+                geoSearch(geoArgs, printArgs);
             });
-    });
 
-        //Search
-        function geoSearch(lat, long, radius, template, context, condition ){
+            //Query and print on range change
+            inputRange.on('change', function() {
+                geoArgs.radius = inputRange.val()*1000
+                cleanAll(context);
+                geoSearch(geoArgs, printArgs);
+            });
+
+            //Range update label
+            inputRange.on('input', function() {
+                geoArgs.radius = inputRange.val()*1000
+                radiusKm = geoArgs.radius/1000;
+                rangeLabel.html(radiusKm);
+            });
+    });//End of Doc Ready
+
+        //Search and print
+        function geoSearch(geoArgs, print){
+            var lat = geoArgs.lat;
+            var long = geoArgs.long;
+            var radius = geoArgs.radius;
+            var condition = geoArgs.conditions;
+            var template = print.template;
+            var context = print.context;
             const client = algoliasearch('4FF6JXK2K0', '86e9c61811af66cf6fc6209ec6715464');
             const index = client.initIndex('apartments');
             index.search('', {
-                aroundLatLng : lat + ',' + long, 
+                aroundLatLng : lat +','+ long, 
                 aroundRadius : radius,
             }).then(({ hits }) => {
                 var data = JSON.stringify(hits);
@@ -116,11 +132,12 @@
             });
         }
 
-
+        //Clean the area
         function cleanAll (destination){
             destination.html('');
         }
 
+        //Print with Handlebars
         function printCard(data, template, destination, index, condition){
             var thisCard = JSON.parse(data)[index];
             if (thisCard['beds'] >= condition[0] &&
