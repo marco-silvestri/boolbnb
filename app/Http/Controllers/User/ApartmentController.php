@@ -129,6 +129,14 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment){   
         $request->validate($this->validationRules());
         $data = $request->all();
+        //dd($data);
+       
+            if (!empty($data['options'])){
+                $apartment->options()->sync($data['options']);
+            } else {
+                $apartment->options()->detach();
+            }
+           
 
         if (!empty($data['img'])) {
             //delete img
@@ -211,6 +219,7 @@ class ApartmentController extends Controller
             'address' => 'required',
             'img' => 'image',
             'options' => 'required|min:1',
+            'visibility' => 'numeric',
         ];
     }
 }
