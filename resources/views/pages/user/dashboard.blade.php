@@ -28,6 +28,7 @@
                     <th>Rooms Number</th>
                     <th>Square meters</th>
                     <th>Address</th>
+                    <th>Visibilità</th>
                     <th colspan="3"></th>
                 </tr> 
             </thead>
@@ -41,6 +42,7 @@
                         <td>{{ $apartment->room_numbers }}</td>
                         <td>{{ $apartment->square_meters }}</td>
                         <td>{{ $apartment->address }}</td>
+                        <td>@if ($apartment->visibility == 0) No @else Si @endif</td>
                         <td><a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a></td>
                         <td><a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">EDIT</a></td>
                         <td>
