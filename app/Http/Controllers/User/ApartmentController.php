@@ -40,8 +40,8 @@ class ApartmentController extends Controller
             //Retrieve all his apartments
             $apartmentForUser = Apartment::where('user_id', $user_id)->get();
             if(count($apartmentForUser) == 0){
-                $options = Option::all();
-                 return view('pages.user.apartment.create', compact('options'))->with('hasApartments', 1);
+                $mex = 1;
+                return view('pages.user.message.index', compact('user_name','mex'));
             }else{
                 $messageForApartment=[];
             foreach($apartmentForUser as $item){
@@ -50,10 +50,10 @@ class ApartmentController extends Controller
             }
                 foreach($messageForApartment as $message){
                     if(count($message) != 0){
-                        $mex=true;
+                        $mex=2;
                     break;
                     }else{
-                        $mex=false;
+                        $mex=3;
                     }
                 }
             return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
