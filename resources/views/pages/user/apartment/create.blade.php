@@ -12,8 +12,6 @@
 
         @if ($hasApartments == false)
             <h2>Aggiungi il tuo <strong>primo</strong> appartamento</h2>
-        @elseif($hasApartments == 'noMatch')
-        <h2>Aggiungi il tuo <strong>primo</strong> appartamento PER POTER RICEVERE MESSAGGI</h2>
         @elseif($hasApartments == true)
             <h1>Aggiungi un nuovo Appartamento </h1>
         @endif
