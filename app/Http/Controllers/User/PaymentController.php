@@ -23,10 +23,6 @@ class PaymentController extends Controller
         $new_sponsorship = new Payment;
         $exist = Payment::where('apartment_id', $id )->exists(); 
 
-
-        
-
-        
         if($exist){ // se esiste
             $actual_exp_date = DB::table('payments')->where('apartment_id', $id )->value('expiration_date'); // stringa con il datetime
             $new_from_actual_exp_date = new Carbon($actual_exp_date); // nuova istanza di Carbon a partire da un timestamp
