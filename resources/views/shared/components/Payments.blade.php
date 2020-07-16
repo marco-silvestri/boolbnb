@@ -1,4 +1,16 @@
 <div class="options">
+
+    {{-- @if ($payments->apartment_id == $apartment->id)
+        ciao
+        
+    @endif --}}
+
+    @foreach ($payments as $payment)
+        @if ($payment->apartment_id == $apartment->id)
+            {{$apartment->id}}
+        @endif
+    @endforeach
+
     <div class="form-check">
         @foreach ($sponsorships as $sponsorship)
         <div class="form-group">
