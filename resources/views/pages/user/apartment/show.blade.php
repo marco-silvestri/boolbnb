@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        @include('shared.componen8 1ts.Maps')
+        @include('shared.components.Maps')
         @guest       
             @include('shared.components.message')
             @else
