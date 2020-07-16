@@ -35,4 +35,8 @@
             </div>
         </div>
     </div>
+     {{-- Impaginazione appartamenti --}}
+     <div class="d-flex justify-content-center">
+        {{ $apartments->links() }}
+    </div>
 @endsection

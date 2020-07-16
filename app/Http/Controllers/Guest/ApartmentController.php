@@ -17,7 +17,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::orderBy('id', 'desc')->paginate(20);
         $sponsoredApartments = Apartment::where('sponsorship_expiration', '>', Carbon::now())->get();
         return view('pages.index', compact('apartments','sponsoredApartments'));
     }

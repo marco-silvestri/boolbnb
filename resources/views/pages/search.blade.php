@@ -32,6 +32,7 @@
 
     <div id="context">
     </div>
+    
 
     <script id="card-template" type="text/x-handlebars-template">
         <div class="container">

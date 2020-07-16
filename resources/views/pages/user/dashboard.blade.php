@@ -57,8 +57,14 @@
             </tbody>
         </table>
     </div>
+
+     {{-- Impaginazione appartamenti --}}
+     <div class="d-flex justify-content-center">
+        {{ $apartmentsForUser->links() }}
+    </div>
 </div>
 
+    
 
 
 @endsection
