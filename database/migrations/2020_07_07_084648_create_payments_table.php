@@ -6,19 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePaymentsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id');
             $table->unsignedBigInteger('sponsorship_id');
-            /* $table->string('status')->nullable(); */
-            $table->dateTime('expiration_date')->nullable();
+            $table->dateTime('sponsorship_expiration')->nullable();
             $table->timestamps();
 
             $table->foreign('apartment_id')
@@ -31,11 +25,6 @@ class CreatePaymentsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('payments');
