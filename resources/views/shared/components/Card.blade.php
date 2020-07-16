@@ -1,7 +1,7 @@
 <div class="col-sm-3 @if ($apartment->visibility == 0) d-none @endif">
     <div class="card">
         <div class="card-body ">
-            <img width="50%" src="{{asset('storage/images/' . $apartment->img . '.jpg')}}" alt="{{ $apartment->name }}">
+            @include('shared.components.Img')
             <h5 class="card-title">{{ $apartment->name }}</h5>
             <p class="card-text">{{ $apartment->description }}</p>
             @guest       

@@ -57,17 +57,8 @@
         <div class="form-group">
             <label for="path_img">
                 <span class="d-block">Post img</span>
-                @isset($apartment->img)
-                    @if ($apartment->id <= 5)
-                        <img width="100%" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
-                    @else
-                        <img width="100%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
-                    @endif
-
-                    {{-- <img width="200" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->name}}"> --}}
-    
-                    <h6 class="mt-4" >Change</h6>
-                @endisset
+                @include('shared.components.Img')
+                <h6 class="mt-4" >Change</h6>
             </label>
             <input class="form-control p-1" type="file" name="img" id="img" accept="image/*" value ="{{ old('img', $apartment->img) }}">
         </div>
