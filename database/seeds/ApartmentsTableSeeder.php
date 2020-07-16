@@ -31,7 +31,7 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->beds = $faker->randomDigitNotNull($max = 20);
             $newApartment->square_meters = $faker->randomDigitNotNull($max = 20);
             $newApartment->address = $address; 
-            $newApartment->img = Storage::disk('public/images')->put('1.jpg', 'images');
+            $newApartment->img = 1;
             $newApartment->visibility = true;
             $newApartment->sponsorship_expiration = null;
 

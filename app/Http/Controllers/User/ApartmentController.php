@@ -68,7 +68,6 @@ class ApartmentController extends Controller
             }
         return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
         }
-    }
 
     //Return the create view
     public function create(){
@@ -122,14 +121,15 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment){
       
         $sponsorships = Sponsorship::all();
-      
+        $payments = Payment::all();
+        
         $message = Message::where('apartment_id', $apartment->id)->count();
 
         if (empty($apartment)) {
             abort('404');
         }
 
-        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message'));
+        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message','payments'));
 
     }
 
@@ -237,4 +237,5 @@ class ApartmentController extends Controller
             'visibility' => 'numeric',
         ];
     }
+    
 }
