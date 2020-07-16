@@ -34,29 +34,37 @@ class ApartmentController extends Controller
         } 
     }
 
-    public function messageIndex()
-    {
-        $user_id = Auth::id();
-        $user_name = Auth::user()->name;
+        public function messageIndex()
+        {
+            $user_id = Auth::id();
+            $user_name = Auth::user()->name;
+            $totalMex = 0;
+            $feedBack = 0;
 
-        //Retrieve all his apartments
-        $apartmentForUser = Apartment::where('user_id', $user_id)->get();
-        if(count($apartmentForUser) == 0){
-            $mex = 1;
-            return view('pages.user.message.index', compact('user_name','mex'));
-        }else{
-            $messageForApartment=[];
-        foreach($apartmentForUser as $item){
-            //Retrieve all his messages for all Apartments
-            $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
-        }
+            //Retrieve all his apartments
+            $apartmentForUser = Apartment::where('user_id', $user_id)->get();
+            if(count($apartmentForUser) == 0){
+                $feedBack = 1;
+                $totalMex = 0;
+                return view('pages.user.message.index', compact('user_name','feedBack','totalMex'));
+            }else{
+                $messageForApartment=[];
+            foreach($apartmentForUser as $item){
+                //Retrieve all his messages for all Apartments
+                $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
+            }
+
             foreach($messageForApartment as $message){
                 if(count($message) != 0){
-                    $mex=2;
-                break;
+                    foreach($message as $item){
+                        $totalMex ++;
+                    }
                 }else{
-                    $mex=3;
+                    $feedBack = 2;
                 }
+            }
+            return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','feedBack', 'totalMex')); 
+
             }
         return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
         }
@@ -114,12 +122,15 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment){
       
         $sponsorships = Sponsorship::all();
-        $payments = Payment::all();
+      
+        $message = Message::where('apartment_id', $apartment->id)->count();
+
         if (empty($apartment)) {
             abort('404');
         }
 
-        return view('pages.user.apartment.show', compact('apartment', 'sponsorships', 'payments'));
+        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message'));
+
     }
 
     //Edit 

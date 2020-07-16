@@ -17,7 +17,7 @@ class MessagesTableSeeder extends Seeder
         //Message::truncate();
         $apartments = Apartment::all();
 
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $newMessage = new Message();
 
             $newMessage->apartment_id = $apartments->random()->id;

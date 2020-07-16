@@ -16,7 +16,7 @@ class ApartmentsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $newApartment = new Apartment();
             $users = User::all();
             $name = $faker->streetName();
@@ -31,7 +31,7 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->beds = $faker->randomDigitNotNull($max = 20);
             $newApartment->square_meters = $faker->randomDigitNotNull($max = 20);
             $newApartment->address = $address; 
-            $newApartment->img = 'https://a0.muscache.com/im/pictures/871a423d-c66d-45fc-b8d0-f98718b61a1a.jpg?aki_policy=xx_large';
+            $newApartment->img = Storage::disk('public/images')->put('1.jpg', 'images');
             $newApartment->visibility = true;
             $newApartment->sponsorship_expiration = null;
 
