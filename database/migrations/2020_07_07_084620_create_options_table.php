@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateOptionsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('options', function (Blueprint $table) {
@@ -19,11 +14,6 @@ class CreateOptionsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('options');

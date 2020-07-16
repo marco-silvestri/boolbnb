@@ -68,7 +68,6 @@ class ApartmentController extends Controller
             }
         return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
         }
-    }
 
     //Return the create view
     public function create(){
