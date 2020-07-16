@@ -15,7 +15,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::orderBy('id', 'desc')->paginate(20);
         $jsonData = json_encode($apartments);
         return view('pages.index', compact('apartments', 'jsonData'));
     }
