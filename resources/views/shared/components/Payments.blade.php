@@ -1,5 +1,31 @@
 <div class="options">
-    <div class="form-check">
+    @foreach ($payments as $payment)
+        @if ($payment->apartment_id == $apartment->id)
+        
+            <div>
+                <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($payment->expiration_date))}}</p>
+            </div>
+
+            @if ($payment->expiration_date < now()->format('Y-m-d H:m:s'))
+                <h4>Prolunga la tua sponsorizzazione</h4>
+                <p>Aggiungi visibilità al tuo appartmento prolungando la tua sponsorizzazione oltre la data di scadenza. </p>
+            @else
+                <h4>Hai già un abonamento attivo</h4>
+                <p>Comprane un'altro per aumentare la durata di sponsorizzazione</p> 
+            @endif
+            @break
+        @else
+            @if ($payment->apartment_id != $apartment->id)
+                @if($loop->last) 
+                <h4>Compra il tuo primo abbonamento</h4>
+                <p>Scegli un piano di sponsorizzazione.</p>
+                @endif
+            @endif
+        @endif   
+     @endforeach
+
+    <div class="form-check">    
+        
         @foreach ($sponsorships as $sponsorship)
         <div class="form-group">
             <input type="hidden" name="duration" value="{{$sponsorship->duration}}">
@@ -55,50 +81,50 @@
 
     }, function (createErr, instance) {
 
-    button.addEventListener('click', function () {
+        button.addEventListener('click', function () {
 
-        instance.requestPaymentMethod(function (err, payload) {
+            instance.requestPaymentMethod(function (err, payload) {
 
-            $.get('{{ route('payment.process') }}', {payload}, function (response) {
-                if (response.success) {
+                $.get('{{ route('payment.process') }}', {payload}, function (response) {
+                    if (response.success) {
 
-                    var inputSponsorship = $("input[name='sponsorship']:checked").val();
-                    var apartmentId = $("input[name='id']").val();
-                    console.log(inputSponsorship);
-                    console.log("app" + apartmentId);
+                        var inputSponsorship = $("input[name='sponsorship']:checked").val();
+                        var apartmentId = $("input[name='id']").val();
+                        console.log(inputSponsorship);
+                        console.log("app" + apartmentId);
 
-                    console.log('Payment success');
+                        console.log('Payment success');
 
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
-                        }
-                    });
-        
-                    $.ajax({
-                        url: "/user/store_sponsorship",
-                        type: "POST",
-                        data: {
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+                            }
+                        });
+            
+                        $.ajax({
+                            url: "/user/store_sponsorship",
+                            type: "POST",
+                            data: {
 
-                            radioVal: inputSponsorship,
-                            apartId: apartmentId
+                                radioVal: inputSponsorship,
+                                apartId: apartmentId
 
-                        },
-                        success: function (data) {
-                            console.log('data: ',  data);
-                        },
-                        error: function (data) {
-                            console.log('Error:', data);
-                        }
-                    });
+                            },
+                            success: function (data) {
+                                console.log('data: ',  data);
+                            },
+                            error: function (data) {
+                                console.log('Error:', data);
+                            }
+                        });
 
-                
+                    
 
-                } else {
-                alert('Payment failed');
-                }
-            }, 'json');
+                    } else {
+                    alert('Payment failed');
+                    }
+                }, 'json');
+            });
         });
-    });
     });
 </script>

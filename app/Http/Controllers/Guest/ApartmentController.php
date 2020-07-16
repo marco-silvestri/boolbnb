@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Guest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Payment;
+use Carbon\Carbon as Carbon;
 
 class ApartmentController extends Controller
 {
@@ -16,8 +18,8 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::orderBy('id', 'desc')->paginate(20);
-        $jsonData = json_encode($apartments);
-        return view('pages.index', compact('apartments', 'jsonData'));
+        $sponsoredApartments = Apartment::where('sponsorship_expiration', '>', Carbon::now())->get();
+        return view('pages.index', compact('apartments','sponsoredApartments'));
     }
 
     public function show(Apartment $apartment)
