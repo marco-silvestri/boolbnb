@@ -38,6 +38,7 @@ class ApartmentController extends Controller
             $user_id = Auth::id();
             $user_name = Auth::user()->name;
             $totalMex = 0;
+            $feedBack = 0;
 
             //Retrieve all his apartments
             $apartmentForUser = Apartment::where('user_id', $user_id)->get();
@@ -61,7 +62,6 @@ class ApartmentController extends Controller
                     $feedBack = 2;
                 }
             }
-            
             return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','feedBack', 'totalMex')); 
             }
         }
@@ -118,11 +118,12 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment){
       
         $sponsorships = Sponsorship::all();
+        $message = Message::where('apartment_id', $apartment->id)->count();
         if (empty($apartment)) {
             abort('404');
         }
 
-        return view('pages.user.apartment.show', compact('apartment', 'sponsorships'));
+        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message'));
     }
 
     //Edit 
