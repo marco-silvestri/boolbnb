@@ -33,17 +33,20 @@
         </div>
 
         @include('shared.components.Maps')
+        
 
         @guest       
             @include('shared.components.message')
+              
             @else
                 {{-- Conditional redirect to User Owner --}} 
                     @if ($apartment->user_id != Auth::id())
-                        @include('shared.components.Message')                    
+                        @include('shared.components.Message')  
+                    @else
+                        @include('shared.components.Payments')  
                     @endif
                 </a>
         @endguest
-
         <div class="options">
             <div class="form-check">
                 @foreach ($sponsorships as $sponsorship)
