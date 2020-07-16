@@ -51,7 +51,7 @@
 
         <div class="form-group">
             <label for="address">Modifica indirizzo</label>
-            <input class="form-control" type="text" name="address" id="address" value="{{ old('address', $apartment->address) }}">
+            <input class="form-control" type="text" name="address" id="address-input" value="{{ old('address', $apartment->address) }}">
         </div>
 
         <div class="form-group">
