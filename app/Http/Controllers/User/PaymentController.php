@@ -44,10 +44,12 @@ class PaymentController extends Controller
             if ($actualExpiry > now()) {
                 $topupValue = $actualExpiry->addHour($duration); // aggiungo le ore della nuova sponsorizzazione
                 $active_sponsorship->update(['sponsorship_expiration' => $topupValue]);
+                $paymentRecord->update(['expiration_date' => $topupValue]);
             } else {
                 $active_sponsorship->update(['sponsorship_expiration' => $newExpiry]);
+                $paymentRecord->update(['expiration_date' => $newExpiry]);
             }
-            $paymentRecord->update(['expiration_date' => $topupValue]);
+            
         } else {
             $paymentRecord->save();
         }

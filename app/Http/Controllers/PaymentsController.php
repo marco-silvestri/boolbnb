@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Braintree\Transaction;
+use App\Sponsorship;
 
 
 class PaymentsController extends Controller
