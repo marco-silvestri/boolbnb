@@ -9,7 +9,7 @@ class Payment extends Model
     protected $fillable = [
         'apartment_id',
         'sponsorship_id',
-        'status',
+        'expiration_date',
     ];
 
     public function apartments() {
