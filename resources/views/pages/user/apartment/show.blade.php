@@ -32,12 +32,9 @@
             </div>
         </div>
 
-        @include('shared.components.Maps')
-        
-
+        @include('shared.componen8 1ts.Maps')
         @guest       
             @include('shared.components.message')
-              
             @else
                 {{-- Conditional redirect to User Owner --}} 
                     @if ($apartment->user_id != Auth::id())
