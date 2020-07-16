@@ -1,28 +1,21 @@
 <div class="options">
-    @foreach ($payments as $payment)
-        @if ($payment->apartment_id == $apartment->id)
         
-            <div>
-                <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($payment->expiration_date))}}</p>
-            </div>
-
-            @if ($payment->expiration_date < now()->format('Y-m-d H:m:s'))
-                <h4>Prolunga la tua sponsorizzazione</h4>
-                <p>Aggiungi visibilità al tuo appartmento prolungando la tua sponsorizzazione oltre la data di scadenza. </p>
-            @else
-                <h4>Hai già un abonamento attivo</h4>
-                <p>Comprane un'altro per aumentare la durata di sponsorizzazione</p> 
-            @endif
-            @break
+        
+    <div>
+        <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($apartment->sponsorship_expiration))}}</p>
+    
+        @if ($apartment->sponsorship_expiration == NULL )
+            <h4>Compra il tuo primo abbonamento</h4>
+            <p>Scegli un piano di sponsorizzazione.</p>
+        @elseif ($apartment->sponsorship_expiration < now()->format('Y-m-d H:m:s'))
+            <h4>Prolunga la tua sponsorizzazione</h4>
+            <p>Aggiungi visibilità al tuo appartmento prolungando la tua sponsorizzazione oltre la data di scadenza. </p>
         @else
-            @if ($payment->apartment_id != $apartment->id)
-                @if($loop->last) 
-                <h4>Compra il tuo primo abbonamento</h4>
-                <p>Scegli un piano di sponsorizzazione.</p>
-                @endif
-            @endif
-        @endif   
-     @endforeach
+            <h4>Hai già un abonamento attivo</h4>
+            <p>Comprane un'altro per aumentare la durata di sponsorizzazione</p> 
+        @endif
+    </div>
+         
 
     <div class="form-check">    
         
@@ -37,7 +30,9 @@
         </div>
         @endforeach
         <input type="hidden" name="id" value="{{$apartment->id}}">
+
     </div>
+    
     <button class="go-to-payment btn btn-primary">Sponsorizza</button>
 </div>
 
@@ -117,9 +112,6 @@
                                 console.log('Error:', data);
                             }
                         });
-
-                    
-
                     } else {
                     alert('Payment failed');
                     }

@@ -3,7 +3,7 @@
         <div class="card-body ">
             {{-- Need a review before going to production --}}
             @if ($apartment->id <= 5 )
-                <img width="100%" src="{{$apartment->img}}" alt="{{ $apartment->title }}">
+                <img width="100%" src="{{$apartment->img}}" alt="{{$apartment->title}}">
             @else
                 <img width="100%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->title }}">
             @endif

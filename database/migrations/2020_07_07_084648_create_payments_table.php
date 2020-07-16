@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->unsignedBigInteger('apartment_id');
             $table->unsignedBigInteger('sponsorship_id');
             /* $table->string('status')->nullable(); */
-            $table->dateTime('expiration_date')->nullable();
+            $table->dateTime('sponsorship_expiration')->nullable();
             $table->timestamps();
 
             $table->foreign('apartment_id')

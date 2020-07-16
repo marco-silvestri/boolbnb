@@ -114,12 +114,18 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment){
       
         $sponsorships = Sponsorship::all();
-        $payments = Payment::all();
+        
         if (empty($apartment)) {
             abort('404');
         }
 
-        return view('pages.user.apartment.show', compact('apartment', 'sponsorships', 'payments'));
+        $total_views = $apartment->view_count += 1;
+        $apartment->update(['view_count' => $total_views]);
+        /* DB::table('apartments')->where('view_count'); */
+
+
+        /* dd($total_views); */
+        return view('pages.user.apartment.show', compact('apartment', 'sponsorships'));
     }
 
     //Edit 
