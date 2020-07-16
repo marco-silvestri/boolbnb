@@ -2,8 +2,10 @@
         
         
     <div>
-        <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($apartment->sponsorship_expiration))}}</p>
-    
+        @if ($apartment->sponsorship_expiration)
+            <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($apartment->sponsorship_expiration))}}</p>    
+        @endif
+
         @if ($apartment->sponsorship_expiration == NULL )
             <h4>Compra il tuo primo abbonamento</h4>
             <p>Scegli un piano di sponsorizzazione.</p>
