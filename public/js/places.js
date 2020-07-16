@@ -10821,7 +10821,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Vincenzo\Desktop\boolbnb1\resources\js\places.js */"./resources/js/places.js");
+module.exports = __webpack_require__(/*! /home/msilvestri/Desktop/Code/boolbnb-team5/resources/js/places.js */"./resources/js/places.js");
 
 
 /***/ })

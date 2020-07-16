@@ -23,6 +23,12 @@
     <div class="container">
         <div class="container">
             <div class="row">
+                <h1>In vetrina</h1>
+                @foreach ($sponsoredApartments as $apartment)
+                    @include('shared.components.Card')
+                @endforeach
+            </div>
+            <div class="row"> 
                 @foreach ($apartments as $apartment)
                     @include('shared.components.Card')
                 @endforeach
