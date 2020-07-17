@@ -22,12 +22,10 @@
         <table class="table">
             <thead>
                 <tr class="text-primary">
-                    <th>id</th>
                     <th>Name</th>
-                    <th>Beds</th>
-                    <th>Rooms Number</th>
-                    <th>Square meters</th>
                     <th>Address</th>
+                    <th>Creato:</th>
+                    <th>Ultima modifica:</th>
                     <th>Visibilità</th>
                     <th colspan="3"></th>
                 </tr> 
@@ -35,14 +33,11 @@
             <tbody>
                 @foreach ($apartmentsForUser as $apartment)
                     <tr>
-                        
-                        <td>{{ $apartment->id }}</td>
                         <td>{{ $apartment->name }}</td>
-                        <td>{{ $apartment->beds }}</td>
-                        <td>{{ $apartment->room_numbers }}</td>
-                        <td>{{ $apartment->square_meters }}</td>
                         <td>{{ $apartment->address }}</td>
-                        <td>@if ($apartment->visibility == 0) No @else Si @endif</td>
+                        <td> <span>{{ $apartment->created_at->format('d/m/Y') }}</span> <span>({{ $apartment->created_at->diffForHumans() }})</span></td>
+                        <td>{{ $apartment->updated_at->diffForHumans()  }}</td>
+                        <td>@if ($apartment->visibility == 0) NO @else SI @endif</td>
                         <td><a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a></td>
                         <td><a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">EDIT</a></td>
                         <td>

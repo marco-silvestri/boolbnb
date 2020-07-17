@@ -8,7 +8,6 @@
         <div class="jumbotron pt-5 pb-5">
         @include('shared.components.Img')
             <h1>{{ $apartment->name }}</h1>
-            <span>Messaggi totali per questo appartamento: {{$message}}</span> 
         </div>
         
         <div class="description d-flex pb-20">

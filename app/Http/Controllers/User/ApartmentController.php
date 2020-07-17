@@ -165,11 +165,20 @@ class ApartmentController extends Controller
             $data['img'] = Storage::disk('public')->put('images', $data['img']);
         }
 
+        $latLong = geoCode('plZON97PJS4T', 
+        '485e6334a610b0b3d89ac65d5c4ca0a4', 
+        $data['address']);
+                
+        $data['lat'] = $latLong['lat'];
+        $data['long'] = $latLong['lng'];
+
         $updated = $apartment->update($data);
 
+        
         if ($updated){
             return redirect()->route('user.apartment.show', $apartment->id);
         }
+        
 
     }
 
