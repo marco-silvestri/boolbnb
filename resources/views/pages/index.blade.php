@@ -38,7 +38,7 @@
     </section>
     
     
-    {{-- <div class="container">
+    <div class="container">
         <div class="container">
             <div class="row">
                 <h2>In vetrina</h2>
@@ -53,9 +53,9 @@
                 @endforeach
             </div>
         </div>
-    </div> --}}
+    </div>
 
-     {{-- Impaginazione appartamenti --}}
+    {{-- Impaginazione appartamenti --}}
     <div class="d-flex justify-content-center">
         {{ $apartments->links() }}
     </div>
