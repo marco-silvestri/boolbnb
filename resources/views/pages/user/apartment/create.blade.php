@@ -81,7 +81,7 @@
             {{-- Gestione visibilità annuncio --}}
             <div class="form-group">
                 <p>Visibilità annuncio:</p>
-                <input type="radio" id="yes" name="visibility" value="1">
+                <input type="radio" id="yes" name="visibility" value="1" checked>
                 <label for="yes">Visibile</label><br>
                 <input type="radio" id="no" name="visibility" value="0">
                 <label for="no">Non visibile</label><br>
