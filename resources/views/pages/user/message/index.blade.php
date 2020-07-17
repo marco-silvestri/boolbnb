@@ -10,7 +10,6 @@
             <thead>
                 <tr class="text-primary">
                     <th>Appartamento:</th>
-                    <th>Mittente:</th>
                     <th>Title:</th>
                     <th>Contenuto:</th>
                     <th>Ricevuto:</th>
@@ -21,7 +20,6 @@
                         @foreach ($message as $item)
                         <tr>
                             <td>{{ $item->apartment->name }}</td>
-                            <td>{{ $item->email }}</td>
                             <td>{{ $item['title'] }}</td>
                             <td>{{ $item['body'] }}</td>
                             <td>{{ $item['created_at'] }}</td>
