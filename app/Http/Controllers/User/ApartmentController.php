@@ -20,7 +20,7 @@ class ApartmentController extends Controller
     public function index(){
         $user_id = Auth::id();
         $user_name = Auth::user()->name;
-
+        
         //Retrieve all his apartments
         $apartmentsForUser = Apartment::where('user_id', $user_id)->paginate(7);
         $hasApartments = $this->countApartments($apartmentsForUser);
