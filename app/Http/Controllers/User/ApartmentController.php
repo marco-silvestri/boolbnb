@@ -128,6 +128,9 @@ class ApartmentController extends Controller
         if (empty($apartment)) {
             abort('404');
         }
+        
+        $total_views = $apartment->view_count += 1;
+        $apartment->update(['view_count' => $total_views]);
 
         return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message','payments'));
 
