@@ -6,7 +6,7 @@
         @include('shared.components.ShowFeedback')
 
         <div class="jumbotron pt-5 pb-5">
-        <img width="50%" src="{{asset('storage/images/' . $apartment->img . '.jpg')}}" alt="{{ $apartment->name }}">
+        @include('shared.components.Img')
             <h1>{{ $apartment->name }}</h1>
             <span>Messaggi totali per questo appartamento: {{$message}}</span> 
         </div>
