@@ -3,4 +3,3 @@
             @else
                  <img width="50%" src="{{asset('storage/' . $apartment->img)}}" alt="{{ $apartment->name }}">
             @endif
-            <!-- boooooo -->
