@@ -24,7 +24,18 @@
                     <li>Numero di bagni: {{$apartment->bathrooms}}</li>
                     <li>Metri quadrati: {{$apartment->square_meters}} mq</li>
                     <li>Indirizzo: {{$apartment->address}}</li>
+                    <li>Latlong: {{ $apartment->lat }} and {{ $apartment->long }}</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="description d-flex pb-20">
+            <div class="col">
+                <h2>Servizi</h2>
+                @foreach ($apartment->options as $option)
+                    <p>{{ $option->name }}</p>
+                @endforeach
+                    
             </div>
         </div>
 
