@@ -2,25 +2,43 @@
 @section('content')
 @include('shared.components.Leaflet-include')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <h1>Questa sarà la index</h1>
-        </div>
+    <section class="">
+        <div class="search position-relative d-flex justify-content-center">  
+            <div class="video-container">
+                <video autoplay="" loop="" muted="" playsinline="" id="video">
+                    <source src="{{ asset('img/videoplayback.mp4') }}" type="video/mp4">
+                </video>
+            </div>
 
-        <form action="{{ route('guest.search') }}" method="POST">
-            @csrf
-            @method('POST')
-            <input type="text" name="address" id="address-input" placeholder="Trova un appartamento... o lascia il campo vuoto per trovare appartamenti intorno a te">
-            <input type="submit" value="Cerca">
-        </form>
+            <div class="opacity position-absolute">
 
-        <div class="container">
+            </div>
+
+            <div class="container position-absolute">
+                <div class="u-jumbotron d-flex flex-column justify-content-center">
+                    <div class="mt-4 mb-3" >
+                        <h2>Cerca un alloggio</h2>
+                    </div>
             
-        </div>
-    </div>
+                    <form class="d-flex" action="{{ route('guest.search') }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="container-search-bar d-flex">
+                            <input class="search-bar" type="text" name="address" id="address-input" placeholder="Trova un appartamento... o lascia il campo vuoto per trovare appartamenti intorno a te">
+                            
+                            <input class="submit" type="submit" value="Cerca">
+                            
+                            
+                        </div>
+                    </form> 
+                </div>
+            </div>
+            
+        </div>   
+    </section>
     
     
-    <div class="container">
+    {{-- <div class="container">
         <div class="container">
             <div class="row">
                 <h2>In vetrina</h2>
@@ -35,9 +53,10 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
+
      {{-- Impaginazione appartamenti --}}
-     <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
         {{ $apartments->links() }}
     </div>
 @endsection
