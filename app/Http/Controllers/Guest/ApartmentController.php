@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Payment;
-use Carbon\Carbon as Carbon;
+use App\Option;
+use Carbon\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -38,9 +39,12 @@ class ApartmentController extends Controller
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
         $request);
         
+        //Get all options
+        $options = Option::all();
+
         //Invoke helper geoSearch
         $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
-        return view('pages.search', compact('apartments', 'latLong'));
+        return view('pages.search', compact('apartments', 'latLong', 'options'));
     }
 }
 

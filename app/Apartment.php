@@ -50,6 +50,13 @@ class Apartment extends Model
             'lng' => $record['long'],
         ];
         
+        if (!empty($this->options)){
+            $record['options'] = [];
+            foreach ($this->options as $option){
+                $record['options'][] = $option->name;
+            }
+        };
+        
         return $record;
     }
 }

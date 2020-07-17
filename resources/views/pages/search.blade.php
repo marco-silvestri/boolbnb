@@ -26,14 +26,22 @@
                 <input type="range" id="rangeKm" name="rangeKm" min="1" max="50" value="20" step="1"> 
                 <span id="rangeKmPrint"></span>
                 <span>Km</span>
+                {{-- Checkboxes for options --}}
+                @foreach ($options as $option)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="option" id="box{{ $option->name }}" value="{{ $option->name }}">
+                        <label class="form-check-label" for="box{{ $option->name }}">{{ $option->name }}</label>
+                    </div>    
+                @endforeach
+                
             </div>
         </div>
     </div>
 
-    <div id="context">
-    </div>
+    {{-- Handlebars will be printed here --}}
+    <div id="context"></div>
     
-
+    {{-- Templating --}}
     <script id="card-template" type="text/x-handlebars-template">
         <div class="container">
                 <h1> @{{ cardName }}</h1>
@@ -57,6 +65,7 @@
             var inputSurface = $('#squareMeter');
             var inputRange = $('#rangeKm');
             var rangeLabel = $('#rangeKmPrint');
+            var checkBoxes = $("input[name='option']");
 
             // Pack functions args
             var geoArgs = {
@@ -71,32 +80,33 @@
                 'context' : context,
             };
 
+            var options = [];
+
             // Query and print on load
-            geoSearch(geoArgs, printArgs);
+            geoSearch(geoArgs, printArgs, options);
             var radiusKm = geoArgs.radius/1000;
             rangeLabel.html(radiusKm);
 
             // Query and print on params change
             inputRoom.on('change', function() {
-                geoArgs.conditions[0] = inputRoom.val();
-                
-                geoSearch(geoArgs, printArgs);
+                geoArgs.conditions[0] = inputRoom.val(); 
+                geoSearch(geoArgs, printArgs, options);
             });
 
             inputBathroom.on('change', function() {
                 geoArgs.conditions[1] = inputBathroom.val();
-                geoSearch(geoArgs, printArgs);
+                geoSearch(geoArgs, printArgs, options);
             });
 
             inputSurface.on('change', function() {
                 geoArgs.conditions[2] = inputSurface.val();
-                geoSearch(geoArgs, printArgs);
+                geoSearch(geoArgs, printArgs, options);
             });
 
             //Query and print on range change
             inputRange.on('change', function() {
                 geoArgs.radius = inputRange.val()*1000
-                geoSearch(geoArgs, printArgs);
+                geoSearch(geoArgs, printArgs, options);
             });
 
             //Range update label
@@ -105,10 +115,24 @@
                 radiusKm = geoArgs.radius/1000;
                 rangeLabel.html(radiusKm);
             });
+
+            //Read the checkboxes values and query
+            checkBoxes.change(function() {
+                var checked = $(this).val();
+                if ($(this).is(':checked')) {
+                    options.push(checked);
+                } else {
+                    options.splice($.inArray(checked, options),1);
+                    console.log(options);
+                }
+                geoSearch(geoArgs, print, options)
+            });
+
+
     });//End of Doc Ready
 
         //Search and print
-        function geoSearch(geoArgs, print){
+        function geoSearch(geoArgs, print, options){
             var lat = geoArgs.lat;
             var long = geoArgs.long;
             var radius = geoArgs.radius;
@@ -123,6 +147,7 @@
             }).then(({ hits }) => {
                 var data = JSON.stringify(hits);
                 cleanAll(context);
+                console.log(hits[0]['options']);
                 for (var i = 0; i<data.length; i++){
                     printCard(data, template, context, i, condition)
                 }   
@@ -133,7 +158,6 @@
         function cleanAll (destination){
             destination.html('');
         }
-
         //Print with Handlebars
         function printCard(data, template, destination, index, condition){
             var thisCard = JSON.parse(data)[index];
