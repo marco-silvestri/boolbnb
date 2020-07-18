@@ -10,7 +10,7 @@
         @include full-width-height;
         overflow: hidden;
        
-        video{
+        video {
             width: 200%;
             transform: translate(-15%,-15%);
         }
@@ -44,12 +44,12 @@
             background-color: white;
             border-radius: 10px;
 
-            .search-bar{
+            .search-bar {
                 margin: 0;
                 padding: 0 35px 0 10px ;
             }
 
-            path{
+            path {
                 transform: translateX(1px);
             }
 
@@ -63,13 +63,87 @@
                 transform: translateX(-10px);
             }
 
-            .submit:active{
+            .submit:active {
                 border:none;
             }
 
         }
     }
 }
+
+.apartment{
+
+    .box{
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .info{
+            position: absolute;
+            @include full-width-height;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+            
+            h3 {
+                text-align: center;
+            }
+
+            div {
+                height: 180px;
+                padding: 0 5px;
+                color: black;
+
+                p {
+                    font-size: 100%;
+                    margin-top: 15px;
+                    padding: 0 10px;
+                    color: transparent;
+                }
+            }
+
+            a {
+                @include btn-header-nav;
+                margin: 0 auto;
+                width: 25%;
+                margin-bottom: 10px;
+                visibility: hidden;
+            }
+        }
+    }
+
+    .box:hover {
+        
+        .info{
+            transition: 0.4s;
+            background-color: rgba(0, 0, 0, 0.4);
+
+            h3 {
+                transition: 0.4s;
+                color: white;
+            }
+
+            p {
+                transition: 0.7s;
+                color: white;
+            }
+
+            a {
+                transition: 0.7s;
+                visibility: visible;
+            }
+        }
+        
+    }
+}
+
 
 
 
@@ -161,7 +235,7 @@
 
     .search {
         width: 100%;
-        height: 450px;
+        height: 600px;
     
         .video-container {
             @include full-width-height;

@@ -11022,6 +11022,85 @@ body {
   border: none;
 }
 
+.apartment .box {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.apartment .box img {
+  width: 100%;
+  height: auto;
+}
+
+.apartment .box .info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.apartment .box .info h3 {
+  text-align: center;
+}
+
+.apartment .box .info div {
+  height: 180px;
+  padding: 0 5px;
+  color: black;
+}
+
+.apartment .box .info div p {
+  font-size: 100%;
+  margin-top: 15px;
+  padding: 0 10px;
+  color: transparent;
+}
+
+.apartment .box .info a {
+  padding: 5px 10px;
+  color: #292a2e;
+  border: 1px solid #292a2e;
+  border-radius: 7px;
+  background-color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 25%;
+  margin-bottom: 10px;
+  visibility: hidden;
+}
+
+.apartment .box .info a:hover {
+  transition: 0.7s;
+  background: #292929;
+  color: white;
+}
+
+.apartment .box:hover .info {
+  transition: 0.4s;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.apartment .box:hover .info h3 {
+  transition: 0.4s;
+  color: white;
+}
+
+.apartment .box:hover .info p {
+  transition: 0.7s;
+  color: white;
+}
+
+.apartment .box:hover .info a {
+  transition: 0.7s;
+  visibility: visible;
+}
+
 @media (min-width: 768px) {
   .search {
     width: 100%;
@@ -11099,7 +11178,7 @@ body {
 @media (min-width: 1200px) {
   .search {
     width: 100%;
-    height: 450px;
+    height: 600px;
   }
 
   .search .video-container {
