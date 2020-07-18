@@ -6,7 +6,7 @@
             <h3 class="card-title mt-2">{{ $apartment->name }}</h3>
             <div>
 
-                <p class="card-text mb-3">{{ $apartment->description }}</p>
+                {{-- <p class="card-text mb-3">{{ $apartment->description }}</p> --}}
             </div>
 
             @guest       
