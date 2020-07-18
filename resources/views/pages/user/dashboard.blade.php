@@ -41,7 +41,7 @@
                         <td> <span>{{ $apartment->created_at->format('d/m/Y') }}</span> <span>({{ $apartment->created_at->diffForHumans() }})</span></td>
                         <td>{{ $apartment->updated_at->diffForHumans()  }}</td>
                         <td>@if ($apartment->visibility == 0) <i class="fas fa-eye-slash"></i> @else <i class="fas fa-eye"></i> @endif</td>
-                        <td>@if ($apartment->sponsorship_expiration != NULL) <i class="far fa-clock"></i> @else No sponsor @endif</td>
+                        <td>@if ($apartment->sponsorship_expiration != NULL) <i class="fas fa-crown"></i> @else No sponsor @endif</td>
                         <td><a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a></td>
                         <td><a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">EDIT</a></td>
                         <td>

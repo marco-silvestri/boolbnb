@@ -24,6 +24,9 @@
                     <li>Metri quadrati: {{$apartment->square_meters}} mq</li>
                     <li>Indirizzo: {{$apartment->address}}</li>
                     <li>Latlong: {{ $apartment->lat }} and {{ $apartment->long }}</li>
+                    @if($apartment->sponsorship_expiration != NULL) 
+                        <li>Scadenza Sponsorship: {{ $apartment->sponsorship_expiration }}</li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -33,8 +36,7 @@
                 <h2>Servizi</h2>
                 @foreach ($apartment->options as $option)
                     <p>{{ $option->name }}</p>
-                @endforeach
-                    
+                @endforeach    
             </div>
         </div>
 

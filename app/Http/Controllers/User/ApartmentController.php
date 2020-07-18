@@ -87,6 +87,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->validationRules());
+        $request->validate($this->validationImg());
 
         $data = $request->all();
         $data['user_id'] = Auth::id();
@@ -247,6 +248,13 @@ class ApartmentController extends Controller
             'img' => 'image',
             'options' => 'required|min:1',
             'visibility' => 'numeric',
+        ];
+    }
+
+    private function validationImg()
+    {
+        return[
+            'img' => 'required|image',
         ];
     }
     
