@@ -33,8 +33,8 @@
 
 @mixin btn-header-nav {
   padding: 5px 10px;
-  color: #30488f;
-  border: 1px solid #30488f;
+  color: #292a2e;
+  border: 1px solid #292a2e;
   border-radius: 7px;
   background-color: $white;
   font-weight: bold;
@@ -42,8 +42,8 @@
 
   &:hover{
     transition: 0.7s;
-    background: #30488f;
-    color: $white;
+    background: rgb(41, 41, 41);
+    color: white;
   }
 }
 

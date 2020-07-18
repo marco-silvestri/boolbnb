@@ -117,15 +117,16 @@
             });
 
             //Read the checkboxes values and query
-            checkBoxes.change(function() {
+            checkBoxes.click(function() {
                 var checked = $(this).val();
                 if ($(this).is(':checked')) {
                     options.push(checked);
                 } else {
                     options.splice($.inArray(checked, options),1);
-                    console.log(options);
-                }
-                geoSearch(geoArgs, print, options)
+                    console.log(options.sort());
+                    
+                };
+                geoSearch(geoArgs, printArgs, options);
             });
 
 
@@ -149,8 +150,10 @@
                 cleanAll(context);
                 console.log(hits[0]['options']);
                 for (var i = 0; i<data.length; i++){
+                    if (_.isEqual(options.sort(),hits[0]['options'].sort())){
                     printCard(data, template, context, i, condition)
-                }   
+                    }
+                }
             });
         }
 
