@@ -13,17 +13,37 @@ class OptionsTableSeeder extends Seeder
     public function run()
     {
         $options = [
-            'Wi-Fi',
-            'Parking',
-            'Pool',
-            'Reception',
-            'Sauna',
-            'Seascape'
+            [
+                'name' => 'Wi-Fi',
+                'icon' => 'fas fa-wifi'
+            ],
+            [
+                'name' => 'Parking',
+                'icon' => 'fas fa-parking'
+            ],
+            [
+                'name' => 'Pool',
+                'icon' => 'fas fa-swimming-pool'
+            ],
+            [
+                'name' => 'Reception',
+                'icon' => 'fas fa-concierge-bell'
+            ],
+            [
+                'name' => 'Sauna',
+                'icon' => 'fas fa-spa'
+            ],
+            [
+                'name' => 'Seascape',
+                'icon' => 'fas fa-water'
+            ]
         ];
+        
 
         foreach ($options as $option) {
             $newOption = new Option();
-            $newOption->name = $option;
+            $newOption->name = $option['name'];
+            $newOption->icon = $option['icon'];
 
             $newOption->save();
         }
