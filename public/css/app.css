@@ -11685,6 +11685,257 @@ body {
 }
 
 /****************** 
+  DashBoard
+******************/
+
+.box {
+  width: 100%;
+  height: 650px;
+  /* border: 1px solid black; */
+  box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+  margin-bottom: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box .img {
+  width: 100%;
+}
+
+.box .img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.box .box-info {
+  width: 100%;
+  height: 100%;
+}
+
+.box .box-info .info {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.box .box-info .info .details {
+  width: 100%;
+  height: 70%;
+  padding-top: 15px;
+}
+
+.box .box-info .info .details span {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.box .box-info .info .visibility-sponsor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+.box .box-info .info .visibility-sponsor div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.box .box-info .info .visibility-sponsor div img {
+  margin: 5px;
+}
+
+.box .box-info .link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+
+.box .box-info .link a,
+.box .box-info .link input {
+  width: 90px;
+  height: 45px;
+}
+
+.box .box-info .link a:nth-child(2) {
+  margin: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .box {
+    width: 100%;
+    height: 700px;
+    /* border: 1px solid black; */
+    box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box .img {
+    width: 100%;
+  }
+
+  .box .img img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .box .box-info {
+    width: 100%;
+    height: 100%;
+  }
+
+  .box .box-info .info {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box .box-info .info .details {
+    width: 70%;
+    height: 70%;
+    padding-top: 15px;
+  }
+
+  .box .box-info .info .details span {
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .box .box-info .info .visibility-sponsor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+  }
+
+  .box .box-info .info .visibility-sponsor div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .box .box-info .info .visibility-sponsor div img {
+    margin: 5px;
+  }
+
+  .box .box-info .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+  }
+
+  .box .box-info .link a,
+  .box .box-info .link input {
+    width: 90px;
+    height: 45px;
+  }
+
+  .box .box-info .link a:nth-child(2) {
+    margin: 0 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .box {
+    width: 100%;
+    height: 300px;
+    /* border: 1px solid black; */
+    box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box .img {
+    width: 50%;
+    height: 100%;
+  }
+
+  .box .img img {
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .box .box-info {
+    width: 100%;
+  }
+
+  .box .box-info .info {
+    height: 80%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box .box-info .info .details {
+    width: 70%;
+    height: 100%;
+  }
+
+  .box .box-info .info .details span {
+    margin-left: 30px;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .box .box-info .info .visibility-sponsor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+  }
+
+  .box .box-info .info .visibility-sponsor div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .box .box-info .info .visibility-sponsor div img {
+    margin: 5px 15px;
+  }
+
+  .box .box-info .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box .box-info .link a:nth-child(2) {
+    margin: 0 20px;
+  }
+}
+
+/****************** 
   Footer
 ******************/
 
