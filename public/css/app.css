@@ -11601,31 +11601,35 @@ body {
   background-color: red;
 }
 
-.message form {
+/****************** 
+  Message-box
+******************/
+
+.message-box form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.message form div {
+.message-box form div {
   width: 100%;
 }
 
-.message form div h4 {
+.message-box form div h4 {
   text-align: left;
   font-size: 27px;
 }
 
-.message form .form-group {
+.message-box form .form-group {
   width: 100%;
 }
 
-.message form .form-group input {
+.message-box form .form-group input {
   height: 45px;
   font-size: 25px;
 }
 
-.message form .form-group textarea {
+.message-box form .form-group textarea {
   font-size: 25px;
 }
 
@@ -11936,6 +11940,165 @@ body {
 /****************** 
   Create
 ******************/
+
+.create {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.55);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.create form {
+  width: 100%;
+}
+
+.create form > div {
+  margin: 20px 0;
+}
+
+.create form input,
+.create form textarea,
+.create form label,
+.create form span {
+  font-size: 25px;
+}
+
+.create form .services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.create form .services .form-group {
+  width: 45%;
+}
+
+.create form .name-options {
+  font-size: 25px;
+}
+
+.create form .options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.create form .options .form-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 0 15px;
+  width: calc(100% / 3);
+}
+
+.create form .options .form-check label {
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.create form .img-visibility {
+  display: flex;
+  flex-direction: column;
+}
+
+.create form .img-visibility .img {
+  padding: 5px 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.create form .img-visibility .visibility {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create form .img-visibility .visibility span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create form .img-visibility .visibility .form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (min-width: 992px) {
+  .create form input,
+  .create form textarea,
+  .create form label,
+  .create form span {
+    font-size: 20px;
+  }
+
+  .create form .name-options {
+    font-size: 20px;
+  }
+
+  .create form .options .form-check {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 0 15px;
+    width: calc(100% / 6);
+  }
+
+  .create form .options .form-check label {
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .create form .img-visibility {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .create form .img-visibility .img {
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .create form .img-visibility .visibility {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+/****************** 
+  Message
+******************/
+
+.message {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.message h1,
+.message h2 {
+  display: block;
+  width: 100%;
+}
+
+.message .message-card {
+  width: 45%;
+  border: 1px solid black;
+}
 
 /****************** 
   Footer

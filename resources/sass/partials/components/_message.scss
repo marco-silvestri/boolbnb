@@ -1,102 +1,19 @@
-.message{
+/****************** 
+  Message
+******************/
 
-    form {
-        @include flex-row-or-column(column);
-        align-items: center;
+.message {
 
-        div {
-            width: 100%;
-            h4 {
-                text-align: left;
-                font-size: 27px;
-            }
-        }
-
-        .form-group {
-            width: 100%;
-
-            input {
-                height: 45px;
-                font-size: 25px;
-            }
-
-            textarea {
-                font-size: 25px;
-            }
-        }
+    h1,h2 {
+        display: block;
+        width: 100%;
     }
-}
+    text-align: center;
+    @include flex-row-or-column-wrap(row, wrap);
+    justify-content: space-around;
 
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-    
-
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { 
-    .message{
-    
-        form {
-            @include flex-row-or-column(column);
-            align-items: center;
-
-            div {
-                width: 100%;
-                h4 {
-                    text-align: left;
-                    font-size: 27px;
-                }
-            }
-
-            .form-group {
-                width: 100%;
-
-                input {
-                    height: 45px;
-                }
-            }
-        }
+    .message-card {
+        width: 45%;
+        border: 1px solid black;
     }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { 
- 
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { 
-    .message{
-        
-        form {
-            @include flex-row-or-column(column);
-            align-items: center;
-
-            div {
-                width: 100%;
-                h4 {
-                    text-align: left;
-                    font-size: 27px;
-                }
-            }
-
-            
-
-            .form-group {
-                width: 100%;
-
-                input {
-                    height: 45px;
-                    font-size: 25px;
-                }
-
-                textarea {
-                    font-size: 25px;
-                }
-            }
-        }
-    }
-   
 }

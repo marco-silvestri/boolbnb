@@ -2,7 +2,7 @@
 @section('content') 
 
     @if (session('hasDeleted'))
-        <div class="alert alert-success">
+        <div class="alert alert-success container">
             <p>L'appartamento {{session('hasDeleted')}} è stato eliminato correttamente </p>
         </div>
     @endif
