@@ -61,26 +61,26 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('index') }}">
-                                       Vai alla index
+                                        <i class="fas fa-home"></i> Vai alla index
                                     </a>
                                     <a class="dropdown-item text-success" href="{{route('user.dashboard')}}">
-                                        Vai ai tuoi appartamenti
+                                        <i class="fas fa-house-user"></i> Vai ai tuoi appartamenti
                                     </a>
                                     <a class="dropdown-item" href="{{ route('user.message') }}">
-                                       Vai ai tuoi messaggi
+                                        <i class="far fa-envelope"></i> Vai ai tuoi messaggi
                                     </a>
                                     <a class="dropdown-item text-primary" href="{{ route('user.apartment.create')}}">
-                                        Aggiungi appartamento
+                                        <i class="fas fa-plus"></i> Aggiungi appartamento
                                     </a>
                                      <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                                     </a>
 
 
