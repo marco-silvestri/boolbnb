@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+{{-- @extends('layouts.app')
 @section('content')
     <div class="container">
 
@@ -78,7 +77,7 @@
                     <label for="option-{{ $loop->iteration }}"> {{ $option->name }}</label>
                 </div>
             @endforeach
-            {{-- Gestione visibilità annuncio --}}
+            <!-- Gestione visibilità annuncio -->
             <div class="form-group">
                 <p>Visibilità annuncio:</p>
                 <input type="radio" id="yes" name="visibility" value="1" checked>
@@ -91,4 +90,4 @@
         </form>
     </div>
 
-@endsection
+@endsection --}}

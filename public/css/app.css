@@ -11765,7 +11765,6 @@ body {
 .box .box-info .link a,
 .box .box-info .link input {
   width: 90px;
-  height: 45px;
 }
 
 .box .box-info .link a:nth-child(2) {
@@ -11850,7 +11849,6 @@ body {
   .box .box-info .link a,
   .box .box-info .link input {
     width: 90px;
-    height: 45px;
   }
 
   .box .box-info .link a:nth-child(2) {
@@ -11934,6 +11932,10 @@ body {
     margin: 0 20px;
   }
 }
+
+/****************** 
+  Create
+******************/
 
 /****************** 
   Footer

@@ -52,9 +52,9 @@
 
                     <div class="link">
                         
-                        <a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a>
+                        <a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">Show</a>
                         
-                        <a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">EDIT</a>
+                        <a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">Edit</a>
                         
                         <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
                             @csrf
@@ -70,9 +70,6 @@
         @endforeach
     </div>
 
-
-
-   
 @endsection
 
 {{-- @extends('layouts.app')
