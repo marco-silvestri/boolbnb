@@ -10950,6 +10950,59 @@ body {
   Header
 ******************/
 
+.dropdown {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dropdown .dropdown-item {
+  text-align: center;
+  width: 20%;
+}
+
+.dropdown .dropdown-item .label,
+.dropdown .dropdown-item .label-active {
+  display: none;
+}
+
+.dropdown .fas {
+  margin-top: 10px;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .dropdown {
+    flex-wrap: nowrap;
+  }
+
+  .dropdown .dropdown-item {
+    width: 120px;
+  }
+
+  .dropdown .dropdown-item .label {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .dropdown .dropdown-item:hover .label {
+    opacity: 1;
+  }
+
+  .dropdown .dropdown-item .fas {
+    font-size: 25px;
+  }
+
+  .dropdown .dropdown-item .label-active {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.4s;
+  }
+}
+
 /****************** 
   INDEX
 ******************/
