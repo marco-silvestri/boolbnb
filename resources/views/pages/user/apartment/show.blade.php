@@ -50,6 +50,6 @@
                     @endif
                 </a>
         @endguest
-    </div>
-    
+		
+       @include('shared.components.Chart') 
 @endsection

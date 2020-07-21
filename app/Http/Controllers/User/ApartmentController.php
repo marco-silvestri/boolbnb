@@ -13,6 +13,10 @@ use App\Option;
 use App\Message;
 use App\Sponsorship;
 use App\Payment;
+use App\Charts\StatisticChart;
+use Carbon\Carbon;
+
+
 
 class ApartmentController extends Controller
 {
@@ -122,17 +126,48 @@ class ApartmentController extends Controller
       
         $sponsorships = Sponsorship::all();
         $payments = Payment::all();
-        
+        $now = Carbon::now();
         $message = Message::where('apartment_id', $apartment->id)->count();
-
+        
         if (empty($apartment)) {
             abort('404');
         }
         
         $total_views = $apartment->view_count += 1;
         $apartment->update(['view_count' => $total_views]);
+		
+        $message = Message::where('apartment_id', $apartment->id)->count();                      
+        $view_count = Apartment::where('view_count', $apartment->id)->count();
+        $tot_view_count = Apartment::all()->sum('view_count');
+        $message1 = Message::where('apartment_id',  $apartment->id)->where('created_at','>=',date('2020-02-01'))->count();
+        $data=date_create(date('Y-m-d H:i:s'));
+        $tot_messaggi_per_mes=array();
+        setlocale(LC_TIME, 'en', 'en_EN');
+        $labels = [];
+        for ($i=0; $i < 12; $i++) { 
+            $data_end_month= clone $data;
+            $data_end_month->modify('first day of');
+            $labels[]=strftime("%B %Y",date_timestamp_get($data_end_month));
+            $data->modify('last day of');
+            date_sub($data, date_interval_create_from_date_string('1 day'));
+            $message1 = Message::where('apartment_id', $apartment->id)->where('created_at','>=',$data)->where('created_at','<=', $data_end_month)->count();
+            $tot_messaggi_per_mes[]=$message1 ;
+        }
+        //$labels = array_reverse($labels);
+        $tot_messaggi_per_mes = array_reverse($tot_messaggi_per_mes);
+        //print_r($tot_messaggi_per_mes);
+		$statisticChart = new StatisticChart;
+        $statisticChart->labels($labels, 'highcharts');
+        $statisticChart->dataset('Message', 'bar', $tot_messaggi_per_mes)
+        ->BackgroundColor(['red','red','red','red','red','red','red','red','red','red','red','red',]);
 
-        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message','payments'));
+        $statisticView = new StatisticChart;
+        $statisticView->labels(['views of your apartment','views of all apartments']);
+        $statisticView->dataset('Views', 'pie', [$total_views,$tot_view_count - $total_views])
+        ->BackgroundColor(['green','blue']);
+        
+        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message','payments','statisticChart','statisticView'));
+		
 
     }
 

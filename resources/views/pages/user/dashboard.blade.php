@@ -44,6 +44,7 @@
                         <td>@if ($apartment->sponsorship_expiration != NULL) <i class="far fa-clock"></i> @else No sponsor @endif</td>
                         <td><a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">SHOW</a></td>
                         <td><a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">EDIT</a></td>
+						
                         <td>
                             <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
                                 @csrf
