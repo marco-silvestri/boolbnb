@@ -1,4 +1,4 @@
-<div class="message">
+<div class="message-box">
     <form action="{{route('message.store')}}" method="POST">
         @csrf
         @method('POST')

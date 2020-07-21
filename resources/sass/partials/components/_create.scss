@@ -1,0 +1,159 @@
+/****************** 
+  Create
+******************/
+
+.create {
+
+    @include flex-center-center(column, center,center);
+    -webkit-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
+    box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+
+    form {
+        width: 100%;
+
+        > div {
+            margin: 20px 0;
+        }
+
+        input,
+        textarea,
+        label,
+        span{
+            font-size: 25px;
+        }
+
+        .services {
+            @include flex-row-or-column(row);
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .form-group {
+                width: 45%;
+            }
+        }
+
+        .name-options {
+            font-size: 25px;
+        }
+
+        .options {
+            @include flex-row-or-column(row);
+            flex-wrap: wrap;
+            
+            .form-check {
+                @include flex-row-or-column(row);
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0 0 0 15px;
+                width: calc(100% / 3);
+
+                label {
+                    padding: 5px 10px;
+                    margin: 0;   
+                    font-size: 20px;        
+                }
+            }
+        }
+
+        .img-visibility {
+            @include flex-row-or-column(column);
+
+            .img {
+                padding: 5px 0;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .visibility {
+                width: 100%;
+                margin-top: 20px;
+                text-align: center;
+
+                span {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+
+                .form-group {
+                    @include flex-row-or-column(row);
+                    justify-content: space-around;
+                }
+            }
+        }
+    }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+  
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+    .create {
+
+        form {
+            
+            input,
+            textarea,
+            label,
+            span{
+                font-size: 20px;
+            }
+    
+            .name-options {
+                font-size: 20px;
+            }
+    
+            .options {
+                
+                .form-check {
+                    @include flex-row-or-column(row);
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 0 0 0 15px;
+                    width: calc(100% / 6);
+    
+                    label {
+                        padding: 5px 10px;
+                        margin: 0;   
+                        font-size: 20px;        
+                    }
+                }
+            }
+    
+            .img-visibility {
+                @include flex-row-or-column(row);
+    
+                .img {
+                    margin-top: 10px;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+    
+                .visibility {
+                    width: 100%;
+                    margin-top: 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+}
