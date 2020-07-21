@@ -1,5 +1,4 @@
 <div class="options">
-           
     <div>
         @if ($apartment->sponsorship_expiration)
             <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($apartment->sponsorship_expiration))}}</p>    
@@ -15,12 +14,9 @@
             <h4>Hai già un abonamento attivo</h4>
             <p>Comprane un'altro per aumentare la durata di sponsorizzazione</p> 
         @endif
-    </div>
-         
-         
+    </div>  
 
     <div class="form-check">    
-        
         @foreach ($sponsorships as $sponsorship)
         <div class="form-group">
             <input type="hidden" name="duration" value="{{$sponsorship->duration}}">
@@ -32,9 +28,7 @@
         </div>
         @endforeach
         <input type="hidden" name="id" value="{{$apartment->id}}">
-
     </div>
-    
     <button class="go-to-payment btn btn-primary">Sponsorizza</button>
 </div>
 
@@ -61,7 +55,6 @@
 </div>
 
 <script>
-
     //======= visualizzazione box pagamento
     $('button.go-to-payment').on('click', function () {
         $('.box-pay').removeClass("d-none");
@@ -89,7 +82,7 @@
 
             instance.requestPaymentMethod(function (err, payload) {
 
-                $.get('{{ route('payment.process') }}', {payload}, function (response) {
+                $.get('{{ route('user.payment.process') }}', {payload}, function (response) {
                     if (response.success) {
 
                         var inputSponsorship = $("input[name='sponsorship']:checked").val();

@@ -8,14 +8,8 @@ use Illuminate\Support\Str;
 
 class ApartmentsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run(Faker $faker)
     {
-
         for ($i = 0; $i < 20; $i++) {
             $newApartment = new Apartment();
             $users = User::all();
@@ -40,9 +34,8 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->long = $latLong['lng'];
 
             $newApartment->save();
-            // $newApartment->lat = $Apartment['lat'];
-            // $newApartment->long = $Apartment['long'];
         }
+        // MANUALLY ADDED
         // $Apartments = [
         //     [
         //         'user_id' => 1,

@@ -12104,8 +12104,127 @@ body {
   Footer
 ******************/
 
+/****************** 
+  Header
+******************/
+
 footer {
-  height: 150px;
-  background-color: papayawhip;
+  border: 2px solid #dfdfdf;
+  height: auto;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+footer .left-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  margin: 20px auto;
+}
+
+footer .left-footer .footer-img {
+  width: 40%;
+  height: 60px;
+  background-color: black;
+}
+
+footer .left-footer .footer-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 60px;
+}
+
+footer .left-footer .footer-link a {
+  text-decoration: none;
+  color: #292a2e;
+  font-size: 30px;
+  margin: 10px;
+  transition: transform 0.4s;
+}
+
+footer .left-footer .footer-link a:hover {
+  transform: scale(1.3);
+}
+
+footer .right-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+}
+
+footer .right-footer .contributors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+footer .right-footer .contributors a {
+  text-decoration: none;
+  color: #292a2e;
+  margin: 5px;
+}
+
+footer .right-footer .contributors i {
+  margin: auto 10px;
+  font-size: 18px;
+}
+
+footer .right-footer .contributors h2 {
+  margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  footer {
+    height: auto;
+  }
+
+  footer .left-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-basis: 50%;
+  }
+
+  footer .right-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    flex-basis: 50%;
+  }
+
+  footer .right-footer .contributors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  footer .right-footer .contributors a {
+    text-align: end;
+    width: 250px;
+    border-bottom: 1px solid #dfdfdf;
+    transition: border-color 0.5s;
+  }
+
+  footer .right-footer .contributors a:hover {
+    border-color: black;
+  }
 }
 

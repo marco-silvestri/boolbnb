@@ -29,8 +29,7 @@ Route::prefix('guest')
 
 Auth::routes();
 
-Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
-Route::post('/user/store_sponsorship', 'User\PaymentController@store_sponsorship')->middleware('auth');
+
 
 
 //UPR/UPRA
@@ -42,7 +41,8 @@ Route::prefix('user')
         Route::get('dashboard', 'ApartmentController@index')->name('dashboard');
         Route::resource('apartment', 'ApartmentController');
         Route::get('message', 'ApartmentController@messageIndex')->name('message');
-        
+        Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+        Route::post('/store_sponsorship', 'PaymentController@store_sponsorship');
 });
 
-Route::get('statisticApartment', 'StatisticController@index');
+
