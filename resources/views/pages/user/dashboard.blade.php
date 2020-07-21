@@ -41,13 +41,26 @@
                         </div>
                     </div>
                     <div class="link">
-                        <a class="btn btn-primary" href="{{route('user.apartment.show', $apartment->id)}}">Show</a>
-                        <a class="btn btn-success" href="{{route('user.apartment.edit', $apartment->id)}}">Edit</a>
-                        <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
+                        <a class="button" href="{{route('user.apartment.show', $apartment->id)}}"><i class="far fa-eye"></i></a>
+                        <a class="button" href="{{route('user.apartment.edit', $apartment->id)}}"><i class="far fa-edit"></i></a>
+                        {{-- <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-danger" type="submit" value="Delete">
+                        </form> --}}
+
+                        
+                         <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
+                             <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                            <a class="tooltips button" data-toggle="tooltip" data-placement="top" title="Delete">
+                                <button type="submit" onclick="return confirm('Sei sicuro di voler cancellare il tuo appartamento?');">
+                                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                </button>
+                            </a>
                         </form>
+
+
                     </div>
                 </div>                    
             </div>

@@ -16,12 +16,13 @@
         
                 
                 @if ($apartment->user_id == Auth::id())
-                    <a href="{{route('user.apartment.edit', $apartment->id)}}" class="btn btn-warning"> Modifica inserzione</a>
+                    <a href="{{route('user.apartment.edit', $apartment->id)}}" class="btn btn-warning"><i class="far fa-edit"></i>{{-- Visualizza dettagli  --}}</a>
                 @else
-                    <a href="{{route('user.apartment.show', $apartment->id)}}" class="btn btn-primary"> Visualizza dettagli</a>
+                    <a href="{{route('user.apartment.show', $apartment->id)}}" class="btn btn-primary"> <i class="far fa-eye"></i>{{-- Modifica inserzione  --}}</a>
                 @endif
 
             @endguest
+            {{--  --}}
             
         </div>
     </div>
