@@ -10,7 +10,7 @@ if(!function_exists('geoCode')){
         if(!is_string($request)){
             $data = $request->all();
             // /Query the Algolia DB to get a geocoded address
-             $result = $places->search($data['address']);
+            $result = $places->search($data['address']);
         }else{
             $result = $places->search($request);
         }
