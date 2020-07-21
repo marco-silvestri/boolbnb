@@ -104,7 +104,7 @@
                 
                 <div class="direction">
                     <div class="messages">
-                        @include('shared.components.message')
+                        @include('shared.components.Message')
                     </div>
 
                     <div class="maps">
