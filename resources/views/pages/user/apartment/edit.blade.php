@@ -88,9 +88,6 @@
         </div>
     
         <input class="btn btn-primary" type="submit" value="Edit"> 
-        </form>
-    
-      
-  </div>
-
+        </form>      
+    </div>
 @endsection

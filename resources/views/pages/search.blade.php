@@ -67,7 +67,7 @@
             var rangeLabel = $('#rangeKmPrint');
             var checkBoxes = $("input[name='option']");
 
-            // Pack functions args
+            // Pack functions args, latLong passed with Blade synthax
             var geoArgs = {
                 'lat' : parseFloat('{{ $latLong['lat'] }}'),
                 'long' : parseFloat('{{ $latLong['lng'] }}'),
