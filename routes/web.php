@@ -43,7 +43,6 @@ Route::prefix('user')
         Route::get('message', 'ApartmentController@messageIndex')->name('message');
         Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
         Route::post('/store_sponsorship', 'PaymentController@store_sponsorship');
-
 });
 
 Route::get('statisticApartment', 'StatisticController@index');

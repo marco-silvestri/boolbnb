@@ -76,11 +76,3 @@
     </div>
 @endsection
 
-
-
-
-
-
-
-
-
