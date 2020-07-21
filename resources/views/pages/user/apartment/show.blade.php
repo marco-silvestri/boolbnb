@@ -10,6 +10,9 @@
         </div>
 
         <div class="container">
+            <div class="link">
+                <a href="{{route('index')}}"><i class="fas fa-long-arrow-alt-left"></i>Torna ai risultati</a>
+            </div>
             <div class="info container">
 
                 <div class="info-box">
