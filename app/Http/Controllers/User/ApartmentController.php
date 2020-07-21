@@ -140,21 +140,21 @@ class ApartmentController extends Controller
         $message = Message::where('apartment_id', $apartment->id)->count();                      
         $view_count = Apartment::where('view_count', $apartment->id)->count();
         $tot_view_count = Apartment::all()->sum('view_count');
-        $message1 = Message::where('apartment_id',  $apartment->id)->where('created_at','>=',date('2020-02-01'))->count();
+        $message1 = Message::where('apartment_id',  $apartment->id)->where('created_at','>=',date('2020-07-10'))->count();
         $data=date_create(date('Y-m-d H:i:s'));
         $tot_messaggi_per_mes=array();
         setlocale(LC_TIME, 'en', 'en_EN');
         $labels = [];
         for ($i=0; $i < 12; $i++) { 
             $data_end_month= clone $data;
-            $data_end_month->modify('first day of');
+            $data_end_month->modify('last day of',);
             $labels[]=strftime("%B %Y",date_timestamp_get($data_end_month));
-            $data->modify('last day of');
-            date_sub($data, date_interval_create_from_date_string('1 day'));
+            $data->modify('first day of');
+            date_add($data, date_interval_create_from_date_string('1 year'));
             $message1 = Message::where('apartment_id', $apartment->id)->where('created_at','>=',$data)->where('created_at','<=', $data_end_month)->count();
             $tot_messaggi_per_mes[]=$message1 ;
         }
-        //$labels = array_reverse($labels);
+        $labels = array_reverse($labels);
         $tot_messaggi_per_mes = array_reverse($tot_messaggi_per_mes);
         //print_r($tot_messaggi_per_mes);
 		$statisticChart = new StatisticChart;

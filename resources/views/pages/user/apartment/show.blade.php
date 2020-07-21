@@ -134,7 +134,7 @@
 
 
 
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 @include('shared.components.Leaflet-include')
 
