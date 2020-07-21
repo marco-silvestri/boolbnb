@@ -1,0 +1,28 @@
+/****************** 
+  Message
+******************/
+
+.message {
+
+
+    
+
+    h1,h2 {
+        display: block;
+        width: 100%;
+    }
+    text-align: center;
+    @include flex-row-or-column-wrap(row, wrap);
+    justify-content: space-around;
+
+    .message-card {
+        width: 45%;
+        border: 1px solid black;
+    }
+
+
+    
+
+}
+
+

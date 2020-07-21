@@ -1,12 +1,5 @@
 <div id="map"></div>
 
-<style>
-    #map{
-        height: 350px;
-        width: 450px;
-    }
-</style>
-
 <script>
     var map = L.map("map",{ zoomControl: false })
     .setView([{{ $apartment->lat }}, {{ $apartment->long }}], 18);

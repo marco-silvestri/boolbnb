@@ -1,6 +1,5 @@
 <div class="options">
-        
-        
+           
     <div>
         @if ($apartment->sponsorship_expiration)
             <p>Scadenza sponsorizzazione: {{date('d/m/Y H:i', strtotime($apartment->sponsorship_expiration))}}</p>    
@@ -39,8 +38,8 @@
     <button class="go-to-payment btn btn-primary">Sponsorizza</button>
 </div>
 
-<div class="box-paypal d-none container">
-    <div class="paypal">
+<div class="box-pay d-none">
+    <div class="pay">
 
         <div id="dropin-container"></div>
         <button type="submit" id="submit-button">Conferma pagamento</button>
@@ -51,6 +50,13 @@
             </div>
             <button class="refresh-button d-none">OK</button>
         </div>
+
+        <div class="payment-failed-box d-none">
+            <div class="payment-failed-alert">
+                Pagamento non andato a buon fine 
+            </div>
+            <button class="refresh-button d-none">OK</button>
+        </div>
     </div>
 </div>
 
@@ -58,15 +64,15 @@
 
     //======= visualizzazione box pagamento
     $('button.go-to-payment').on('click', function () {
-        $('.box-paypal').removeClass("d-none");
+        $('.box-pay').removeClass("d-none");
     });
 
     $('button.back-button').on('click', function () {
-    $('.box-paypal').addClass("d-none");
+        $('.box-pay').addClass("d-none");
     });
 
     $('.refresh-button').click(function () {
-    window.location.reload();
+        window.location.reload();
     });
 
 
@@ -115,8 +121,23 @@
                                 console.log('Error:', data);
                             }
                         });
+
+                        $('.payment-successfull-alert').removeClass("d-none");
+                        $('.refresh-button').removeClass("d-none");
+                        $('.payment-successfull-box').removeClass("d-none");
+                        $('#dropin-container').addClass("d-none");
+                        $('#submit-button').addClass("d-none");
+                        $('.back-button').addClass("d-none");
+
                     } else {
-                    alert('Payment failed');
+                        $('.payment-failed-alert').removeClass("d-none");
+                        $('.refresh-button').removeClass("d-none");
+                        $('.payment-failed-box').removeClass("d-none");
+                        $('#dropin-container').addClass("d-none");
+                        $('#submit-button').addClass("d-none");
+                        $('.back-button').addClass("d-none");
+                    /* alert('Payment failed');
+                    window.location.reload(); */
                     }
                 }, 'json');
             });

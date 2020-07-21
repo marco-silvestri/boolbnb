@@ -1,4 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+
+/* // Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito'); */
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10939,6 +10942,7 @@ a.text-dark:focus {
 }
 
 body {
+  font-family: "Open Sans", sans-serif;
   margin: 0 auto;
 }
 
@@ -11022,6 +11026,85 @@ body {
   border: none;
 }
 
+.apartment .box {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.apartment .box img {
+  width: 100%;
+  height: auto;
+}
+
+.apartment .box .info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.apartment .box .info h3 {
+  text-align: center;
+}
+
+.apartment .box .info div {
+  height: 180px;
+  padding: 0 5px;
+  color: black;
+}
+
+.apartment .box .info div p {
+  font-size: 100%;
+  margin-top: 15px;
+  padding: 0 10px;
+  color: transparent;
+}
+
+.apartment .box .info a {
+  padding: 5px 10px;
+  color: #292a2e;
+  border: 1px solid #292a2e;
+  border-radius: 7px;
+  background-color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 auto;
+  width: 25%;
+  margin-bottom: 10px;
+  visibility: hidden;
+}
+
+.apartment .box .info a:hover {
+  transition: 0.7s;
+  background: #292929;
+  color: white;
+}
+
+.apartment .box:hover .info {
+  transition: 0.4s;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.apartment .box:hover .info h3 {
+  transition: 0.4s;
+  color: white;
+}
+
+.apartment .box:hover .info p {
+  transition: 0.7s;
+  color: white;
+}
+
+.apartment .box:hover .info a {
+  transition: 0.7s;
+  visibility: visible;
+}
+
 @media (min-width: 768px) {
   .search {
     width: 100%;
@@ -11099,7 +11182,7 @@ body {
 @media (min-width: 1200px) {
   .search {
     width: 100%;
-    height: 450px;
+    height: 600px;
   }
 
   .search .video-container {
@@ -11158,6 +11241,871 @@ body {
 }
 
 /****************** 
+  Show-User
+******************/
+
+.show .box-img {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+
+.show .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.show .info .info-box {
+  width: 100%;
+}
+
+.show .info .info-box h2 {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.show .info .info-box h5 {
+  text-align: center;
+}
+
+.show .info .info-box .description p {
+  font-size: 23px;
+}
+
+.show .info .services .service-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.show .info .services .service-options .features,
+.show .info .services .service-options .options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show .info .services .service-options .features h2,
+.show .info .services .service-options .options h2 {
+  width: 100%;
+}
+
+.show .info .services .service-options .features ul,
+.show .info .services .service-options .options ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show .info .services .service-options .features ul li,
+.show .info .services .service-options .options ul li {
+  font-size: 27px;
+  list-style: none;
+  width: 50%;
+  display: inline-block;
+  padding: 7px 0;
+}
+
+.show .map-payments .direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.show .map-payments #map {
+  height: 350px;
+  width: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .show .box-img {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .show .info {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+  }
+
+  .show .info .info-box {
+    width: 60%;
+  }
+
+  .show .info .info-box h2 {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .show .info .info-box h5 {
+    text-align: center;
+  }
+
+  .show .info .info-box .description p {
+    font-size: 23px;
+  }
+
+  .show .info .services {
+    width: 40%;
+  }
+
+  .show .info .services .service-options {
+    display: flex;
+    flex-direction: column;
+    padding-left: 75px;
+  }
+
+  .show .info .services .service-options .features,
+  .show .info .services .service-options .options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show .info .services .service-options .features h2,
+  .show .info .services .service-options .options h2 {
+    width: 50%;
+  }
+
+  .show .info .services .service-options .features ul,
+  .show .info .services .service-options .options ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .show .info .services .service-options .features ul li,
+  .show .info .services .service-options .options ul li {
+    font-size: 27px;
+    list-style: none;
+    width: 100%;
+    display: block;
+    padding: 7px 0;
+  }
+
+  .show .map-payments {
+    padding: 15px 0;
+  }
+
+  .show .map-payments .direction {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .show .map-payments .maps {
+    width: 70%;
+  }
+
+  .show .map-payments .maps #map {
+    height: 350px;
+    width: 90%;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .show .box-img {
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .show .info {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+  }
+
+  .show .info .info-box {
+    width: 70%;
+  }
+
+  .show .info .info-box h2 {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .show .info .info-box h5 {
+    text-align: center;
+  }
+
+  .show .info .info-box .description p {
+    font-size: 23px;
+  }
+
+  .show .info .services {
+    width: 30%;
+  }
+
+  .show .info .services .service-options {
+    display: flex;
+    flex-direction: column;
+    padding-left: 75px;
+  }
+
+  .show .info .services .service-options .features,
+  .show .info .services .service-options .options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show .info .services .service-options .features h2,
+  .show .info .services .service-options .options h2 {
+    width: 50%;
+  }
+
+  .show .info .services .service-options .features ul,
+  .show .info .services .service-options .options ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .show .info .services .service-options .features ul li,
+  .show .info .services .service-options .options ul li {
+    font-size: 27px;
+    list-style: none;
+    width: 100%;
+    display: block;
+    padding: 7px 0;
+  }
+
+  .show .map-payments {
+    padding: 15px 0;
+  }
+
+  .show .map-payments .direction {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .show .map-payments .maps {
+    width: 70%;
+  }
+
+  .show .map-payments .maps #map {
+    height: 350px;
+    width: 90%;
+    z-index: 1;
+  }
+}
+
+/****************** 
+  Payment
+******************/
+
+.payment .options {
+  padding: 15px;
+  border: 2px solid lightgrey;
+  background-color: white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.payment .options p {
+  color: black;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.box-pay {
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box-pay .pay {
+  max-width: 400px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box-pay .pay button {
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.box-pay .pay button:hover {
+  color: white;
+  background-color: #3490dc;
+  border: 1px solid #3490dc;
+}
+
+.box-pay .pay .payment-successfull-box {
+  text-align: center;
+  padding: 20px 30px;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+
+.box-pay .pay .payment-successfull-box .payment-successfull-alert {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: green;
+}
+
+.box-pay .pay .payment-successfull-box .payment-successfull-alert .icon-payment-check {
+  color: green;
+}
+
+.box-pay .pay .payment-successfull-box .refresh-button {
+  color: green;
+  border: 1px solid green;
+  font-weight: 700;
+}
+
+.box-pay .pay .payment-successfull-box .refresh-button:hover {
+  color: white;
+  background-color: green;
+}
+
+.box-pay .pay .payment-failed-box {
+  text-align: center;
+  padding: 20px 30px;
+  border: 1px solid red;
+  border-radius: 10px;
+}
+
+.box-pay .pay .payment-failed-box .payment-failed-alert {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: red;
+}
+
+.box-pay .pay .payment-failed-box .payment-failed-alert .icon-payment-check {
+  color: red;
+}
+
+.box-pay .pay .payment-failed-box .refresh-button {
+  color: red;
+  border: 1px solid red;
+  font-weight: 700;
+}
+
+.box-pay .pay .payment-failed-box .refresh-button:hover {
+  color: white;
+  background-color: red;
+}
+
+/****************** 
+  Message-box
+******************/
+
+.message-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-box form div {
+  width: 100%;
+}
+
+.message-box form div h4 {
+  text-align: left;
+  font-size: 27px;
+}
+
+.message-box form .form-group {
+  width: 100%;
+}
+
+.message-box form .form-group input {
+  height: 45px;
+  font-size: 25px;
+}
+
+.message-box form .form-group textarea {
+  font-size: 25px;
+}
+
+@media (min-width: 768px) {
+  .message form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .message form div {
+    width: 100%;
+  }
+
+  .message form div h4 {
+    text-align: left;
+    font-size: 27px;
+  }
+
+  .message form .form-group {
+    width: 100%;
+  }
+
+  .message form .form-group input {
+    height: 45px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .message form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .message form div {
+    width: 100%;
+  }
+
+  .message form div h4 {
+    text-align: left;
+    font-size: 27px;
+  }
+
+  .message form .form-group {
+    width: 100%;
+  }
+
+  .message form .form-group input {
+    height: 45px;
+    font-size: 25px;
+  }
+
+  .message form .form-group textarea {
+    font-size: 25px;
+  }
+}
+
+/****************** 
+  DashBoard
+******************/
+
+.box {
+  width: 100%;
+  height: 650px;
+  /* border: 1px solid black; */
+  box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+  margin-bottom: 50px;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box .img {
+  width: 100%;
+}
+
+.box .img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.box .box-info {
+  width: 100%;
+  height: 100%;
+}
+
+.box .box-info .info {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.box .box-info .info .details {
+  width: 100%;
+  height: 70%;
+  padding-top: 15px;
+}
+
+.box .box-info .info .details span {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.box .box-info .info .visibility-sponsor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+.box .box-info .info .visibility-sponsor div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.box .box-info .info .visibility-sponsor div img {
+  margin: 5px;
+}
+
+.box .box-info .link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+
+.box .box-info .link a,
+.box .box-info .link input {
+  width: 90px;
+}
+
+.box .box-info .link a:nth-child(2) {
+  margin: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .box {
+    width: 100%;
+    height: 700px;
+    /* border: 1px solid black; */
+    box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box .img {
+    width: 100%;
+  }
+
+  .box .img img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .box .box-info {
+    width: 100%;
+    height: 100%;
+  }
+
+  .box .box-info .info {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box .box-info .info .details {
+    width: 70%;
+    height: 70%;
+    padding-top: 15px;
+  }
+
+  .box .box-info .info .details span {
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .box .box-info .info .visibility-sponsor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+  }
+
+  .box .box-info .info .visibility-sponsor div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .box .box-info .info .visibility-sponsor div img {
+    margin: 5px;
+  }
+
+  .box .box-info .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+  }
+
+  .box .box-info .link a,
+  .box .box-info .link input {
+    width: 90px;
+  }
+
+  .box .box-info .link a:nth-child(2) {
+    margin: 0 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .box {
+    width: 100%;
+    height: 300px;
+    /* border: 1px solid black; */
+    box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box .img {
+    width: 50%;
+    height: 100%;
+  }
+
+  .box .img img {
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .box .box-info {
+    width: 100%;
+  }
+
+  .box .box-info .info {
+    height: 80%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box .box-info .info .details {
+    width: 70%;
+    height: 100%;
+  }
+
+  .box .box-info .info .details span {
+    margin-left: 30px;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .box .box-info .info .visibility-sponsor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+  }
+
+  .box .box-info .info .visibility-sponsor div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .box .box-info .info .visibility-sponsor div img {
+    margin: 5px 15px;
+  }
+
+  .box .box-info .link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box .box-info .link a:nth-child(2) {
+    margin: 0 20px;
+  }
+}
+
+/****************** 
+  Create
+******************/
+
+.create {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 0px 11px 0px rgba(0, 0, 0, 0.55);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.create form {
+  width: 100%;
+}
+
+.create form > div {
+  margin: 20px 0;
+}
+
+.create form input,
+.create form textarea,
+.create form label,
+.create form span {
+  font-size: 25px;
+}
+
+.create form .services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.create form .services .form-group {
+  width: 45%;
+}
+
+.create form .name-options {
+  font-size: 25px;
+}
+
+.create form .options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.create form .options .form-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0 0 15px;
+  width: calc(100% / 3);
+}
+
+.create form .options .form-check label {
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.create form .img-visibility {
+  display: flex;
+  flex-direction: column;
+}
+
+.create form .img-visibility .img {
+  padding: 5px 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.create form .img-visibility .visibility {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create form .img-visibility .visibility span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create form .img-visibility .visibility .form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (min-width: 992px) {
+  .create form input,
+  .create form textarea,
+  .create form label,
+  .create form span {
+    font-size: 20px;
+  }
+
+  .create form .name-options {
+    font-size: 20px;
+  }
+
+  .create form .options .form-check {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 0 15px;
+    width: calc(100% / 6);
+  }
+
+  .create form .options .form-check label {
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .create form .img-visibility {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .create form .img-visibility .img {
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .create form .img-visibility .visibility {
+    width: 100%;
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+/****************** 
+  Message
+******************/
+
+.message {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.message h1,
+.message h2 {
+  display: block;
+  width: 100%;
+}
+
+.message .message-card {
+  width: 45%;
+  border: 1px solid black;
+}
+
+/****************** 
   Footer
 ******************/
+
+footer {
+  height: 150px;
+  background-color: papayawhip;
+}
 

@@ -1,4 +1,6 @@
-</div>
+<footer>
+    <h1>Hello World!</h1>
+</footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

@@ -1,0 +1,103 @@
+/****************** 
+  Payment
+******************/
+.payment {
+    
+    
+    .options {
+        padding: 15px;
+        border: 2px solid lightgrey;
+        background-color: white;
+        border-radius: 15px;
+        width: 100%;
+
+        p {
+            color: black;
+            border-bottom: 1px solid lightgrey;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+    }
+}
+
+.box-pay {
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .pay {
+        max-width: 400px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 15px;
+            &:hover {
+                color: white;
+                background-color: #3490dc;
+                border: 1px solid #3490dc;
+            }
+        }
+
+        .payment-successfull-box {
+            text-align: center;
+            padding: 20px 30px;
+            border: 1px solid green;
+            border-radius: 10px;
+
+            .payment-successfull-alert {
+                margin-bottom: 10px;
+                font-size: 20px;
+                color: green;
+                .icon-payment-check {
+                    color: green;
+                }
+            }
+            .refresh-button {
+                color: green;
+                border: 1px solid green;
+                font-weight: 700;
+                &:hover {
+                    color: white;
+                    background-color: green;
+                }
+            }
+        }
+
+        .payment-failed-box {
+            text-align: center;
+            padding: 20px 30px;
+            border: 1px solid red;
+            border-radius: 10px;
+            
+            .payment-failed-alert {
+                margin-bottom: 10px;
+                font-size: 20px;
+                color: red;
+                .icon-payment-check {
+                    color: red;
+                }
+            }
+            .refresh-button {
+                color: red;
+                border: 1px solid red;
+                font-weight: 700;
+                &:hover {
+                    color: white;
+                    background-color: red;
+                }
+            }
+        }
+    }
+}

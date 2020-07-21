@@ -1,30 +1,32 @@
-<div class="message">
+<div class="message-box">
     <form action="{{route('message.store')}}" method="POST">
         @csrf
         @method('POST')
-    <h2>Contatta l'utente</h2>
-    <div class="form-group">
-        <label for="email">Indirizzo email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua e-mail" 
-        value = " @guest       
-            @else
-                {{-- Conditional redirect to User Owner --}}
-                {{Auth::user()->email}}
-            @endguest"
-        >
-        <input type="hidden" name="currentId" id="currentId" value="{{$apartment->id}}">
-    </div>
+        <div>
 
-    <div class="form-group">
-        <label for="title">Titolo</label>
-        <input type="title" class="form-control" id="title" name="title" placeholder="Inserisci titolo">
-    </div>
+            <h4 class="mb-3">Contatta l'Host</h4>
+        </div>
+        <div class="form-group">
+            
+            <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua e-mail" 
+            value = " @guest       
+                @else
+                    {{-- Conditional redirect to User Owner --}}
+                    {{Auth::user()->email}}
+                @endguest"
+            >
+            <input type="hidden" name="currentId" id="currentId" value="{{$apartment->id}}">
+        </div>
 
-    <div class="form-group">
-        <label for="body">Messaggio</label>
-        <textarea id="body" class="form-control" name="body" value = > </textarea>
-    </div>           
+        <div class="form-group">
+            
+            <input type="title" class="form-control" id="title" name="title" placeholder="Inserisci titolo">
+        </div>
 
-    <input class ="btn btn-primary" type="submit" value="Invia messaggio">
+        <div class="form-group">
+            <textarea id="body" class="form-control" name="body" rows="5" placeholder="Scrivi un messaggio per l'host dell'appartamento"></textarea>
+        </div>           
+
+        <input class ="button-black" type="submit" value="Invia">
     </form>
 </div>

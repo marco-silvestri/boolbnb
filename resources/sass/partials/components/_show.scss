@@ -1,0 +1,269 @@
+/****************** 
+  Show-User
+******************/
+
+.show {
+
+    .box-img {
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .info {
+
+        @include flex-row-or-column(column);
+
+        .info-box {
+
+            width: 100%;
+
+            h2 {
+                margin-top: 15px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            h5 {
+                text-align: center;
+            }
+
+            .description {
+                p {
+                    font-size: 23px;
+                }
+            }
+        }
+        
+        .services {
+                
+            .service-options {
+                @include flex-row-or-column(column);
+                justify-content: center;
+                
+                .features,
+                .options {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    h2 {
+                        width: 100%;
+                    }
+
+                    ul {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        li {
+                            font-size: 27px;
+                            list-style: none;
+                            width: 50%;
+                            display: inline-block;
+                            padding: 7px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .map-payments {
+
+        .direction {
+            @include flex-row-or-column(column);
+        }
+       
+        #map{
+            height: 350px;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+    
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+    
+    .show {
+
+        .box-img {
+            height: 650px;
+            background-size: cover;
+            background-position: center;
+        }
+    
+        .info {
+    
+            @include flex-row-or-column(row);
+            margin-top: 70px;
+
+            .info-box {
+    
+                width: 60%;
+    
+                h2 {
+                    margin-top: 15px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+    
+                h5 {
+                    text-align: center;
+                }
+    
+                .description {
+                    p {
+                        font-size: 23px;
+                    }
+                }
+            }
+            
+            .services {
+                width: 40%;
+                .service-options {
+                    @include flex-row-or-column(column);
+                    padding-left: 75px;
+                    
+                    .features,
+                    .options {
+                        @include flex-row-or-column(column);
+    
+                        h2 {
+                            width: 50%;
+                        }
+    
+                        ul {
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+    
+                            li {
+                                font-size: 27px;
+                                list-style: none;
+                                width: 100%;
+                                display: block;
+                                padding: 7px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .map-payments {
+            padding: 15px 0;
+    
+            .direction {
+                @include flex-row-or-column(row-reverse);
+            }
+
+            .maps {
+                width: 70%;
+                #map{
+                    height: 350px;
+                    width: 90%;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+ 
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    .show {
+
+        .box-img {
+            height: 650px;
+            background-size: cover;
+            background-position: center;
+        }
+    
+        .info {
+    
+            @include flex-row-or-column(row);
+            margin-top: 70px;
+
+            .info-box {
+    
+                width: 70%;
+    
+                h2 {
+                    margin-top: 15px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+    
+                h5 {
+                    text-align: center;
+                }
+    
+                .description {
+                    p {
+                        font-size: 23px;
+                    }
+                }
+            }
+            
+            .services {
+                width: 30%;
+                .service-options {
+                    @include flex-row-or-column(column);
+                    padding-left: 75px;
+                    
+                    .features,
+                    .options {
+                        @include flex-row-or-column(column);
+    
+                        h2 {
+                            width: 50%;
+                        }
+    
+                        ul {
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+    
+                            li {
+                                font-size: 27px;
+                                list-style: none;
+                                width: 100%;
+                                display: block;
+                                padding: 7px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .map-payments {
+            padding: 15px 0;
+    
+            .direction {
+                @include flex-row-or-column(row-reverse);
+            }
+
+            .maps {
+                width: 70%;
+                #map{
+                    height: 350px;
+                    width: 90%;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,17 @@
 
 //Mixins
 
+@mixin flex-row-or-column($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+@mixin flex-row-or-column-wrap($direction: row, $wrap: wrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+
 @mixin flex-center-center($direction: row, $justify: flex-start, $align: flex-start) {
   display: flex;
   flex-direction: $direction;
@@ -21,20 +32,10 @@
   color: $brown;
 }
 
-@mixin color-a-nav-bar {
-  color: $brown;
-  font-weight: bold;
-  text-decoration: $none;
-
-  &:hover {
-    color:#30488f;
-  }
-}
-
 @mixin btn-header-nav {
   padding: 5px 10px;
-  color: #30488f;
-  border: 1px solid #30488f;
+  color: #292a2e;
+  border: 1px solid #292a2e;
   border-radius: 7px;
   background-color: $white;
   font-weight: bold;
@@ -42,8 +43,26 @@
 
   &:hover{
     transition: 0.7s;
-    background: #30488f;
-    color: $white;
+    background: rgb(41, 41, 41);
+    color: white;
+  }
+}
+
+@mixin btn-black {
+  padding: 5px;
+  color: white;
+  border: 1px solid #292a2e;
+  background: rgb(41, 41, 41);
+  border-radius: 7px;
+  background-color: black;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+
+  &:hover{
+    transition: 0.7s;
+    background: rgb(41, 41, 41);
+    color: white;
   }
 }
 
@@ -92,6 +111,7 @@
 }
 
 body {
+  font-family: 'Open Sans', sans-serif;
   margin: 0 auto;
 }
 
