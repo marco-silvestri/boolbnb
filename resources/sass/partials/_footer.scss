@@ -1,8 +1,117 @@
 /****************** 
   Footer
 ******************/
-
+/****************** 
+  Header
+******************/
 footer {
-  height: 150px;
-  background-color: papayawhip;
+  border: 2px solid #dfdfdf;
+  height: auto;
+  .container{
+    @include flex-row-or-column(row);
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  .left-footer{
+    @include flex-center-center(column , center , center);
+    flex-basis: 100%;
+    margin: 20px auto;
+    .footer-img{
+      width: 40%;
+      height: 60px;
+      background-color: black;
+    }
+    .footer-link{
+      @include flex-center-center(row , center , center);
+      width: 40%;
+      height: 60px;
+      a{
+        @include reset-a;
+        font-size: 30px;
+        margin: 10px;
+        transition: transform 0.4s;
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+
+  .right-footer{
+    @include flex-center-center(column , center , center);
+    flex-basis: 100%;
+   
+    .contributors{
+      @include flex-center-center(column , center , center);
+      width: 100%;
+      height: 100%;
+      a{
+        @include reset-a;
+        margin: 5px;
+      }
+      i{
+        margin: auto 10px;
+        font-size: 18px;
+      }
+      h2{
+        margin-top: 20px;
+      }
+    }
+  }
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+ 
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+ 
+
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  footer {
+    height: auto;
+    .left-footer{
+      @include flex-center-center(column , center , flex-start);
+      flex-basis: 50%;
+    }
+
+    .right-footer{
+      @include flex-center-center(column , center , flex-end);
+      flex-basis: 50%;
+     
+      .contributors{
+        @include flex-center-center(column , center , flex-end);
+        a{
+          text-align: end;
+          width: 250px;
+          border-bottom: 1px solid #dfdfdf;
+          transition: border-color 0.5s;
+          &:hover {
+            border-color: black;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+}
+
+
+
+
+
+
+
+
+
