@@ -1,4 +1,5 @@
 <footer>
+    
     <div class="container">
         <div class="left-footer">
             <div class="footer-img">
@@ -14,7 +15,7 @@
             <div class="contributors">
             <h2>Realizzato da:</h2>
             <a href="https://github.com/marco-silvestri">Marco Silvestri<i class="fab fa-github"></i> </a>
-            <a href="https://github.com/Vincenzo-Laveneziana">Vincenzo La Veneziana<i class="fab fa-github"></i></a>
+            <a href="https://github.com/Vincenzo-Laveneziana">Vincenzo Laveneziana<i class="fab fa-github"></i></a>
             <a href="https://github.com/MarcoMadeddu">Marco Madeddu<i class="fab fa-github"></i></a>
             <a href="https://github.com/CarmineVitale">Carmine Vitale<i class="fab fa-github"></i></a>
             <a href="https://github.com/rocco-de-luca">Rocco De Luca<i class="fab fa-github"></i></a>
