@@ -18,7 +18,9 @@
 
                 <div class="box-info">
 
+
                     <div class="info">
+
 
                         <div class="details">
                             <span>Nome: {{ $apartment->name }}</span>

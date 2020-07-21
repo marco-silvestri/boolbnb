@@ -42,4 +42,7 @@ Route::prefix('user')
         Route::get('dashboard', 'ApartmentController@index')->name('dashboard');
         Route::resource('apartment', 'ApartmentController');
         Route::get('message', 'ApartmentController@messageIndex')->name('message');
+        
 });
+
+Route::get('statisticApartment', 'StatisticController@index');

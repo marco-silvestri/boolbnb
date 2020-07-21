@@ -188,6 +188,11 @@
                     @endif
                 </a>
         @endguest
+
+		
+       @include('shared.components.Chart') 
+@endsection
+
     </div>
     
-@endsection --}}
+
