@@ -11901,9 +11901,33 @@ main {
   height: 20%;
 }
 
-.box .box-info .link a,
-.box .box-info .link input {
-  width: 90px;
+.box .box-info .link a.button {
+  display: inline-block;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border: orange solid 1px;
+  border-radius: 50%;
+  position: relative;
+  transition: background-color 0.4s linear, border-color 0.4s linear;
+}
+
+.box .box-info .link a.button:hover {
+  background-color: white;
+  border: green solid 2px;
+}
+
+.box .box-info .link a.button:hover i {
+  color: black;
+}
+
+.box .box-info .link a.button i {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 0.4s linear;
 }
 
 .box .box-info .link a:nth-child(2) {
