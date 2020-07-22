@@ -11250,6 +11250,15 @@ body {
   background-position: center;
 }
 
+.show .link {
+  margin: 10px 0;
+}
+
+.show .link a {
+  text-decoration: none;
+  color: green;
+}
+
 .show .info {
   display: flex;
   flex-direction: column;
