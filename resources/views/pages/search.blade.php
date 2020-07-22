@@ -17,13 +17,13 @@
         <div class="container">
             <div class="form-group">
                 <label for="roomNumber">Numero minimo stanze:</label>
-                <input type="number" class="form-control" id="roomNumber" placeholder="Stanze">
-                <label for="bedNumber">Numero minimo letti:</label>
-                <input type="number" class="form-control" id="bedNumber" placeholder="Letti">
+                <input type="number" class="form-control" id="roomNumber" min="1" max="10" placeholder="Stanze">
                 <label for="bathroomNumber">Numero minimo di bagni:</label>
-                <input type="number" class="form-control" id="bathroomNumber" placeholder="Bagni">
+                <input type="number" class="form-control" id="bathroomNumber" min="1" max="5" placeholder="Bagni">
+                <label for="bedNumber">Numero minimo letti:</label>
+                <input type="number" class="form-control" id="bedNumber" min="1" max="10" placeholder="Letti">
                 <label for="squareMeter">Numero minimo di metri quadri:</label>
-                <input type="number" class="form-control" id="squareMeter" placeholder="Metri quadri">
+                <input type="number" class="form-control" id="squareMeter" min="20" max="300"placeholder="Metri quadri">
                 <label for="volumeKm">Distanza:</label>
                 <input type="range" id="rangeKm" name="rangeKm" min="1" max="50" value="20" step="1"> 
                 <span id="rangeKmPrint"></span>
@@ -41,17 +41,7 @@
     </div>
 
     {{-- Handlebars will be printed here --}}
-    <div id="context"></div>
-    
-    {{-- Templating --}}
-    <script id="card-template" type="text/x-handlebars-template">
-        <div class="container">
-                <h1> @{{ cardName }}</h1>
-                <p> @{{ cardDescription }}</p>
-        </div>
-    </script>
-
-    
+    @include('shared.components.Search-result')
 
     {{-- Parsing the JSON from the controller and passing it to a JS variable --}}
     <script type="text/javascript">
@@ -103,7 +93,7 @@
                 geoSearch(geoArgs, printArgs, options);
             });
 
-            inputSurface.on('change', function() {
+            inputBed.on('change', function() {
                 geoArgs.conditions[2] = inputSurface.val();
                 geoSearch(geoArgs, printArgs, options);
             });
@@ -139,7 +129,6 @@
                 geoSearch(geoArgs, printArgs, options);
             });
 
-
     });//End of Doc Ready
 
         //Search and print
@@ -158,11 +147,19 @@
             }).then(({ hits }) => {
                 var data = JSON.stringify(hits);
                 cleanAll(context);
-                console.log(hits[0]['options']);
-                for (var i = 0; i<data.length; i++){
-                    if (_.isEqual(options.sort(),hits[0]['options'].sort())){
-                    printCard(data, template, context, i, condition)
+                if (options.length != 0){
+                    for (var i = 0; i<data.length; i++){
+                        if (_.isEqual(options.sort(),hits[i]['options'].sort())){
+                            printCard(data, template, context, i, condition)
+                        }
                     }
+                }
+                else if (options.length == 0){
+                    var templateData = {
+                        alert: 'Seleziona dei servizi aggiuntivi!'
+                    };
+                    var output = template(templateData);
+                    context.append(output);
                 }
             });
         }
@@ -174,13 +171,16 @@
         //Print with Handlebars
         function printCard(data, template, destination, index, condition){
             var thisCard = JSON.parse(data)[index];
-            if (thisCard['beds'] >= condition[0] &&
+            if (thisCard['room_numbers'] >= condition[0] &&
                 thisCard['bathrooms'] >= condition[1] &&
-                thisCard['square_meters'] >= condition[2] &&
+                thisCard['beds'] >= condition[2] &&
                 thisCard['square_meters'] >= condition[3]){
             var templateData = {
                 cardName: thisCard['name'],
                 cardDescription: thisCard['description'],
+                cardOptions: thisCard['options'],
+                imgConstructor: '<img src="/storage/'+ thisCard['img'] + '" alt="">',
+                routeConstructor: '<a href="/user/apartment/'+ thisCard['id'] +'">Visualizza</a>',
                 };
             var output = template(templateData);
             destination.append(output);
