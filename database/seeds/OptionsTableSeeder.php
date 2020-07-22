@@ -5,11 +5,6 @@ use App\Option;
 
 class OptionsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $options = [
@@ -18,15 +13,15 @@ class OptionsTableSeeder extends Seeder
                 'icon' => 'fas fa-wifi'
             ],
             [
-                'name' => 'Parking',
+                'name' => 'Parcheggio',
                 'icon' => 'fas fa-parking'
             ],
             [
-                'name' => 'Pool',
+                'name' => 'Piscina',
                 'icon' => 'fas fa-swimming-pool'
             ],
             [
-                'name' => 'Reception',
+                'name' => 'Portineria',
                 'icon' => 'fas fa-concierge-bell'
             ],
             [
@@ -34,12 +29,11 @@ class OptionsTableSeeder extends Seeder
                 'icon' => 'fas fa-spa'
             ],
             [
-                'name' => 'Seascape',
+                'name' => 'Vista mare',
                 'icon' => 'fas fa-water'
             ]
         ];
         
-
         foreach ($options as $option) {
             $newOption = new Option();
             $newOption->name = $option['name'];
@@ -47,6 +41,5 @@ class OptionsTableSeeder extends Seeder
 
             $newOption->save();
         }
-
     }
 }

@@ -9,27 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, Apartment $apartment)
     {
         $aptId= $request['currentId'];
         $apartment = Apartment::find($aptId);
-        
-
         $request->validate($this->validationRules());
         $data = $request->all();
         $data['apartment_id'] = $aptId;
-
         $newMessage = new Message();
         $newMessage->fill($data);
-
         $hasSaved = $newMessage->save();
-        // dd($apartment);
 
         if ($hasSaved) {
             if(Auth::check()){
@@ -39,6 +28,7 @@ class MessageController extends Controller
             }
         };
     }
+
     private function validationRules()
     {
         return[

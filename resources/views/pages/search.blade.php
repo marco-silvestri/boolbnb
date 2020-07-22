@@ -17,7 +17,9 @@
         <div class="container">
             <div class="form-group">
                 <label for="roomNumber">Numero minimo stanze:</label>
-                <input type="number" class="form-control" id="roomNumber" placeholder="Stanze da letto">
+                <input type="number" class="form-control" id="roomNumber" placeholder="Stanze">
+                <label for="bedNumber">Numero minimo letti:</label>
+                <input type="number" class="form-control" id="bedNumber" placeholder="Letti">
                 <label for="bathroomNumber">Numero minimo di bagni:</label>
                 <input type="number" class="form-control" id="bathroomNumber" placeholder="Bagni">
                 <label for="squareMeter">Numero minimo di metri quadri:</label>
@@ -62,17 +64,18 @@
             var context = $('#context');
             var inputRoom = $('#roomNumber');
             var inputBathroom = $('#bathroomNumber');
+            var inputBed = $('#bedNumber');
             var inputSurface = $('#squareMeter');
             var inputRange = $('#rangeKm');
             var rangeLabel = $('#rangeKmPrint');
             var checkBoxes = $("input[name='option']");
 
-            // Pack functions args
+            // Pack functions args, latLong passed with Blade synthax
             var geoArgs = {
                 'lat' : parseFloat('{{ $latLong['lat'] }}'),
                 'long' : parseFloat('{{ $latLong['lng'] }}'),
                 'radius' : inputRange.val()*1000,
-                'conditions' : [0, 0, 0],
+                'conditions' : [0, 0, 0, 0],
             };
 
             var printArgs = {
@@ -100,6 +103,11 @@
 
             inputSurface.on('change', function() {
                 geoArgs.conditions[2] = inputSurface.val();
+                geoSearch(geoArgs, printArgs, options);
+            });
+
+            inputSurface.on('change', function() {
+                geoArgs.conditions[3] = inputSurface.val();
                 geoSearch(geoArgs, printArgs, options);
             });
 
@@ -166,7 +174,8 @@
             var thisCard = JSON.parse(data)[index];
             if (thisCard['beds'] >= condition[0] &&
                 thisCard['bathrooms'] >= condition[1] &&
-                thisCard['square_meters'] >= condition[2]){
+                thisCard['square_meters'] >= condition[2] &&
+                thisCard['square_meters'] >= condition[3]){
             var templateData = {
                 cardName: thisCard['name'],
                 cardDescription: thisCard['description'],
