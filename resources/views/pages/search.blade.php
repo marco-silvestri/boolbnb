@@ -35,21 +35,12 @@
                         <label class="form-check-label" for="box{{ $option->name }}">{{ $option->name }}</label>
                     </div>    
                 @endforeach
-                
             </div>
         </div>
     </div>
 
-    {{-- Handlebars will be printed here --}}
-    <div id="context"></div>
+    @include('shared.components.Search-result')
     
-    {{-- Templating --}}
-    <script id="card-template" type="text/x-handlebars-template">
-        <div class="container">
-                <h1> @{{ cardName }}</h1>
-                <p> @{{ cardDescription }}</p>
-        </div>
-    </script>
 
     {{-- Parsing the JSON from the controller and passing it to a JS variable --}}
     <script type="text/javascript">
@@ -156,7 +147,6 @@
             }).then(({ hits }) => {
                 var data = JSON.stringify(hits);
                 cleanAll(context);
-                console.log(hits[0]['options']);
                 for (var i = 0; i<data.length; i++){
                     if (_.isEqual(options.sort(),hits[0]['options'].sort())){
                     printCard(data, template, context, i, condition)
@@ -177,8 +167,11 @@
                 thisCard['square_meters'] >= condition[2] &&
                 thisCard['square_meters'] >= condition[3]){
             var templateData = {
+                cardId: thisCard['id'],
                 cardName: thisCard['name'],
                 cardDescription: thisCard['description'],
+                cardImg: thisCard['img'],
+                cardOptions: thisCard['options'],
                 };
             var output = template(templateData);
             destination.append(output);
