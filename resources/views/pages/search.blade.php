@@ -51,6 +51,8 @@
         </div>
     </script>
 
+    
+
     {{-- Parsing the JSON from the controller and passing it to a JS variable --}}
     <script type="text/javascript">
         
