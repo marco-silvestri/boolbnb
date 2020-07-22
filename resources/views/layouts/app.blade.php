@@ -1,5 +1,5 @@
 @include('shared.header')
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
 @include('shared.footer')
