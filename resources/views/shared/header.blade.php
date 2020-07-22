@@ -61,34 +61,39 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                 <a class="dropdown-item" href="{{ route('index') }}">
+                                    <i class="fas fa-home"></i> <br>
+                                    <span @if (Request::route()->getName() == 'index') class="label-active" @else class="label" @endif >Home</span> 
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('index') }}">
-                                       Vai alla index
-                                    </a>
-                                    <a class="dropdown-item text-success" href="{{route('user.dashboard')}}">
-                                        Vai ai tuoi appartamenti
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('user.message') }}">
-                                       Vai ai tuoi messaggi
-                                    </a>
-                                    <a class="dropdown-item text-primary" href="{{ route('user.apartment.create')}}">
-                                        Aggiungi appartamento
-                                    </a>
-                                     <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                <a class="dropdown-item text-success" href="{{route('user.dashboard')}}">
+                                    <i class="fas fa-house-user"></i> <br>
+                                    <span @if (Request::route()->getName() == 'user.dashboard') class="label-active" @else class="label" @endif >Dashboard</span> 
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('user.message') }}">
+                                    <i class="fas fa-envelope"></i> <br>
+                                    <span @if (Request::route()->getName() == 'user.message') class="label-active" @else class="label" @endif >Messaggi</span>
+                                </a>
+
+                                <a class="dropdown-item text-primary" href="{{ route('user.apartment.create')}}">
+                                    <i class="fas fa-plus"></i> <br>
+                                    <span @if (Request::route()->getName() == 'user.apartment.create') class="label-active" @else class="label" @endif >Aggiungi</span>
+                                </a>
+                                
+                                <a class="dropdown-item text-danger"    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                               <i class="fas fa-sign-out-alt"></i></i> <br>
+                               <span class="label">{{ __('Logout') }}</span>
+                                        
+                                </a>
 
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
+                                </a>
                             </li>
                         @endguest
                     </ul>

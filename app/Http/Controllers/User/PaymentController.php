@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-
 use App\Apartment;
 use App\Sponsorship;
 use App\Payment;
@@ -48,8 +47,7 @@ class PaymentController extends Controller
             } else {
                 $active_sponsorship->update(['sponsorship_expiration' => $newExpiry]);
                 $paymentRecord->update(['expiration_date' => $newExpiry]);
-            }
-            
+            } 
         } else {
             $paymentRecord->save();
         }

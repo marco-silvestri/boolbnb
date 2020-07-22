@@ -10821,7 +10821,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/carmine/Downloads/Corso Boolean #12/esercizi-giugno/boolbnb/boolbnb/resources/js/places.js */"./resources/js/places.js");
+module.exports = __webpack_require__(/*! /Users/marcomadeddu/Desktop/BoolBNB/boolbnb/resources/js/places.js */"./resources/js/places.js");
 
 
 /***/ })

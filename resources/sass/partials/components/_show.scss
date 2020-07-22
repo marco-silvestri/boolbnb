@@ -6,14 +6,27 @@
 
     .box-img {
         height: 350px;
-        background-size: cover;
-        background-position: center;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 45px;
+
+        img {
+            width: 100%;
+            transform: translateY(-50px);
+        }
+    }
+    .link {
+        margin: 10px 0;
+        a {
+            text-decoration: none;
+            color: green;
+        }
+        
     }
 
     .info {
-
         @include flex-row-or-column(column);
-
+        
         .info-box {
 
             width: 100%;
@@ -22,10 +35,12 @@
                 margin-top: 15px;
                 font-weight: bold;
                 text-align: center;
+                font-size: 25px;
             }
 
             h5 {
                 text-align: center;
+                font-size: 23px;
             }
 
             .description {
@@ -89,7 +104,19 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
+    .show {
 
+        .box-img {
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+                transform: translateY(-100px);
+            }
+        }
+    }
 }
 
 // Large devices (desktops, 992px and up)
@@ -98,28 +125,28 @@
     .show {
 
         .box-img {
-            height: 650px;
-            background-size: cover;
-            background-position: center;
+            height: 400px;
+            width: 100%;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+                transform: translateY(-200px);
+            }
         }
     
         .info {
-    
             @include flex-row-or-column(row);
-            margin-top: 70px;
 
             .info-box {
-    
                 width: 60%;
     
                 h2 {
-                    margin-top: 15px;
-                    font-weight: bold;
-                    text-align: center;
+                    text-align: left;
                 }
     
                 h5 {
-                    text-align: center;
+                    text-align: left;
                 }
     
                 .description {
@@ -186,16 +213,20 @@
     .show {
 
         .box-img {
-            height: 650px;
-            background-size: cover;
-            background-position: center;
+            height: 550px;
+            width: 100%;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+                transform: translateY(-300px);
+            }
         }
     
         .info {
     
             @include flex-row-or-column(row);
-            margin-top: 70px;
-
+ 
             .info-box {
     
                 width: 70%;
@@ -203,11 +234,11 @@
                 h2 {
                     margin-top: 15px;
                     font-weight: bold;
-                    text-align: center;
+                    text-align: left;
                 }
     
                 h5 {
-                    text-align: center;
+                    text-align: left;
                 }
     
                 .description {
@@ -265,5 +296,22 @@
                 }
             }
         }
+    }
+}
+
+@media (min-width: 1700px) { 
+    .show {
+
+        .box-img {
+            height: 600px;
+            width: 100%;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+                transform: translateY(-600px);
+            }
+        }
+    
     }
 }
