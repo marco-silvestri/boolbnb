@@ -6,7 +6,7 @@
 ******************/
 footer {
   border: 2px solid #dfdfdf;
-  height: auto;
+  min-height: 250px;
   .container{
     @include flex-row-or-column(row);
     flex-wrap: wrap;

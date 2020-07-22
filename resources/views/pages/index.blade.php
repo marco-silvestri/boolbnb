@@ -4,7 +4,7 @@
     <section class="search position-relative d-flex justify-content-center">  
         <div class="video-container">
             <video autoplay="" loop="" muted="" playsinline="" id="video">
-                <source src="{{ asset('img/videoplayback.mp4') }}" type="video/mp4">
+                <source src="{{ asset('img/video.mp4') }}" type="video/mp4">
             </video>
         </div>
         <div class="opacity position-absolute"></div>

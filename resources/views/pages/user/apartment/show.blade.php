@@ -3,8 +3,11 @@
 @include('shared.components.Leaflet-include')
     <div class="show">
         @include('shared.components.ShowFeedback')
-        <div class="box-img" style="background-image: url('{{ asset('img/1.jpg')}}');">
+ 
+        <div class="box-img">
+            @include('shared.components.Img');
         </div>
+
         <div class="container">
             <div class="link">
                 <a href="{{route('index')}}"><i class="fas fa-long-arrow-alt-left"></i>Torna ai risultati</a>

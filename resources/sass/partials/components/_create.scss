@@ -5,13 +5,12 @@
 .create {
 
     @include flex-center-center(column, center,center);
-    -webkit-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
+    /* -webkit-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
     -moz-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
     box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
-    border: 1px solid transparent;
+    border: 1px solid transparent; */
     border-radius: 8px;
     padding: 30px 20px;
-    text-align: center;
 
     form {
         width: 100%;
