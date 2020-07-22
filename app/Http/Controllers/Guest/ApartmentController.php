@@ -29,7 +29,7 @@ class ApartmentController extends Controller
             abort('404');
         }
 
-        return view('pages.guest.show', compact('apartment'));
+        return view('pages.show', compact('apartment'));
     }
 
     public function searchApartment(Request $request){

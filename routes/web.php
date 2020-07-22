@@ -23,14 +23,9 @@ Route::prefix('guest')
     ->group(function () {
         Route::resource('apartment', 'ApartmentController');
         Route::post('search', 'ApartmentController@searchApartment')->name('search');
-        
 });
 
-
 Auth::routes();
-
-
-
 
 //UPR/UPRA
 Route::prefix('user')

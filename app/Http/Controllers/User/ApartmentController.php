@@ -38,40 +38,40 @@ class ApartmentController extends Controller
         } 
     }
 
-        public function messageIndex()
-        {
-            $user_id = Auth::id();
-            $user_name = Auth::user()->name;
+    public function messageIndex(){
+
+        $user_id = Auth::id();
+        $user_name = Auth::user()->name;
+        $totalMex = 0;
+        $feedBack = 0;
+
+        //Retrieve all his apartments
+        $apartmentForUser = Apartment::where('user_id', $user_id)->get();
+        if(count($apartmentForUser) == 0){
+            $feedBack = 1;
             $totalMex = 0;
-            $feedBack = 0;
-
-            //Retrieve all his apartments
-            $apartmentForUser = Apartment::where('user_id', $user_id)->get();
-            if(count($apartmentForUser) == 0){
-                $feedBack = 1;
-                $totalMex = 0;
-                return view('pages.user.message.index', compact('user_name','feedBack','totalMex'));
-            }else{
-                $messageForApartment=[];
-            foreach($apartmentForUser as $item){
-                //Retrieve all his messages for all Apartments
-                $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
-            }
-
-            foreach($messageForApartment as $message){
-                if(count($message) != 0){
-                    foreach($message as $item){
-                        $totalMex ++;
-                    }
-                }else{
-                    $feedBack = 2;
-                }
-            }
-            return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','feedBack', 'totalMex')); 
-
-            }
-        return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
+            return view('pages.user.message.index', compact('user_name','feedBack','totalMex'));
+        }else{
+            $messageForApartment=[];
+        foreach($apartmentForUser as $item){
+            //Retrieve all his messages for all Apartments
+            $messageForApartment[]= Message::where('apartment_id', $item['id'])->get();
         }
+
+        foreach($messageForApartment as $message){
+            if(count($message) != 0){
+                foreach($message as $item){
+                    $totalMex ++;
+                }
+            }else{
+                $feedBack = 2;
+            }
+        }
+        return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','feedBack', 'totalMex')); 
+
+        }
+    return view('pages.user.message.index', compact('messageForApartment', 'user_id', 'user_name','mex')); 
+    }
 
     //Return the create view
     public function create(){
@@ -166,7 +166,7 @@ class ApartmentController extends Controller
         $statisticView->dataset('Views', 'pie', [$total_views,$tot_view_count - $total_views])
         ->BackgroundColor(['green','blue']);
         
-        return view('pages.user.apartment.show', compact('apartment', 'sponsorships','message','payments','statisticChart','statisticView'));
+        return view('pages.show', compact('apartment', 'sponsorships','message','payments','statisticChart','statisticView'));
 		
 
     }
