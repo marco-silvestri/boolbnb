@@ -1,17 +1,58 @@
 /****************** 
   Header
 ******************/
+.dropdown{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
+  .dropdown-item{
+    text-align: center;
+    width: 20%;
+    .label,
+    .label-active{
+      display: none;
+    }
+  }
+  .fas{
+    margin-top: 10px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+  }
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
- 
-
+  .dropdown{
+    flex-wrap: nowrap;
+  .dropdown-item{
+    width: 120px;
+    .label{
+      display: block;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    &:hover {
+      .label{
+        opacity: 1;
+      }
+    }
+    .fas{
+      font-size: 25px;
+    }
+    .label-active{
+      display: block;
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+  }
+}
 
 }
 
