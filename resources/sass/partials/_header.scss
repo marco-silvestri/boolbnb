@@ -1,14 +1,26 @@
 /****************** 
   Header
 ******************/
+#app{
+  position: fixed;
+  width: 100%;
+  z-index: 30;
+}
+
 .dropdown{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 
+  .full{
+    width: 100% !important;
+  }
+
   .dropdown-item{
+    color: black;
     text-align: center;
     width: 20%;
+    
     .label,
     .label-active{
       display: none;
@@ -22,6 +34,11 @@
   }
 }
 
+.navbar-nav{
+  flex-direction: row;
+  justify-content: center;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
 
@@ -33,6 +50,7 @@
     flex-wrap: nowrap;
   .dropdown-item{
     width: 120px;
+    transition: background-color 0.4s;
     .label{
       display: block;
       opacity: 0;

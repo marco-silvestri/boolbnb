@@ -32,7 +32,7 @@
     </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -51,12 +51,17 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> {{ __('Login') }}</a>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-item full" href="{{ route('login') }}">
+                                <i class="fas fa-sign-in-alt"></i> <br> <span>{{ __('Login') }}</span>
+                                </a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item full" href="{{ route('register') }}">
+                                    <i class="fas fa-user-plus"></i>
+                                        <br> <span>{{ __('Register') }}</span>
+                                    </a>
                                 </li>
                             @endif
                         @else
@@ -66,7 +71,7 @@
                                     <span @if (Request::route()->getName() == 'index') class="label-active" @else class="label" @endif >Home</span> 
                                 </a>
 
-                                <a class="dropdown-item text-success" href="{{route('user.dashboard')}}">
+                                <a class="dropdown-item" href="{{route('user.dashboard')}}">
                                     <i class="fas fa-house-user"></i> <br>
                                     <span @if (Request::route()->getName() == 'user.dashboard') class="label-active" @else class="label" @endif >Dashboard</span> 
                                 </a>
@@ -76,12 +81,12 @@
                                     <span @if (Request::route()->getName() == 'user.message') class="label-active" @else class="label" @endif >Messaggi</span>
                                 </a>
 
-                                <a class="dropdown-item text-primary" href="{{ route('user.apartment.create')}}">
+                                <a class="dropdown-item" href="{{ route('user.apartment.create')}}">
                                     <i class="fas fa-plus"></i> <br>
                                     <span @if (Request::route()->getName() == 'user.apartment.create') class="label-active" @else class="label" @endif >Aggiungi</span>
                                 </a>
                                 
-                                <a class="dropdown-item text-danger"    href="{{ route('logout') }}"
+                                <a class="dropdown-item"href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                <i class="fas fa-sign-out-alt"></i></i> <br>

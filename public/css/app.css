@@ -10951,6 +10951,7 @@ body {
 
 main {
   flex-grow: 1;
+  margin-top: 100px;
 }
 
 /* Custom scrollbar */
@@ -10979,13 +10980,24 @@ main {
   Header
 ******************/
 
+#app {
+  position: fixed;
+  width: 100%;
+  z-index: 30;
+}
+
 .dropdown {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
+.dropdown .full {
+  width: 100% !important;
+}
+
 .dropdown .dropdown-item {
+  color: black;
   text-align: center;
   width: 20%;
 }
@@ -11002,6 +11014,11 @@ main {
   text-align: center;
 }
 
+.navbar-nav {
+  flex-direction: row;
+  justify-content: center;
+}
+
 @media (min-width: 768px) {
   .dropdown {
     flex-wrap: nowrap;
@@ -11009,6 +11026,7 @@ main {
 
   .dropdown .dropdown-item {
     width: 120px;
+    transition: background-color 0.4s;
   }
 
   .dropdown .dropdown-item .label {
