@@ -45,4 +45,4 @@ Route::prefix('user')
         Route::post('/store_sponsorship', 'PaymentController@store_sponsorship');
 });
 
-Route::get('statisticApartment', 'StatisticController@index');
+
