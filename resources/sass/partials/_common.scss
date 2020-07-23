@@ -7,7 +7,7 @@
 
 @mixin typography{
   font-family: $sans-serif;
-  color: $gray;
+  color: $black;
 }
 
 @mixin flex-row-or-column($direction: row) {
