@@ -1,11 +1,12 @@
 /****************** 
   INDEX
 ******************/
-
+.index-main{
+    transform: translateY(-100px);
+}
 
 .search {
     width: 100%;
-    transform: translateY(-100px);
     display: flex;
     flex-direction: column;
 
@@ -69,20 +70,7 @@
     }   
 }
 
-.container-cards{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    max-width: 1740px;
-    &.latest{
-        background-color: $gray;
-    }
-    &.deals{
-        background-color: $yellow;
-    }
-}
+
 
 
 

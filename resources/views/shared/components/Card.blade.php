@@ -1,5 +1,5 @@
-<div class="col-sm-12 col-md-6 col-lg-4  @if ($apartment->visibility == 0) d-none @endif">
-    <div class="card-apt">
+<div class="card-apt col-sm-12 col-md-6 col-lg-4   @if ($apartment->visibility == 0) d-none @endif">
+    <div class="apt">
         @include('shared.components.Img')
         <div class="info-box">
             <h3>{{ $apartment->name }}</h3>

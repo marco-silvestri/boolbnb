@@ -30,7 +30,7 @@
 
     </head>
 <body>
-    <div id="app">
+    <div id="app" class="scrolled">
         <nav @if (Request::route()->getName() != 'index') class="navbar navbar-expand-md navbar-light blue-bg" @else class = "navbar navbar-expand-md navbar-light shadow-sm"@endif>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
