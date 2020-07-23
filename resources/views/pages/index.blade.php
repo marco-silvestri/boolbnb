@@ -30,7 +30,7 @@
         </div>
     </section>
 
-    {{-- <div class="container">
+    <div class="container">
 
         <section>
             <div class="container-cards deals">
@@ -53,9 +53,9 @@
                 </div>
             </div>
         </section>
-    </div> --}}
+    </div>
     {{-- Apartments pagination --}}
-    {{-- <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
         {{ $apartments->links() }}
-    </div> --}}
+    </div>
 @endsection
