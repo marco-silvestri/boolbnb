@@ -10942,11 +10942,12 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  color: #292A2E;
 }
 
 main {
@@ -11186,7 +11187,7 @@ main {
 .apartment .box .info a:hover {
   transition: 0.7s;
   background: #292929;
-  color: white;
+  color: #ECECEC;
 }
 
 .apartment .box:hover .info {
@@ -12444,7 +12445,7 @@ footer .left-footer .footer-link {
 
 footer .left-footer .footer-link a {
   text-decoration: none;
-  color: #292a2e;
+  color: #292A2E;
   font-size: 30px;
   margin: 10px;
   transition: transform 0.4s;
@@ -12473,7 +12474,7 @@ footer .right-footer .contributors {
 
 footer .right-footer .contributors a {
   text-decoration: none;
-  color: #292a2e;
+  color: #292A2E;
   margin: 5px;
 }
 
