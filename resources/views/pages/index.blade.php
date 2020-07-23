@@ -1,28 +1,31 @@
 @extends('layouts.app')
 @section('content')
 @include('shared.components.Leaflet-include')
+
     <section class="search position-relative d-flex justify-content-center">  
+
         <div class="video-container">
             <video autoplay="" loop="" muted="" playsinline="" id="video">
                 <source src="{{ asset('img/video.mp4') }}" type="video/mp4">
             </video>
+            <img src="{{ asset('img/apartment.jpg') }}" alt="">
         </div>
+
         <div class="opacity position-absolute"></div>
-        <div class="container position-absolute">
-            <div class="u-jumbotron d-flex flex-column justify-content-center">
-                <div class="mt-4 mb-3" >
-                    <h2>Cerca un alloggio</h2>
-                </div>
+
+        <div class="container container-jumbotron">
+            <h2>Scegli la località</h2>
+            <div class="u-jumbotron">
+                
                 <form class="d-flex" action="{{ route('guest.search') }}" method="POST">
                     @csrf
                     @method('POST')
                     <div class="container-search-bar d-flex">
-                        <input class="search-bar" type="text" name="address" 
-                        id="address-input" 
-                        placeholder="Trova un appartamento... o lascia il campo vuoto per trovare appartamenti intorno a te">
+                        <input class="" type="text" name="address" id="address-input"  placeholder="Trova un appartamento..." />
                         <input class="submit" type="submit" value="Cerca">
                     </div>
                 </form> 
+                <span>Scopri tutte le città</span>
             </div>
         </div>
     </section> 

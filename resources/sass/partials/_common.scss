@@ -7,13 +7,14 @@
 
 @mixin typography{
   font-family: $sans-serif;
-  color: $brown;
+  color: $gray;
 }
 
 @mixin flex-row-or-column($direction: row) {
   display: flex;
   flex-direction: $direction;
 }
+
 @mixin flex-row-or-column-wrap($direction: row, $wrap: wrap) {
   display: flex;
   flex-direction: $direction;
@@ -34,7 +35,6 @@
 
 @mixin reset-a {
   text-decoration: none;
-  color: $brown;
 }
 
 @mixin btn-header-nav {
@@ -119,7 +119,7 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   @include flex-row-or-column(column);
-  @include typography();
+  @include typography;
 }
 
 main {

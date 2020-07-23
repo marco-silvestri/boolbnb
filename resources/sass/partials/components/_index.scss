@@ -2,226 +2,154 @@
   INDEX
 ******************/
 
+
 .search {
     width: 100%;
-    height: 250px;
+    transform: translateY(-100px);
+    display: flex;
+    flex-direction: column;
 
     .video-container {
-        @include full-width-height;
+        width: 100%;
+        height: 240px;
         overflow: hidden;
-       
+        
         video {
-            width: 100%;
-            transform: translate(0, -10%);
+            transform: scale(1.6);  
         }
-    }
-
-    .opacity {
-        @include full-width-height;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-    }
-
-    .container {
-        top: 0;
-        @include full-width-height;
-    }
-
-    .u-jumbotron {
-        @include full-width-height;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        padding: 0 40px;
-
-        h2 {
-            color: white;
-        }
-
-        .container-search-bar {
-            width: 100%;
-            background-color: white;
-            border-radius: 10px;
-
-            .search-bar {
-                margin: 0;
-                padding: 0 35px 0 10px ;
-            }
-
-            path {
-                transform: translateX(1px);
-            }
-
-            input {
-                background-color:transparent;
-                border: none;
-            }
-
-            .submit {
-                color: black;
-                transform: translateX(-10px);
-            }
-
-            .submit:active {
-                border:none;
-            }
-
-        }
-    }
-}
-
-.apartment{
-
-    .box{
-        position: relative;
-        border: 1px solid transparent;
-        border-radius: 20px;
-        overflow: hidden;
 
         img {
-            width: 100%;
-            height: auto;
-        }
-
-        .info{
-            position: absolute;
-            @include full-width-height;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0);
-            
-            h3 {
-                text-align: center;
-            }
-
-            div {
-                height: 180px;
-                padding: 0 5px;
-                color: black;
-
-                p {
-                    font-size: 100%;
-                    margin-top: 15px;
-                    padding: 0 10px;
-                    color: transparent;
-                }
-            }
-
-            a {
-                @include btn-header-nav;
-                margin: 0 auto;
-                width: 25%;
-                margin-bottom: 10px;
-                visibility: hidden;
-            }
+            display: none;
         }
     }
 
-    .box:hover {
-        
-        .info{
-            transition: 0.4s;
-            background-color: rgba(0, 0, 0, 0.4);
+    .container-jumbotron {
+        width: 100%;
+        margin-top: 20px;
+        color: $black;
+      
+        h2 {
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
 
-            h3 {
-                transition: 0.4s;
-                color: white;
-            }
+        .u-jumbotron {
+            width: 100%;
+            z-index: 2;
+            border-radius: 8px;
 
-            p {
-                transition: 0.7s;
-                color: white;
-            }
+            .container-search-bar {
+                @include flex-center-center(column,center,center);
+                width: 100%;
 
-            a {
-                transition: 0.7s;
-                visibility: visible;
+                .ap-footer {
+                    display: none;
+                }
+                
+                .algolia-places input {
+                    border-radius: 0;
+                    height: 50px;
+                    border: 1px solid $black;
+                }
+
+                .submit {
+                    background-color: $blue;
+                    width: 100%;
+                    height: 50px;
+                    margin: 20px 0;
+                    border-radius: 25px;
+                    color: white;
+                    font-size: 22px;
+                }  
             }
         }
-        
+
+
+    }   
+}
+
+.container-cards{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    max-width: 1740px;
+    &.latest{
+        background-color: $gray;
+    }
+    &.deals{
+        background-color: $yellow;
     }
 }
 
 
 
-
-
-// Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { 
    
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
+
     .search {
-        width: 100%;
-        height: 350px;
-    
+        height: 500px;
+        
         .video-container {
-            @include full-width-height;
-            overflow: hidden;
-           
-            video{
-                width: 100%;
-                transform: translate(0,-10%);
+            height: 500px;
+            padding-top: 35px;
+            position: absolute;
+            
+            video {
+                transform: scale(1.4);  
             }
+    
         }
     
         .opacity {
             @include full-width-height;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.2);
             z-index: 1;
-        }
-    
-        .container {
-            top: 0;
-            @include full-width-height;
-        }
-    
-        .u-jumbotron {
-            @include full-width-height;
             position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            padding: 0 40px;
-    
-            h2 {
-                color: white;
-            }
-    
-            .container-search-bar {
-                width: 100%;
-                background-color: white;
-                border-radius: 10px;
-    
-                .search-bar{
-                    margin: 0;
-                    padding: 0 35px 0 10px ;
-                }
-    
-                path{
-                    transform: translateX(1px);
-                }
-    
-                input {
-                    background-color:transparent;
-                    border: none;
-                }
-    
-                .submit {
-                    color: black;
-                    transform: translateX(-10px);
-                }
-    
-                .submit:active{
-                    border:none;
-                }
-    
-            }
         }
+    
+        .container-jumbotron {
+            height: 100%;
+            padding-top: 220px;
+            z-index: 2;
+            color: $gray;
+    
+            .u-jumbotron {
+                background-color: white;
+                height: 115px;
+                padding: 5px 30px;
+                box-shadow: 0 6px 15px 0 rgba(0,0,0,.55);
+
+                span {
+                    color: grey;
+                }
+
+                form {
+                    height: 60px;
+                }
+                
+                .container-search-bar {
+                    @include flex-center-center(row,center,center);
+    
+                    .algolia-places input {
+                        height: 40px;
+                        border: 1px solid grey;
+                    }
+    
+                    .submit {
+                        width: 20%;
+                        height: 40px;
+                        margin-left: 20px;
+                    }  
+                }
+            }
+        }   
     }
 }
 
@@ -234,59 +162,62 @@
 @media (min-width: 1200px) { 
 
     .search {
-        width: 100%;
-        height: 600px;
-    
+        height: 650px;
+        
         .video-container {
-            @include full-width-height;
-            overflow: hidden;
-           
-            video{
-                width: 200%;
-                transform: translate(0,-9%);
+            height: 650px;
+            padding-top: 0;
+            position: absolute;
+            
+            video {
+                transform: scale(1.2);  
+                width: 100%;
             }
+    
         }
     
         .opacity {
             @include full-width-height;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.2);
             z-index: 1;
-        }
-    
-        .container {
-            top: 0;
-            @include full-width-height;
-        }
-    
-        .u-jumbotron {
-            @include full-width-height;
             position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            padding: 0 40px;
-    
-            h2 {
-                color: white;
-            }
-    
-            .container-search-bar {
-                width: 100%;
-                background-color: white;
-                border-radius: 10px;
-    
-                input {
-                    background-color:transparent;
-                    border: none;
-                }
-    
-                .submit {
-                    color: black;
-                    padding: 5px;
-                }
-    
-            }
         }
+    
+        .container-jumbotron {
+            height: 100%;
+            padding-top: 350px;
+            z-index: 2;
+            color: $gray;
+    
+            .u-jumbotron {
+                background-color: white;
+                padding: 5px 30px;
+                box-shadow: 0 6px 15px 0 rgba(0,0,0,.55);
+
+                span {
+                    color: grey;
+                }
+
+                form {
+                    height: 60px;
+                }
+                
+                .container-search-bar {
+                    @include flex-center-center(row,center,center);
+    
+                    .algolia-places input {
+                        height: 40px;
+                        border: 1px solid grey;
+                    }
+    
+                    .submit {
+                        width: 20%;
+                        height: 40px;
+                        margin-left: 20px;
+                    }  
+                }
+            }
+        }   
     }
 
 }
