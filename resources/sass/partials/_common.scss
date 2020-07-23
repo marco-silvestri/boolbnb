@@ -5,6 +5,11 @@
 
 //Mixins
 
+@mixin typography{
+  font-family: $sans-serif;
+  color: $brown;
+}
+
 @mixin flex-row-or-column($direction: row) {
   display: flex;
   flex-direction: $direction;
@@ -44,17 +49,17 @@
   &:hover{
     transition: 0.7s;
     background: rgb(41, 41, 41);
-    color: white;
+    color: $gray;
   }
 }
 
 @mixin btn-black {
   padding: 5px;
-  color: white;
+  color: $gray;
   border: 1px solid #292a2e;
   background: rgb(41, 41, 41);
   border-radius: 7px;
-  background-color: black;
+  background-color: $brown;
   font-weight: bold;
   cursor: pointer;
   font-size: 15px;
@@ -62,7 +67,7 @@
   &:hover{
     transition: 0.7s;
     background: rgb(41, 41, 41);
-    color: white;
+    color: $gray;
   }
 }
 
@@ -70,7 +75,7 @@
   padding: 7px 10px;
   border: 1px solid #30488f;
   border-radius: 7px;
-  color: $white;
+  color: $gray;
   font-size: 15px;
   cursor: pointer;
   background:#30488f;
@@ -90,7 +95,7 @@
   font-size: $font-size;
 }
 
-@mixin setting-a($margin-bottom: 40px, $font-size: 17px, $color:#30488f ) {
+@mixin setting-a($margin-bottom: 40px, $font-size: 17px, $color: $blue) {
   margin-bottom: $margin-bottom;
   font-size: $font-size;
   color:$color;
@@ -111,10 +116,10 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   margin: 0 auto;
   min-height: 100vh;
   @include flex-row-or-column(column);
+  @include typography();
 }
 
 main {
