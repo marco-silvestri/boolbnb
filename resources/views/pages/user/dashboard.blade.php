@@ -7,6 +7,7 @@
     @endif
     <div class="container">
         @foreach ($apartmentsForUser as $apartment)
+
             <div class="box">
                 <div class="img">
                     @include('shared.components.Img')
@@ -50,7 +51,7 @@
                         </form> --}}
 
                         
-                         <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
+                        <form action="{{route('user.apartment.destroy', $apartment->id)}}" method="POST">
                              <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <a class="tooltips button" data-toggle="tooltip" data-placement="top" title="Delete">
@@ -59,11 +60,10 @@
                                 </button>
                             </a>
                         </form>
-
-
                     </div>
                 </div>                    
             </div>
         @endforeach
+        
     </div>
 @endsection

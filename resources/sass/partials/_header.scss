@@ -2,9 +2,20 @@
   Header
 ******************/
 #app{
+
   position: fixed;
   width: 100%;
   z-index: 30;
+
+  .blue-bg{
+    background-color: $blue !important;
+  }
+  
+  img{
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: 50%;
+  }
 }
 
 .dropdown{
@@ -17,9 +28,12 @@
   }
 
   .dropdown-item{
-    color: black;
+    color: white;
     text-align: center;
     width: 20%;
+    &:hover {
+      background-color: transparent;
+    }
     
     .label,
     .label-active{
@@ -51,23 +65,19 @@
   .dropdown-item{
     width: 120px;
     transition: background-color 0.4s;
-    .label{
-      display: block;
-      opacity: 0;
-      transition: opacity 0.4s;
+    &:hover{
+        color: $yellow;
     }
-    &:hover {
-      .label{
-        opacity: 1;
-      }
+    .label,
+    .label-active{
+      display: block;
+      transition: color 0.4s;
+    }
+    .label-active{
+      color: $yellow;
     }
     .fas{
       font-size: 25px;
-    }
-    .label-active{
-      display: block;
-      opacity: 1;
-      transition: opacity 0.4s;
     }
   }
 }

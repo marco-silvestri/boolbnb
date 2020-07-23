@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
             MessagesTableSeeder::class,
             OptionsTableSeeder::class,
             SponsorshipsTableSeeder::class,
-            StatisticTableSeeder::class,
         ]);
     }
 }
