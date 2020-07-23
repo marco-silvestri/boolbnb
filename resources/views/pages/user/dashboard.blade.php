@@ -65,5 +65,10 @@
                 </div>                    
             </div>
         @endforeach
+         {{-- Apartments pagination --}}
+    <div class="d-flex justify-content-center">
+        {{ $apartmentsForUser->links() }}
+    </div>
+
     </div>
 @endsection

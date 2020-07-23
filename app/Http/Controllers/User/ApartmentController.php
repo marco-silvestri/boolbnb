@@ -26,7 +26,7 @@ class ApartmentController extends Controller
         $user_name = Auth::user()->name;
         
         //Retrieve all his apartments
-        $apartmentsForUser = Apartment::where('user_id', $user_id)->paginate(7);
+        $apartmentsForUser = Apartment::where('user_id', $user_id)->paginate(5);
         $hasApartments = $this->countApartments($apartmentsForUser);
         //Set a value to adjust the views
         if ( $hasApartments ) {
