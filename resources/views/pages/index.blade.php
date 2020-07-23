@@ -28,32 +28,23 @@
                 <span>Scopri tutte le città</span>
             </div>
         </div>
-    </section>
-
-    <div class="container">
-
-        <section>
-            <div class="container-cards deals">
-                <h2>In vetrina</h2>
-                <div class="row apartment flex-wrap">
-                    @foreach ($sponsoredApartments as $apartment)
-                        @include('shared.components.Card')
-                    @endforeach
-                </div>
-            </div>
-        </section>  
-        
-        <section>
-            <div class="container-cards latest">
-                <h2>Ultimi annunci</h2>        
-                <div class="row"> 
-                    @foreach ($apartments as $apartment)
-                        @include('shared.components.Card')
-                    @endforeach
-                </div>
-            </div>
-        </section>
+    </section> 
+   
+    <div class="mt-5 container card d-flex flex-column align-items-center">
+        <h2>In vetrina</h2>
+        <div class="row apartment d-flex flex-wrap">
+            @foreach ($sponsoredApartments as $apartment)
+                @include('shared.components.Card')
+            @endforeach
+        </div>
+        <h2>Ultimi annunci</h2>        
+        <div class="row apartment d-flex flex-wrap "> 
+            @foreach ($apartments as $apartment)
+                @include('shared.components.Card')
+            @endforeach
+        </div>
     </div>
+    @include('shared.components.Download')  
     {{-- Apartments pagination --}}
     <div class="d-flex justify-content-center">
         {{ $apartments->links() }}

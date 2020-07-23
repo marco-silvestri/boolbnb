@@ -1,0 +1,126 @@
+
+/****************** 
+  Footer
+******************/
+/****************** 
+  Header
+******************/ 
+.download-section{
+    .container-fluid{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    color: white;
+    width: 100%;
+    height: auto;
+    background-color: $blue;
+    .left-side{
+        margin: 30px auto;
+        height:auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2{
+            font-size: 35px;
+        }
+        p{
+            margin: 30px 0;
+            font-size: 18px;
+        }
+
+        .button-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                max-width: 200px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .right-side{
+        display: none;
+    }
+    
+}
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+
+  }
+  
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {   
+    
+  }
+  
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) { 
+    .download-section{
+        .container-fluid{
+            flex-direction: row;
+            justify-content: center;
+        }
+        .left-side,
+        .right-side{
+            
+            width: 40%;
+        }
+        .left-side{
+            h2{
+                max-width: 60%;
+            }
+            p{
+                max-width: 80%;
+            }
+    
+            .button-section{
+                flex-direction: row;
+                align-items: center;
+                img{
+                    margin-bottom: 0;
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .right-side{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            .iphone{
+                max-width: 300px;
+                transition: transform 0.8s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+            .samsung{
+                max-width: 180px;
+                transition: transform 0.4s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+  }
+  
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) { 
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -31,7 +31,7 @@
     </head>
 <body>
     <div id="app">
-        <nav @if (Request::route()->getName() != 'index') class="navbar navbar-expand-md navbar-light shadow-sm blue-bg" @else class = "navbar navbar-expand-md navbar-light shadow-sm"@endif>
+        <nav @if (Request::route()->getName() != 'index') class="navbar navbar-expand-md navbar-light blue-bg" @else class = "navbar navbar-expand-md navbar-light shadow-sm"@endif>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class ="img-fluid"src="{{asset('img/logo.png')}}" alt="">
