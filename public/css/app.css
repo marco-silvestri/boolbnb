@@ -12419,6 +12419,125 @@ main {
   Header
 ******************/
 
+.download-section {
+  color: white;
+  width: 100%;
+  height: auto;
+  background-color: #5DA2D5;
+}
+
+.download-section .container-fluid,
+.download-section .container-sm,
+.download-section .container-md,
+.download-section .container-lg,
+.download-section .container-xl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-section .left-side {
+  margin: 30px auto;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.download-section .left-side h2 {
+  font-size: 35px;
+}
+
+.download-section .left-side p {
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+.download-section .left-side .button-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-section .left-side .button-section img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.download-section .right-side {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .download-section .container-fluid,
+  .download-section .container-sm,
+  .download-section .container-md,
+  .download-section .container-lg,
+  .download-section .container-xl {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .download-section .left-side,
+  .download-section .right-side {
+    width: 40%;
+  }
+
+  .download-section .left-side h2 {
+    max-width: 60%;
+  }
+
+  .download-section .left-side p {
+    max-width: 80%;
+  }
+
+  .download-section .left-side .button-section {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .download-section .left-side .button-section img {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .download-section .right-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+  }
+
+  .download-section .right-side .iphone {
+    max-width: 300px;
+    transition: transform 0.8s;
+  }
+
+  .download-section .right-side .iphone:hover {
+    transform: scale(1.1);
+  }
+
+  .download-section .right-side .samsung {
+    max-width: 180px;
+    transition: transform 0.4s;
+  }
+
+  .download-section .right-side .samsung:hover {
+    transform: scale(1.1);
+  }
+}
+
+/****************** 
+  Footer
+******************/
+
+/****************** 
+  Header
+******************/
+
 footer {
   border: 2px solid #dfdfdf;
   min-height: 250px;

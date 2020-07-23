@@ -25,7 +25,8 @@
                 </form> 
             </div>
         </div>
-    </section>   
+    </section> 
+   
     <div class="mt-5 container card d-flex flex-column align-items-center">
         <h2>In vetrina</h2>
         <div class="row apartment d-flex flex-wrap">
@@ -40,6 +41,7 @@
             @endforeach
         </div>
     </div>
+    @include('shared.components.Download')  
     {{-- Apartments pagination --}}
     <div class="d-flex justify-content-center">
         {{ $apartments->links() }}
