@@ -25,21 +25,27 @@
                 </form> 
             </div>
         </div>
-    </section> 
-   
-    <div class="mt-5 container card d-flex flex-column align-items-center">
-        <h2>In vetrina</h2>
-        <div class="row apartment d-flex flex-wrap">
-            @foreach ($sponsoredApartments as $apartment)
-                @include('shared.components.Card')
-            @endforeach
+    <div class="container">
+    <section>
+        <div class="container-cards deals">
+            <h2>In vetrina</h2>
+            <div class="row apartment flex-wrap">
+                @foreach ($sponsoredApartments as $apartment)
+                    @include('shared.components.Card')
+                @endforeach
+            </div>
         </div>
-        <h2>Ultimi annunci</h2>        
-        <div class="row apartment d-flex flex-wrap "> 
-            @foreach ($apartments as $apartment)
-                @include('shared.components.Card')
-            @endforeach
+    </section>  
+    <section>
+        <div class="container-cards latest">
+            <h2>Ultimi annunci</h2>        
+            <div class="row"> 
+                @foreach ($apartments as $apartment)
+                    @include('shared.components.Card')
+                @endforeach
+            </div>
         </div>
+    </section>
     </div>
     @include('shared.components.Download')  
     {{-- Apartments pagination --}}
