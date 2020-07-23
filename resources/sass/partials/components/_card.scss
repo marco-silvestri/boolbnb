@@ -1,0 +1,13 @@
+.card-apt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    img{
+        width: 250px;
+        height: 150px;
+    }
+    .info-box{
+        text-align: right;
+    }
+}
