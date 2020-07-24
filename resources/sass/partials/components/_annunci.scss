@@ -1,0 +1,398 @@
+/****************** 
+  Annunci
+******************/
+
+.annunci {
+    margin: 55px 0;
+
+    h2 {
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .card-apt {
+        height: 500px;
+        margin: 10px 0;
+        padding: 15px 35px;
+        
+        .apt {
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+            /* border: 1px solid black; */
+            border-radius: 7px;
+            overflow: hidden;
+            height: 500px;
+            
+            .img {
+                position: relative;
+
+                img{
+                    width: 100%;
+                    height: 270px;
+                }
+    
+                a {
+                    font-size: 20px;
+                    border: none;
+                    border-radius: 0 5px 0 0;
+                    background-color: $yellow;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    padding: 10px 20px;
+                }
+            }
+    
+            
+
+            .info {
+                @include flex-row-or-column(row);
+                width: 100%;
+                height: 100%;
+                padding: 5px 5px 20px 5px;
+
+                .info-box {
+                    width: 60%;
+                    overflow: hidden;
+    
+                    h3 {
+                        color: $blue;
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+    
+                    p {
+                        width: 90%;
+                        height: 100%;
+                        font-size: 18px;
+                    }
+                }
+    
+                .info-options {
+                    width: 40%;
+                    @include flex-row-or-column(column);
+
+                    h5 {
+                        font-weight: bold;
+                        color: $blue;
+                    }
+                    
+                    div {
+                        text-align: left;
+
+                        i {
+                            color:$blue;
+                            font-size: 17px;
+                            width: 22px;
+                        }
+
+                        span {
+                            padding-left: 2px;
+                            font-size: 17px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) { 
+   
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .annunci {
+        margin: 55px 0;
+    
+        h2 {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    
+        .card-apt {
+            height: 500px;
+            margin: 10px 0;
+            padding: 15px 35px;
+            
+            .apt {
+                display: flex;
+                flex-direction: column;
+                border-radius: 7px;
+                overflow: hidden;
+                height: 500px;
+                position: relative;
+
+                .info {
+                    @include flex-row-or-column(row);
+                    width: 100%;
+                    height: 100%;
+                    padding: 15px 15px 20px 15px;
+    
+                    .info-box {
+                        width: 65%;
+                        overflow: hidden;
+        
+                        h3 {
+                         
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 90%;
+                            height: 100%;
+                            font-size: 20px;
+                        }
+                    }
+        
+                    .info-options {
+                        width: 35%;
+                        @include flex-row-or-column(column);
+                        
+                        div {
+                            text-align: left;
+    
+                            i {
+                                font-size: 21px;
+                                width: 22px;
+                            }
+    
+                            span {
+                                padding-left: 10px;
+                                font-size: 21px;
+                            }
+                        }
+    
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+    .annunci {
+        margin: 55px 0;
+    
+        h2 {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    
+        .card-apt {
+            height: 500px;
+            margin: 10px 0;
+            padding: 5px 5px;
+            
+            .apt {
+                display: flex;
+                flex-direction: column;
+                border-radius: 7px;
+                overflow: hidden;
+                height: 500px;
+                position: relative;
+
+                .img {
+                    position: relative;
+                    height: 45%;
+                    overflow: hidden;
+    
+                    img{
+                        width: 100%;
+                        height: 230px;
+                    }
+        
+                    a {
+                        font-size: 20px;
+                        border: none;
+                        border-radius: 0 5px 0 0;
+                        background-color: $yellow;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        padding: 10px 20px;
+                    }
+                }
+
+                .info {
+                    @include flex-row-or-column(column);
+                    width: 100%;
+                    height: 55%;
+                    padding: 5px 10px;
+                    
+    
+                    .info-box {
+                        width: 100%;
+                        height: 60%;
+                        overflow: hidden;
+                    
+        
+                        h3 {
+                         
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 90%;
+                            height: 100%;
+                            font-size: 17px;
+                        }
+                    }
+        
+                    .info-options {
+                        width: 100%;
+                        @include flex-row-or-column-wrap(row,wrap);
+                        height: 40%;
+                        padding-top: 7px;
+
+                        h5 {
+                            width: 100%;
+                        }
+                        
+                        div {
+                            display:flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            padding: 0px 0px 5px 0px;
+                            width: calc(100% / 3);
+                           
+                            i {
+                                font-size: 17px;
+                                width: 30px;
+                                padding-right: 8px;
+                            }
+    
+                            span {         
+                                padding-left: 0;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+    .annunci {
+        margin: 55px 0;
+    
+        h2 {
+            
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    
+        .card-apt {
+            height: 520px;
+            margin: 10px 0;
+            padding: 15px 15px;
+            
+            .apt {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid rgb(243, 243, 243);
+                border-radius: 7px;
+                overflow: hidden;
+                height: 500px;
+                position: relative;
+
+                .img {
+                    position: relative;
+                    height: 50%;
+                    overflow: hidden;
+    
+                    img{
+                        width: 100%;
+                        height: 340px;
+                        transform: translateY(-50px);
+                    }
+        
+                    a {
+                        font-size: 20px;
+                        border: none;
+                        border-radius: 0 5px 0 0;
+                        background-color: $yellow;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        padding: 10px 20px;
+                    }
+                }
+
+                .info {
+                    @include flex-row-or-column(column);
+                    width: 100%;
+                    height: 50%;
+                    padding: 10px 15px;
+                    
+    
+                    .info-box {
+                        width: 100%;
+                        height: 55%;
+                        overflow: hidden;
+                    
+        
+                        h3 {
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 90%;
+                            height: 100%;
+                            font-size: 17px;
+                        }
+                    }
+        
+                    .info-options {
+                        width: 100%;
+                        @include flex-row-or-column-wrap(row,wrap);
+                        height: 45%;
+                        padding-top: 15px;
+
+                        h5 {
+                            margin-bottom: 10px;
+                        }
+                        
+                        div {
+                            display:flex;
+                            justify-content: flex-start;
+                            padding: 0px 0px 5px 0px;
+                            width: calc(100% / 3);
+
+                            i {
+                                font-size: 23px;
+                                width: 30px;
+                                padding-right: 8px;
+                            }
+    
+                            span {
+                                padding-left: 0;
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+.titlem{
+    width: 100%;
+    color: $blue;
+    text-align: center;
+    font-size:50px;
+    margin: 50px auto 30px auto;
+}
+.discover{
+    background-color: $blue;
+    margin:40px 0;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    .discover-left{
+        height: 35%;
+        width: 100%;
+        position:relative;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .discover-right{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .my-carousel{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size:30px;
+            width: 80%;
+            background-color: $white;
+            margin-top: 20px;
+        }
+        h2{
+            text-align: center;
+            color: $blue;
+        }
+        i{
+            color: $blue;
+        }
+        p{
+            margin:20px;
+            max-width: 85%;
+            font-size: 20px;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.discover-none{
+    display: none;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .discover{
+        margin:40px 0;
+        width: 100%;
+        height: 850px;
+        display: flex;
+        flex-direction: column;
+        .discover-left{
+            height: 60%;
+        }
+        .discover-right{
+            height: 40%;
+            .my-carousel{
+                h2{
+                    font-size: 40px;
+                }
+            }
+            p{
+                font-size: 25px;
+            }
+        }
+    }
+    
+ }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+   
+}
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    .titlem{
+        font-size: 70px;
+        text-align: left;
+    }
+    .discover{
+        height: 500px;
+        flex-direction: row;
+        .discover-left{
+            height: 100%;
+            width: 50%;
+            position:relative;
+            img{
+                border-radius: 0;
+                margin: 0;
+            }
+        }
+        .discover-right{
+            height: 100%;
+            width: 50%;
+            justify-content:center;
+            .my-carousel{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                font-size:30px;
+                width: 80%;
+                margin-top: 60px;
+            }
+            h2{
+                text-align: center;
+                
+            }
+            p{
+                max-width: 50%;
+            }
+        }
+    }
+}

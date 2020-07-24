@@ -1,0 +1,438 @@
+/****************** 
+  Vetrina
+******************/
+.vetrina {
+    margin: 55px 0;
+
+    h2 {
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .card-apt {
+        height: 200px;
+        margin: 10px 0;
+        
+        .apt {
+            border: 1px solid rgb(243, 243, 243);
+            box-shadow: 0 2px 7px 0 rgba(0,0,0,.20);
+            border-radius: 7px;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+
+            .img {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                position: relative;
+
+                img{
+                    position: absolute;
+                    width: 300px;
+                    height: 200px;
+                }
+    
+                a {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+    
+            
+
+            .info {
+                width: 50%;
+                
+                .info-box{
+                    width: 100%;
+                    height: 100%;
+                    padding: 10px ;
+                    overflow: hidden;
+    
+                    h3 {
+                        color: #4A4A4A;
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+    
+                    p {
+                        width: 100%;
+                        height: 80%;
+                        font-size: 15px;
+                    }
+                }
+    
+                .info-options {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .card-apt:nth-child(even){
+        
+        .apt {
+            border: 1px solid rgb(243, 243, 243);
+            box-shadow: 0 2px 7px 0 rgba(0,0,0,.20);
+            border-radius: 7px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            overflow: hidden;
+            height: 190px;
+            position: relative;
+
+            .img {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                position: relative;
+
+                img{
+                    position: absolute;
+                    width: 300px;
+                    height: 200px;
+                }
+    
+                a {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+
+            .info {
+                width: 50%;
+                
+                .info-box{
+                    width: 100%;
+                    height: 100%;
+                    padding: 10px ;
+                    overflow: hidden;
+    
+                    h3 {
+                        color: #4A4A4A;
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+    
+                    p {
+                        width: 100%;
+                        height: 80%;
+                        font-size: 15px;
+                    }
+                }
+    
+                .info-options {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) { 
+   
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .vetrina {
+        margin: 55px 0;
+    
+        h2 {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    
+        .card-apt {
+            height: 250px;
+            margin: 10px 0;
+            padding: 0 15px ;
+            
+            .apt {
+                border: 1px solid rgb(243, 243, 243);
+                box-shadow: 0 2px 7px 0 rgba(0,0,0,.20);
+                border-radius: 7px;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                height: 250px;
+                position: relative;
+
+                .img {
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+                    position: relative;
+
+                    img{
+                        position: absolute;
+                        width: 350px;
+                        height: 250px;
+                    }
+        
+                    a {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                .info {
+                    .info-box {
+                        padding: 10px 0 0 20px ;
+                        overflow: hidden;
+        
+                        h3 {
+                            color: #4A4A4A;
+                            font-size: 25px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 235px;
+                            height: 80%;
+                            font-size: 20px;
+                        }
+        
+                    }
+                }  
+            }
+        }
+    
+        .card-apt:nth-child(even){
+            
+            .apt {
+                border: 1px solid rgb(243, 243, 243);
+                box-shadow: 0 2px 7px 0 rgba(0,0,0,.20);
+                border-radius: 7px;
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                overflow: hidden;
+                height: 250px;
+                position: relative;
+
+                .img {
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+                    position: relative;
+    
+                    img{
+                        position: absolute;
+                        width: 365px;
+                        height: 250px;
+                    }
+        
+                    a {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                .info {
+                    width: 50%;
+                    .info-box {
+                        padding: 10px 0 0 55px ;
+                        overflow: hidden;
+        
+                        h3 {
+                            color: #4A4A4A;
+                            font-size: 25px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            font-size: 20px;
+                            width: 235px;
+                            height: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }  
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+    .vetrina {
+        margin: 55px 0;
+    
+        h2 {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    
+        .card-apt {
+            height: 200px;
+            margin: 10px 0;
+            padding: 0 10px;
+            
+            .apt {
+                border: 1px solid rgb(243, 243, 243);
+                box-shadow: 0 2px 7px 0 rgba(0,0,0,.20);
+                border-radius: 7px;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+                height: 200px;
+                position: relative;
+
+                .img {
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+                    position: relative;
+
+                    img{
+                        position: absolute;
+                        width: 300px;
+                        height: 200px;
+                    }
+        
+                    a {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                .info {
+                    
+                    width: 50%;
+
+                    .info-box {
+                        padding: 8px;
+                        overflow: hidden;
+        
+                        h3 {
+                            color: #4A4A4A;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 100%;
+                            height: 80%;
+                            font-size: 14px;
+                        }
+        
+                    }
+                }  
+            }
+        }
+    
+        .card-apt:nth-child(even){
+            
+            .apt {
+                border: 1px solid rgb(243, 243, 243);
+                box-shadow: 0 2px 7px 0 rgba(0,0,0,.20);
+                border-radius: 7px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                overflow: hidden;
+                height: 200px;
+                position: relative;
+
+                .img {
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+                    position: relative;
+    
+                    img{
+                        position: absolute;
+                        width: 300px;
+                        height: 200px;
+                    }
+        
+                    a {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                .info {
+
+                    width: 50%;
+
+                    .info-box {
+                        padding: 8px;
+                        overflow: hidden;
+        
+                        h3 {
+                            color: #4A4A4A;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            font-size: 14px;
+                            width: 100%;
+                            height: 80%;
+                        }
+        
+                    }
+                }  
+            }
+        }
+    }  
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+    .vetrina {
+        .card-apt { 
+            .apt {
+                .info {
+                    .info-box {
+                        h3 {
+                            color: #4A4A4A;
+                            font-size: 19px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 100%;
+                            height: 80%;
+                            font-size: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .card-apt:nth-child(even){
+            .apt {
+                .info {
+                    .info-box {
+                    
+                        h3 {
+                            color: #4A4A4A;
+                            font-size: 19px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            font-size: 17px;
+                            width: 100%;
+                            height: 80%;
+                        }
+                    }
+                }    
+            }
+        }
+    } 
+}

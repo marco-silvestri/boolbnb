@@ -3,17 +3,22 @@
 ******************/
 
 .create {
-
     @include flex-center-center(column, center,center);
-    /* -webkit-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
-    -moz-box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
-    box-shadow: -1px 0px 11px 0px rgba(0,0,0,0.55);
-    border: 1px solid transparent; */
     border-radius: 8px;
     padding: 30px 20px;
 
+    h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color: $blue;
+        margin-bottom: 15px;
+    }
     form {
         width: 100%;
+
+        .ap-footer {
+            display: none;
+        }
 
         > div {
             margin: 20px 0;
@@ -84,6 +89,15 @@
                 }
             }
         }
+
+        .submit{
+            @include flex-center-center(row,center,center);
+            width: 100%;
+
+            input {
+                background-color: $blue;
+            }
+        }
     }
 }
 
@@ -102,6 +116,10 @@
 @media (min-width: 992px) { 
 
     .create {
+
+        h1 {
+            margin-bottom: 25px;
+        }
 
         form {
             

@@ -10,6 +10,10 @@
         font-size: 25px;   
     }
 
+    .ap-footer {
+        display: none;
+    }
+
     .services {
         @include flex-row-or-column(column);
         margin-bottom: 20px;
@@ -94,8 +98,14 @@
     }
     
     .button {
-        width: 100%;
         @include flex-center-center(row,center,center);
+        width: 100%;
+        margin-bottom: 20px;
+
+        input {
+            background-color: $blue;
+            color: $white;
+        }
     }
 }
 
