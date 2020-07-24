@@ -101,7 +101,11 @@
                 </div>
     
             </div>
-            <input class ="btn btn-primary" type="submit" value="Crea Appartamento">
+
+            <div class="submit">
+                <input class ="btn btn-primary" type="submit" value="Crea Appartamento">
+            </div>
+            
         </form>
     </div>
 </div>

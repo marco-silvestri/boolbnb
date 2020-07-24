@@ -1,104 +1,138 @@
 /****************** 
   DashBoard
 ******************/
-.box {
-    width: 100%;
-    height: 700px;
-    border: 1px solid rgb(161, 161, 161); 
-    margin-bottom: 50px;
-    border-radius: 7px; 
-    padding: 20px;
-    @include flex-row-or-column(column);
 
-    .img {
-        width: 100%;
+.dashboard {
+    .paginate {
+        margin-bottom: 20px ;
+    
         
-        img {
-            width: 100%;
+        .active {
+            .page-link {
+                background-color: $blue;
+                border: 1px solid $blue;
+            }
         }
+                
+        
+    
     }
-
-    .box-info {
-        @include full-width-height;
-        
-        .info {
-            height: 80%;
-            @include flex-row-or-column(column);
-
-            .details {
-                width: 100%;
-                height: 70%;
-                padding-top: 15px;
-
-                span {
-                    display: block;
-                    font-size: 25px;
-                    font-weight: 600;
-                }
-            }
-
-            .visibility-sponsor {
-                @include flex-center-center(row, space-around,center);
-                width: 100%;
-                height: 30%;
-
-                div {
-                    @include flex-center-center(row, center,center);
-                    width: 100%;
-                    margin: 15px 0;
-
-                    img {
-                        margin: 5px;
-                    }
-                }
-            }
+    
+    .box {
+        width: 100%;
+        min-height: 500px;
+        &:not(:last-child) {
+            border-bottom: 2px solid $lightblue;
         }
-
-        .link {
+        
+        
+        margin-bottom: 50px;
+        padding: 20px;
+        @include flex-center-center(column, center,center);
+    
+        .img {
+            width: 100%;
             @include flex-center-center(row, center,center);
-            height: 20%;
-
-            // a,
-            // input {
-            //     width: 90px;
+            img {
+                width: 70%;
+            }
+        
+        }
+    
+        .box-info {
+            @include full-width-height;
+            text-align: center;
+            
+            .info {
                 
-            // }
-            a.button {
-                
-                display: inline-block;
-                background-color: black;
-                width: 50px;
-                height: 50px;
-                border: orange solid 1px;
-                border-radius: 50%;
-                position: relative;
-                transition: background-color .4s linear, border-color .4s linear;
-                &:hover {
-                    background-color: white;
-                    border: green solid 2px;
-                    i {
-                        color: black;
+                @include flex-center-center(column, center,center);
+    
+                .details {
+                    width: 100%;
+                    min-height: 60px;
+                    margin-bottom: 20px;
+                    
+                    padding-top: 15px;
+    
+                    span {
+                        display: block;
+                        font-size: 25px;
+                        font-weight: 600;
+                        &:last-child {
+                            font-size: 18px;
+                            font-style: italic;
+                            font-weight: 300;
+                        }
                     }
                 }
-
-                i {
-                    color: white;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    transition: color .4s linear;
-                    
-                    
+                
+    
+                .visibility-sponsor {
+                    display: flex;
+                    width: 50%;
+                    min-height: 40px;
+                    margin-bottom: 30px;
+    
+                    div {
+                        @include flex-center-center(row, center,center);
+                        width: 100%;
+                      
+                        i {
+                            font-size: 30px;
+                            color: $yellow;
+                            
+                        }
+                        i.novisible {
+                            color: lightgrey;
+                            opacity: 0.9;
+                        }
+                    }
+                }
+                .date {
+                    margin-bottom: 20px;
+                    @include flex-center-center(column, center,center)
+    
                 }
             }
-
-            a:nth-child(2) {
-                margin: 0 20px;
+    
+            .link {
+                @include flex-center-center(row, center,center);
+                margin-bottom: 20px;
+                a {
+                    text-decoration: none;
+                }
+                a.button {
+                    @include flex-center-center(row, center,center);
+                    margin-right: 10px;
+                    background-color: white;
+                    width: 50px;
+                    height: 50px;
+                    border: 1px solid $lightblue;
+                    border-radius: 50%;
+                    position: relative;
+                    transition: background-color .4s linear, border-color .4s linear;
+                    &:hover {
+                        background-color:$lightblue;
+                        border: 1px solid $yellow;
+                        i {
+                            color: white;
+                        }
+                    }
+                   
+    
+                    i {
+                        color: $lightblue;
+                        transition: color .4s linear;
+                    }
+                }
+                a.buttontext {
+                    display: none;
+                }
             }
         }
     }
 }
+
 
 
 // Small devices (landscape phones, 576px and up)
@@ -108,110 +142,127 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
-    .box {
-        height: 750px;
 
-        .box-info {
-            
-            .info {
-                @include flex-row-or-column(row);
-    
-                .visibility-sponsor {
-                    @include flex-center-center(column, center,center);
-                    width: 30%;
-                    height: 100%;
-    
-                    div {
-                        @include flex-center-center(row, flex-start,flex-start);
-                        width: 100%;
-                        margin: 15px 0;
-    
-                        img {
-                            margin: 5px;
-                        }
-                    }
+    .dashboard {
+        .box {
+            .img {
+                img {
+                    width: 55%;
                 }
             }
+            
     
-            .link {
-                @include flex-center-center(row, center,center);
-                height: 20%;
-    
-                a,
-                input {
-                    width: 90px;
-                  
-                }
-    
-                a:nth-child(2) {
-                    margin: 0 20px;
+            .box-info {
+                margin-top: 30px;
+                
+                .info {
+                    @include flex-row-or-column(row);
+                    margin-bottom: 20px;
+                    .details {
+                        flex-basis: 33%;
+                    }
+        
+                    .visibility-sponsor {
+                        @include flex-center-center(row, center,center);
+                        width: 33%;
+                        margin: 0;
+                       
+                    }
+                    .date {
+                        flex-basis: 33%;
+                        margin-bottom: 50px;
+                    }
                 }
             }
         }
     }
+    
   
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
-    .box {
-        height: 300px;
-        @include flex-row-or-column(row);
-    
-        .img {
-            width: 50%;
-            height: 100%;
-            
-            img {
-                height: 100%;
-                border-radius: 10px;
-            }
-        }
-    
-        .box-info {
-            width: 100%;
-            
-            .info {
-                height: 80%;
-                padding: 10px 20px;
-                @include flex-row-or-column(row);
-    
-                .details {
-                    width: 70%;
-                    height: 100%;
-    
-                    span {
-                        margin-left: 30px;
-                        display: block;
-                        font-size: 20px;
-                        font-weight: 600;
-                    }
+    .dashboard {
+        .box {
+            min-height: 200px;
+            @include flex-center-center(row, center,center);
+        
+            .img {
+                flex-basis: 30%;
+                
+                img {
+                    width: 100%;
+                    
                 }
-    
-                .visibility-sponsor {
-                    @include flex-row-or-column(column);
-                    justify-content: flex-start;
-                    width: 30%;
-    
-                    div {
-                        width: 100%;
-                        @include flex-center-center(row, flex-start,flex-start);
-    
-                        img {
-                            margin: 5px 15px;
+            }
+        
+            .box-info {
+                flex-basis: 70%;
+                
+                .info {
+                    
+                    // padding: 10px 20px;
+                    @include flex-row-or-column(row);
+        
+                    .details {
+                        flex-basis: 30%;
+        
+                        span {
+                            margin-left: 30px;
+                            display: block;
+                            font-size: 20px;
+                            font-weight: 600;
                         }
                     }
+        
+                    .visibility-sponsor {
+                        @include flex-row-or-column(row);
+                        justify-content: flex-start;
+                        flex-basis: 30%;
+                        padding: 30px;
+                        div {
+                            display: inline-block;
+                        } 
+                        
+        
+                       
+                    }
+                    .date {
+                        flex-basis: 40%;
+                    }
                 }
-            }
+        
+                .link {
+                    @include flex-center-center(row, center,center);
+                    min-width: 530px;
+                    a.button {
+                        display: none;
+                    }
+                    a.buttontext {
+                        @include flex-center-center(row, center,center);
+                        margin-right: 30px;
+                        padding: 5px 10px;
+                        width: auto;
+                        min-height: 30px;
+                        background-color: white;
+                        color: $lightblue;
+                        border: 1px solid $lightblue;
+                        transition: background-color .4s linear, border-color .4s linear;
     
-            .link {
-                @include flex-center-center(row, center,center);
-                a:nth-child(2) {
-                    margin: 0 20px;
+                        &:hover {
+                            background-color:$lightblue;
+                            border: 1px solid $yellow;
+                            span {
+                                color: white;
+                            }
+                        }
+                    }
+                   
                 }
             }
         }
     }
+    
  
 }
 

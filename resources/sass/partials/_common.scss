@@ -2,7 +2,6 @@
   Common Style
 ******************/
 
-
 //Mixins
 
 @mixin typography{
@@ -81,26 +80,6 @@
   background:#30488f;
 }
 
-@mixin after-before($none: none, $value: 0){
-  content: '';
-  position: absolute;
-  top: $none;
-  bottom: $value;
-}
-
-@mixin setting-p($align: center, $max-width: 500px, $top-bottom:20px, $r-f: 0,$font-size: 17px) {
-  text-align: $align;
-  max-width: $max-width;
-  margin: $top-bottom $r-f;
-  font-size: $font-size;
-}
-
-@mixin setting-a($margin-bottom: 40px, $font-size: 17px, $color: $blue) {
-  margin-bottom: $margin-bottom;
-  font-size: $font-size;
-  color:$color;
-}
-
 @mixin full-width-height {
   width: 100%;
   height: 100%;
@@ -131,7 +110,7 @@ main {
 /* width */
 ::-webkit-scrollbar {
   background-color: transparent;
-  width:6px;
+  width:8px;
 }
 
 /* background of the scrollbar except button or resizer */
