@@ -46,5 +46,22 @@ class ApartmentController extends Controller
         $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
         return view('pages.search', compact('apartments', 'latLong', 'options'));
     }
+
+    public function searchCity(Request $request){
+        
+        //Invoke helper geoCode
+        $latLong = geoCode('plZON97PJS4T', 
+        '485e6334a610b0b3d89ac65d5c4ca0a4', 
+        $request['cityName']);
+
+        dd($latLong);
+
+        $cityName = $request['cityName'];
+
+        //Invoke helper geoSearch
+        $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
+        return view('pages.city', compact('apartments', 'cityName'));
+    }
+
 }
 
