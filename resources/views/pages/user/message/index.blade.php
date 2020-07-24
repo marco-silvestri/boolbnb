@@ -4,9 +4,9 @@
 <div class="container text-center"> 
     @if($totalMex > 0)
     
-    <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} Messaggi non letti:</h1>
+    <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
     <div class="container">
-        <table class="table">
+        {{-- <table class="table">
             <thead>
                 <tr class="text-primary">
                     <th>Mittente:</th>
@@ -29,7 +29,35 @@
                     @endforeach
                 @endforeach
             </tbody>
-        </table>
+        </table> --}}
+        <div class="message">
+            @foreach ($messageForApartment as $message)
+            @foreach ($message as $item)
+                <div class="messagecard">
+                    <div class="sender">
+                        <h6>Mittente:</h6>
+                        <span>{{ $item->email }}</span>
+                    </div>
+                    <div class="messageapartment">
+                        <h6>Appartamento:</h6>
+                        <span>{{ $item->apartment->name }}</span>
+                    </div>
+                    <div class="messagetitle">
+                        <h6>Oggetto:</h6>
+                        <span>{{ $item['title'] }}</span>
+                    </div>
+                    <div class="messagebody">
+                        <h6>Contenuto:</h6>
+                        <span>{{ $item['body'] }}</span>
+                    </div>
+                    <div class="creationdate">
+                        <em>Ricevuto {{ $item['created_at']->diffForHumans()}}</em>
+                    </div>
+                </div>
+            @endforeach
+        @endforeach
+        </div>
+        
     </div>
     @elseif($feedBack==2 && $totalMex == 0)
         <h1 class="mb-5">Ciao {{ $user_name }}, non hai nessun messaggio</h1>
