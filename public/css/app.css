@@ -12316,23 +12316,48 @@ main {
   Message
 ******************/
 
-.message {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.messagecard {
+  border: 1px solid #90CCF4;
+  margin-bottom: 20px;
+  padding: 25px;
+  position: relative;
+  height: 500px;
+  min-width: 300px;
 }
 
-.message h1,
-.message h2 {
-  display: block;
-  width: 100%;
+.messagecard h6 {
+  color: #90CCF4;
+  font-weight: bold;
+  margin-bottom: 7px;
 }
 
-.message .message-card {
-  width: 45%;
-  border: 1px solid black;
+.messagecard span {
+  font-size: 12;
+}
+
+.messagecard div {
+  margin-bottom: 15px;
+}
+
+.messagecard .creationdate {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  font-size: 13px;
+  margin: 20px;
+}
+
+@media (min-width: 768px) {
+  .message {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .message .messagecard {
+    flex-basis: 45%;
+    margin-right: 5%;
+  }
 }
 
 /****************** 

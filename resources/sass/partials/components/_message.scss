@@ -2,25 +2,57 @@
   Message
 ******************/
 
-.message {
 
+.messagecard {
+    border: 1px solid $lightblue;
+    margin-bottom: 20px;
+    padding: 25px;
+    position: relative;
+    height: 500px;
+    min-width: 300px;
+    
+    h6 {
+        color: $lightblue;
+        font-weight: bold;
+        margin-bottom: 7px;
+    }
+    span {
+        font-size: 12;
+    }
+    div {
+        margin-bottom: 15px;
+    }
+    .creationdate {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 120px;
+        font-size: 13px;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 576px) { 
+  
+}
+
+@media (min-width: 768px) { 
+  .message {
+      display: flex;
+      flex-wrap: wrap;
+      .messagecard {
+          flex-basis: 45%;
+          margin-right: 5%;
+      }
+  }
+}
+
+@media (min-width: 992px) { 
+   
+       
+}
+
+@media (min-width: 1200px) { 
 
     
-
-    h1,h2 {
-        display: block;
-        width: 100%;
-    }
-    text-align: center;
-    @include flex-row-or-column-wrap(row, wrap);
-    justify-content: space-around;
-
-    .message-card {
-        width: 45%;
-        border: 1px solid black;
-    }
-
-
-    
-
 }
