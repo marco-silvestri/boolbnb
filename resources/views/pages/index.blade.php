@@ -56,11 +56,5 @@
         </section>
         
         @include('shared.components.Discover')
-        {{-- Apartments pagination --}}
-        <div class="d-flex justify-content-center">
-            {{ $apartments->links() }}
-        </div>
-    </div>
-
-    
+    </div>    
 @endsection
