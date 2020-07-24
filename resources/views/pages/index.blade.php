@@ -40,18 +40,21 @@
                     @endforeach
                 </div>
             </div>
+            
         </section>
     
         @include('shared.components.Download')  
-    
-        <div class="container">
-            <h2>Ultimi annunci</h2>        
-            <div class="row apartment d-flex flex-wrap "> 
-                @foreach ($apartments as $apartment)
-                    @include('shared.components.Card')
-                @endforeach
+        <section class="annunci">
+            <div class="container">
+                <h2>Ultimi annunci</h2>        
+                <div class="row apartment d-flex flex-wrap "> 
+                    @foreach ($apartments as $apartment)
+                        @include('shared.components.Card')
+                    @endforeach
+                </div>
             </div>
-        </div>
+        </section>
+        
        
         {{-- Apartments pagination --}}
         <div class="d-flex justify-content-center">
