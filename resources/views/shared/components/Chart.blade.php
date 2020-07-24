@@ -1,5 +1,5 @@
 <h1 class="text-center text-5xl font-bold">Apartment Statistics</h1>
-		<div class="flex justify-center ">
+		<div class="display-flex flex-direction-column">
             <div class="w1/2 pt-8">
                 {!! $statisticChart->container() !!}  
                
