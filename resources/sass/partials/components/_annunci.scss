@@ -52,10 +52,10 @@
                 @include flex-row-or-column(row);
                 width: 100%;
                 height: 100%;
-                padding: 10px 15px 20px 15px;
+                padding: 5px 5px 20px 5px;
 
                 .info-box {
-                    width: 65%;
+                    width: 60%;
                     overflow: hidden;
     
                     h3 {
@@ -67,12 +67,12 @@
                     p {
                         width: 90%;
                         height: 100%;
-                        font-size: 20px;
+                        font-size: 18px;
                     }
                 }
     
                 .info-options {
-                    width: 35%;
+                    width: 40%;
                     @include flex-row-or-column(column);
 
                     h5 {
@@ -85,13 +85,13 @@
 
                         i {
                             color:$blue;
-                            font-size: 21px;
+                            font-size: 17px;
                             width: 22px;
                         }
 
                         span {
-                            padding-left: 10px;
-                            font-size: 21px;
+                            padding-left: 2px;
+                            font-size: 17px;
                         }
                     }
 

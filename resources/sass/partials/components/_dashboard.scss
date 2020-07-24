@@ -3,98 +3,113 @@
 ******************/
 .box {
     width: 100%;
-    height: 700px;
-    border: 1px solid rgb(161, 161, 161); 
+    min-height: 500px;
+    &:not(:last-child) {
+        border-bottom: 2px solid $lightblue;
+    }
+    
+    
     margin-bottom: 50px;
-    border-radius: 7px; 
     padding: 20px;
-    @include flex-row-or-column(column);
+    @include flex-center-center(column, center,center);
 
     .img {
         width: 100%;
-        
+        @include flex-center-center(row, center,center);
         img {
-            width: 100%;
+            width: 70%;
         }
+    
     }
 
     .box-info {
         @include full-width-height;
+        text-align: center;
         
         .info {
-            height: 80%;
-            @include flex-row-or-column(column);
+            
+            @include flex-center-center(column, center,center);
 
             .details {
                 width: 100%;
-                height: 70%;
+                min-height: 60px;
+                margin-bottom: 20px;
+                
                 padding-top: 15px;
 
                 span {
                     display: block;
                     font-size: 25px;
                     font-weight: 600;
+                    &:last-child {
+                        font-size: 18px;
+                        font-style: italic;
+                        font-weight: 300;
+                    }
                 }
             }
+            
 
             .visibility-sponsor {
-                @include flex-center-center(row, space-around,center);
-                width: 100%;
-                height: 30%;
+                display: flex;
+                width: 50%;
+                min-height: 40px;
+                margin-bottom: 30px;
 
                 div {
                     @include flex-center-center(row, center,center);
                     width: 100%;
-                    margin: 15px 0;
-
-                    img {
-                        margin: 5px;
+                  
+                    i {
+                        font-size: 30px;
+                        color: $yellow;
+                        
+                    }
+                    i.novisible {
+                        color: lightgrey;
+                        opacity: 0.9;
                     }
                 }
+            }
+            .date {
+                margin-bottom: 20px;
+                @include flex-center-center(column, center,center)
+
             }
         }
 
         .link {
             @include flex-center-center(row, center,center);
-            height: 20%;
-
-            // a,
-            // input {
-            //     width: 90px;
-                
-            // }
+            margin-bottom: 20px;
+            a {
+                text-decoration: none;
+            }
             a.button {
-                
-                display: inline-block;
-                background-color: black;
+                @include flex-center-center(row, center,center);
+                margin-right: 10px;
+                background-color: white;
                 width: 50px;
                 height: 50px;
-                border: orange solid 1px;
+                border: 1px solid $lightblue;
                 border-radius: 50%;
                 position: relative;
                 transition: background-color .4s linear, border-color .4s linear;
                 &:hover {
-                    background-color: white;
-                    border: green solid 2px;
+                    background-color:$lightblue;
+                    border: 1px solid $yellow;
                     i {
-                        color: black;
+                        color: white;
                     }
                 }
+               
 
                 i {
-                    color: white;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
+                    color: $lightblue;
                     transition: color .4s linear;
-                    
-                    
                 }
             }
-
-            a:nth-child(2) {
-                margin: 0 20px;
+            a.buttontext {
+                display: none;
             }
         }
     }
@@ -109,42 +124,32 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
     .box {
-        height: 750px;
+        .img {
+            img {
+                width: 55%;
+            }
+        }
+        
 
         .box-info {
+            margin-top: 30px;
             
             .info {
                 @include flex-row-or-column(row);
+                margin-bottom: 20px;
+                .details {
+                    flex-basis: 33%;
+                }
     
                 .visibility-sponsor {
-                    @include flex-center-center(column, center,center);
-                    width: 30%;
-                    height: 100%;
-    
-                    div {
-                        @include flex-center-center(row, flex-start,flex-start);
-                        width: 100%;
-                        margin: 15px 0;
-    
-                        img {
-                            margin: 5px;
-                        }
-                    }
+                    @include flex-center-center(row, center,center);
+                    width: 33%;
+                    margin: 0;
+                   
                 }
-            }
-    
-            .link {
-                @include flex-center-center(row, center,center);
-                height: 20%;
-    
-                a,
-                input {
-                    width: 90px;
-                  
-                }
-    
-                a:nth-child(2) {
-                    margin: 0 20px;
+                .date {
+                    flex-basis: 33%;
+                    margin-bottom: 50px;
                 }
             }
         }
@@ -155,30 +160,28 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
     .box {
-        height: 300px;
-        @include flex-row-or-column(row);
+        min-height: 200px;
+        @include flex-center-center(row, center,center);
     
         .img {
-            width: 50%;
-            height: 100%;
+            flex-basis: 30%;
             
             img {
-                height: 100%;
-                border-radius: 10px;
+                width: 100%;
+                
             }
         }
     
         .box-info {
-            width: 100%;
+            flex-basis: 70%;
             
             .info {
-                height: 80%;
-                padding: 10px 20px;
+                
+                // padding: 10px 20px;
                 @include flex-row-or-column(row);
     
                 .details {
-                    width: 70%;
-                    height: 100%;
+                    flex-basis: 30%;
     
                     span {
                         margin-left: 30px;
@@ -189,26 +192,48 @@
                 }
     
                 .visibility-sponsor {
-                    @include flex-row-or-column(column);
+                    @include flex-row-or-column(row);
                     justify-content: flex-start;
-                    width: 30%;
-    
+                    flex-basis: 30%;
+                    padding: 30px;
                     div {
-                        width: 100%;
-                        @include flex-center-center(row, flex-start,flex-start);
+                        display: inline-block;
+                    } 
+                    
     
-                        img {
-                            margin: 5px 15px;
-                        }
-                    }
+                   
+                }
+                .date {
+                    flex-basis: 40%;
                 }
             }
     
             .link {
                 @include flex-center-center(row, center,center);
-                a:nth-child(2) {
-                    margin: 0 20px;
+                min-width: 530px;
+                a.button {
+                    display: none;
                 }
+                a.buttontext {
+                    @include flex-center-center(row, center,center);
+                    margin-right: 30px;
+                    padding: 5px 10px;
+                    width: auto;
+                    min-height: 30px;
+                    background-color: white;
+                    color: $lightblue;
+                    border: 1px solid $lightblue;
+                    transition: background-color .4s linear, border-color .4s linear;
+
+                    &:hover {
+                        background-color:$lightblue;
+                        border: 1px solid $yellow;
+                        span {
+                            color: white;
+                        }
+                    }
+                }
+               
             }
         }
     }
