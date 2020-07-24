@@ -23,6 +23,7 @@ Route::prefix('guest')
     ->group(function () {
         Route::resource('apartment', 'ApartmentController');
         Route::post('search', 'ApartmentController@searchApartment')->name('search');
+        Route::post('city', 'ApartmentController@searchCity')->name('city');
 });
 
 Auth::routes();

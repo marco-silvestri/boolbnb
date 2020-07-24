@@ -30,7 +30,7 @@
                 </div>
             </div>
         </section> 
-       
+        
         <section class="vetrina">
             <div class="container">
                 <h2>In vetrina</h2>
