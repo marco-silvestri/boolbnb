@@ -6,7 +6,9 @@
         </div>
     @endif
     <div class="container">
-        @foreach ($apartmentsForUser as $apartment)
+
+        <div class="dashboard">
+            @foreach ($apartmentsForUser as $apartment)
             <div class="box">
                 <div class="img">
                     @include('shared.components.Img')
@@ -70,9 +72,10 @@
                 </div>                    
             </div>
         @endforeach
-         {{-- Apartments pagination --}}
-    <div class="d-flex justify-content-center">
-        {{ $apartmentsForUser->links() }}
-    </div>
+        {{-- Apartments pagination --}}
+        <div class="d-flex justify-content-center paginate">
+            {{ $apartmentsForUser->links() }}
+        </div>
+        </div>
     </div>
 @endsection
