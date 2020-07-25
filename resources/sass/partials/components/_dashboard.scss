@@ -3,6 +3,15 @@
 ******************/
 
 .dashboard {
+
+    h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color: $blue;
+        margin: 25px;
+        text-align: center;
+    }
+
     .paginate {
         margin-bottom: 20px ;
     
@@ -13,9 +22,6 @@
                 border: 1px solid $blue;
             }
         }
-                
-        
-    
     }
     
     .box {
@@ -36,7 +42,6 @@
             img {
                 width: 70%;
             }
-        
         }
     
         .box-info {

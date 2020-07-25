@@ -6,10 +6,11 @@
     margin: 55px 0;
 
     h2 {
-        font-size: 25px;
+        font-size: 35px;
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 20px;
+        color: #4A4A4A;
     }
 
     .card-apt {
@@ -109,14 +110,7 @@
 @media (min-width: 768px) { 
     .annunci {
         margin: 55px 0;
-    
-        h2 {
-            font-size: 25px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-    
+
         .card-apt {
             height: 500px;
             margin: 10px 0;
@@ -183,13 +177,6 @@
 
     .annunci {
         margin: 55px 0;
-    
-        h2 {
-            font-size: 25px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
     
         .card-apt {
             height: 500px;
@@ -292,14 +279,6 @@
 
     .annunci {
         margin: 55px 0;
-    
-        h2 {
-            
-            font-size: 25px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
     
         .card-apt {
             height: 520px;

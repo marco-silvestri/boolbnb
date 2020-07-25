@@ -31,8 +31,8 @@
       
         h2 {
             font-weight: bold;
-            font-size: 22px;
-            margin-bottom: 20px;
+            font-size: 30px;
+            margin-bottom: 15px;
         }
 
         .u-jumbotron {
@@ -62,11 +62,15 @@
                     border-radius: 25px;
                     color: white;
                     font-size: 22px;
+
+                    &:focus { 
+                        outline:0; 
+                        border-radius: 25px;
+                        border: 3px solid rgb(64, 155, 216);
+                    }
                 }  
             }
         }
-
-
     }   
 }
 
@@ -143,7 +147,15 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
-
+    .search {
+        
+        .video-container {
+  
+            video {
+                transform: scale(1.5);  
+            }
+        }    
+    }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -207,5 +219,4 @@
             }
         }   
     }
-
 }

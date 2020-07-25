@@ -5,7 +5,7 @@
         @include('shared.components.ShowFeedback')
  
         <div class="box-img">
-            @include('shared.components.Img');
+            @include('shared.components.Img')
         </div>
 
         <div class="container">
@@ -68,7 +68,6 @@
                             @else
                                 {{-- Stats, make them for UPRA of the apt --}}
                                 @include('shared.components.Payments')
-                                @include('shared.components.Chart')
                             @endif
                         @endguest
                     </div>
@@ -76,7 +75,13 @@
                         <h2>Posizione</h2>
                         @include('shared.components.Maps')
                     </div>  
+                    
                 </div>
+
+                @if ($apartment->user_id == Auth::id())
+                    {{-- Stats, make them for UPRA of the apt --}}
+                    @include('shared.components.Chart')
+                @endif
             </div>
         </div>
     </div>
