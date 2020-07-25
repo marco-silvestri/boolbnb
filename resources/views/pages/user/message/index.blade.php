@@ -4,7 +4,7 @@
 <div class="container text-center"> 
     @if($totalMex > 0)
     
-    <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
+    
     <div class="container">
         {{-- <table class="table">
             <thead>
@@ -31,6 +31,7 @@
             </tbody>
         </table> --}}
         <div class="message">
+            <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
             @foreach ($messageForApartment as $message)
             @foreach ($message as $item)
                 <div class="messagecard">
@@ -52,6 +53,9 @@
                     </div>
                     <div class="creationdate">
                         <em>Ricevuto {{ $item['created_at']->diffForHumans()}}</em>
+                    </div>
+                    <div class="reply">
+                        <a href="mailto:{{ $item->email }}">Rispondi al messaggio</a>
                     </div>
                 </div>
             @endforeach
