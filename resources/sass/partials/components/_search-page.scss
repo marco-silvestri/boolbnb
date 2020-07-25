@@ -1,0 +1,248 @@
+/****************** 
+  Annunci
+******************/
+
+.search-page {
+    position: relative;
+    height: 550px;
+    padding: 0;
+    margin: 0;
+    
+    h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color: $blue;
+        margin: 25px;
+        text-align: center;
+    }
+
+    form {
+        @include flex-center-center(column,center,center);
+        width: 100%;
+        padding: 0 10px;
+
+        .ap-footer {
+            display: none;
+        }
+        
+        .algolia-places input {
+            border-radius: 4px;
+            height: 50px;
+            font-size: 22px;
+        }
+
+        .submit {
+            position: absolute;
+            bottom: 0;
+            background-color: $blue;
+            width: 90%;
+            height: 50px;
+            margin: 20px 0;
+            border-radius: 25px;
+            color: white;
+            font-size: 22px;
+
+            &:focus { 
+                outline:0; 
+                border-radius: 25px;
+                border: 3px solid rgb(64, 155, 216);
+            }
+        }  
+    }
+
+    .services {
+        @include flex-row-or-column-wrap(row, wrap);
+        padding: 0 10px;
+
+        .range {
+            @include flex-center-center(row,center,center);
+            width: 100%;
+            height: 60px;
+            padding-left: 10px;
+
+            input {
+                width: 75%;
+                background-color: $blue;
+            }
+            .range-span {
+                text-align: center;
+                width: 25%;
+                font-size: 25px;
+            }
+        }
+
+        .services-input {
+            @include flex-row-or-column-wrap(row, wrap);
+            width: 100%;
+            margin: 20px 0;
+
+                input {
+                width: calc(100% / 2 - 10px);
+                margin: 5px;
+                font-size: 22px;
+            }
+        }
+
+        .options {
+            width: 100%;
+            @include flex-row-or-column-wrap(row, wrap);
+            justify-content: center;
+            padding-left: 5px;
+
+            div{
+                margin: 0;
+                width: 50%;
+                font-size: 25px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.sponsored {
+    background-color: $blue; 
+    padding: 10px 0;
+    margin-top: 25px;
+
+}
+
+
+
+
+@media (min-width: 576px) { 
+   
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .search-page {
+        
+    
+        form {
+            
+            .submit {
+                position: absolute;
+                bottom: 0;
+                background-color: $blue;
+                width: 50%;
+                height: 50px;
+                margin: 20px 0;
+                border-radius: 25px;
+                color: white;
+                font-size: 22px;
+    
+                &:focus { 
+                    outline:0; 
+                    border-radius: 25px;
+                    border: 3px solid rgb(64, 155, 216);
+                }
+            }  
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+    
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    .search-page {
+        position: relative;
+        height: 420px;
+        
+        h1 {
+            font-size: 35px;
+            font-weight: bold;
+            color: $blue;
+            margin: 25px;
+            text-align: center;
+            width: 100%;
+        }
+    
+        form {
+            @include flex-center-center(column,center,center);
+            width: 100%;
+    
+            .ap-footer {
+                display: none;
+            }
+            
+            .algolia-places input {
+                border-radius: 4px;
+                height: 50px;
+                font-size: 22px;
+            }
+    
+            .submit {
+                position: absolute;
+                bottom: 0;
+                background-color: $blue;
+                width: 25%;
+                height: 50px;
+                margin: 20px 0;
+                border-radius: 25px;
+                color: white;
+                font-size: 22px;
+    
+                &:focus { 
+                    outline:0; 
+                    border-radius: 25px;
+                    border: 3px solid rgb(64, 155, 216);
+                }
+            }  
+        }
+    
+        .services {
+            @include flex-row-or-column-wrap(row-reverse, wrap);
+            position: relative;
+    
+            .range {
+                @include flex-center-center(row,center,center);
+                width: 50%;
+                height: 60px;
+                padding-left: 10px;
+                position: absolute;
+                bottom: 30px;
+                left: 0;
+    
+                input {
+                    width: 75%;
+                    background-color: $blue;
+                }
+                .range-span {
+                    text-align: center;
+                    width: 25%;
+                    font-size: 25px;
+                }
+            }
+    
+            .services-input {
+                @include flex-row-or-column-wrap(row, wrap);
+                width: 100%;
+                margin: 20px 0;
+    
+                    input {
+                    width: calc(100% / 4 - 10px);
+                    margin: 5px;
+                    font-size: 22px;
+                }
+            }
+    
+            .options {
+                width: 50%;
+                @include flex-row-or-column-wrap(row, wrap);
+                justify-content: center;
+                padding-left: 5px;
+    
+                div{
+                    margin: 0;
+                    width: 50%;
+                    font-size: 25px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
