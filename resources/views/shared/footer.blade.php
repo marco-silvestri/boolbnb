@@ -1,25 +1,57 @@
 <footer>
-    
-    <div class="footer-container">
+    <div class="footer-container container">
         <div class="left-footer">
-                <img class ="img-fluid"src="{{asset('img/logo.png')}}" alt="">
-            <h4 class="pt-8"><strong>Follow Us On Social Network</strong></h4>
-             <div class="footer-link pt-12">
+            <div class="footer-img">
+                <img class="img-fluid" src="{{asset('img/logotype-nobg1.png')}}" alt="logo">
+                <h4>&copy; Team 5 - 2020 </h4>
+            </div>
+
+            <h4 class="pt-3">
+                Follow Us On Social Network
+            </h4>
+
+            <div class="footer-link">
                  <ul class="social-icon">
-                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                     <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                     <li>
+                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                     <li>
+                         <a href="#"><i class="fab fa-facebook"></i></a>
+                        </li>
+                     <li>
+                         <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
                  </ul>
             </div>
         </div>
-        <div class="right-footer pt-12">
+
+        <div class="right-footer ">
             <div class="contributors">
-             <div class="title-footer-right"><strong>Realized By:</strong></div>
-                <a href="https://github.com/marco-silvestri">Marco Silvestri<i class="fab fa-github"></i> </a>
-                <a href="https://github.com/Vincenzo-Laveneziana">Vincenzo Laveneziana<i class="fab fa-github"></i></a>
-                <a href="https://github.com/MarcoMadeddu">Marco Madeddu<i class="fab fa-github"></i></a>
-                <a href="https://github.com/CarmineVitale">Carmine Vitale<i class="fab fa-github"></i></a>
-                <a href="https://github.com/rocco-de-luca">Rocco De Luca<i class="fab fa-github"></i></a>
+
+                
+                <h2>Realized By:</h2>
+                
+
+                <a href="https://github.com/marco-silvestri">
+                    Marco Silvestri
+                    <i class="fab fa-github"></i> 
+                </a>
+                <a href="https://github.com/Vincenzo-Laveneziana">
+                    Vincenzo Laveneziana
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://github.com/MarcoMadeddu">
+                    Marco Madeddu
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://github.com/CarmineVitale">
+                    Carmine Vitale
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://github.com/rocco-de-luca">
+                    Rocco De Luca
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </div>

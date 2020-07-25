@@ -65,8 +65,6 @@
                 }  
             }
         }
-
-
     }   
 }
 
@@ -143,7 +141,15 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
-
+    .search {
+        
+        .video-container {
+  
+            video {
+                transform: scale(1.5);  
+            }
+        }    
+    }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -207,5 +213,4 @@
             }
         }   
     }
-
 }
