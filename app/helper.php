@@ -32,4 +32,16 @@ if(!function_exists('geoSearch')){
     }
 }
 
+//Geo search 4
+if(!function_exists('fourGeoSearch')){
+    function fourGeoSearch($lat, $lng, $radius){
+        $apartments = Apartment::search()
+            ->with([
+                'aroundLatLng' => $lat . ',' . $lng ,
+                'aroundRadius' => $radius,
+            ])->take(4)->get();
+        return $apartments;
+    }
+}
+
 ?>

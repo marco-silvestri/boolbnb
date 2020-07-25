@@ -32,7 +32,7 @@
     </head>
 <body>
     <div id="app" class="scrolled">
-        <nav @if (Request::route()->getName() != 'index') class="navbar navbar-expand-md navbar-light blue-bg" @else class = "navbar navbar-expand-md navbar-light"@endif>
+        <nav @if (Request::route()->getName() != 'index' && Request::route()->getName() != 'guest.city') class="navbar navbar-expand-md navbar-light blue-bg" @else class = "navbar navbar-expand-md navbar-light"@endif>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="img-no-text"src="{{asset('img/logo.png')}}" alt="">

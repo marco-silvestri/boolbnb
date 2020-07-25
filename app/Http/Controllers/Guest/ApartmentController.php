@@ -56,13 +56,11 @@ class ApartmentController extends Controller
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
         $request['cityName']);
 
-        dd($latLong);
-
         $cityName = $request['cityName'];
-
         //Invoke helper geoSearch
         $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
-        return view('pages.city', compact('apartments', 'cityName'));
+        $firstApartments = fourGeoSearch($latLong['lat'], $latLong['lng'], 20000);
+        return view('pages.city', compact('apartments', 'cityName' , 'firstApartments'));
     }
 
 }
