@@ -77,6 +77,7 @@
             var template = Handlebars.compile(source);
 
             // jQuery refs
+            var container= $('.search-apt');
             var context = $('#context');
             var inputRoom = $('#roomNumber');
             var inputBathroom = $('#bathroomNumber');
@@ -97,6 +98,7 @@
             var printArgs = {
                 'template' : template,
                 'context' : context,
+                'container' : container,
             };
 
             var options = [];
@@ -163,6 +165,7 @@
             var condition = geoArgs.conditions;
             var template = print.template;
             var context = print.context;
+            var container = print.container;
             const client = algoliasearch('4FF6JXK2K0', '86e9c61811af66cf6fc6209ec6715464');
             const index = client.initIndex('apartments');
             index.search('', {
@@ -175,12 +178,13 @@
                     for (var i = 0; i<data.length; i++){
                         if (_.isEqual(options.sort(),hits[i]['options'].sort())){
                             printCard(data, template, context, i, condition)
+                            var inps = 1;
                         }
                     }
                 }
                 else if (options.length == 0){
                     var templateData = {
-                        alert: 'Seleziona dei servizi aggiuntivi!'
+                        alert: '<span>Seleziona dei servizi aggiuntivi!</span>'
                     };
                     var output = template(templateData);
                     context.append(output);
@@ -191,6 +195,7 @@
         //Clean the area
         function cleanAll (destination){
             destination.html('');
+            
         }
         //Print with Handlebars
         function printCard(data, template, destination, index, condition){
