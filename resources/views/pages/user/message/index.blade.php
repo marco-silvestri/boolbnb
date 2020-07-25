@@ -49,7 +49,7 @@
                     </div>
                     <div class="messagebody">
                         <h6>Contenuto:</h6>
-                        <span>{{ $item['body'] }}</span>
+                        <p>{{ $item['body'] }}</p>
                     </div>
                     <div class="creationdate">
                         <em>Ricevuto {{ $item['created_at']->diffForHumans()}}</em>
