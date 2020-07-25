@@ -33,7 +33,7 @@
         
         <section class="vetrina">
             <div class="container">
-                <h2>In vetrina</h2>
+                <h2>Appartamenti in Evidenza</h2>
                 <div class="row apartment d-flex flex-wrap">
                     @foreach ($sponsoredApartments as $apartment)
                         @include('shared.components.Card')
@@ -44,6 +44,7 @@
         </section>
     
         @include('shared.components.Download')  
+        
         <section class="annunci">
             <div class="container">
                 <h2>Ultimi annunci</h2>        

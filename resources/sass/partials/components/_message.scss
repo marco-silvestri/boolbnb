@@ -1,7 +1,17 @@
 /****************** 
   Message
 ******************/
+.message {
 
+    h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color: $blue;
+        margin: 25px;
+        text-align: center;
+        width: 100%;
+    }
+}
 
 .messagecard {
     border: 1px solid $lightblue;
@@ -29,6 +39,15 @@
         width: 120px;
         font-size: 13px;
         margin: 20px;
+    }
+    
+    .reply {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 160px;
+        font-size: 13px;
+        margin: 20px 5px;
     }
 }
 

@@ -62,8 +62,8 @@
                             @if (Route::has('register'))
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-item full" href="{{ route('register') }}">
-                                    <i class="fas fa-user-plus"></i>
-                                        <br> <span>{{ __('Register') }}</span>
+                                    <i class="fas fa-user-plus pl-2"></i>
+                                        <br> <span>{{ __('Registrati') }}</span>
                                     </a>
                                 </li>
                             @endif
