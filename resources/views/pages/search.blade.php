@@ -26,13 +26,8 @@
                 </div>
     
                 <div class="services-input">
-                    <input type="number" class="form-control" id="roomNumber" min="1" max="10" placeholder="Stanze">
-                
-                    <input type="number" class="form-control" id="bathroomNumber" min="1" max="5" placeholder="Bagni">
-                    
+                    <input type="number" class="form-control" id="roomNumber" min="1" max="10" placeholder="Stanze">             
                     <input type="number" class="form-control" id="bedNumber" min="1" max="10" placeholder="Letti">
-                    
-                    <input type="number" class="form-control" id="squareMeter" min="20" max="300"placeholder="Metri quadri">
                 </div>
             
                 <div class="options">
@@ -71,7 +66,6 @@
     <script type="text/javascript">
         
         $(document).ready(function () {
-
             // Handlebars refs
             var source = $('#card-template').html();
             var template = Handlebars.compile(source);
@@ -80,9 +74,7 @@
             var container= $('.search-apt');
             var context = $('#context');
             var inputRoom = $('#roomNumber');
-            var inputBathroom = $('#bathroomNumber');
             var inputBed = $('#bedNumber');
-            var inputSurface = $('#squareMeter');
             var inputRange = $('#rangeKm');
             var rangeLabel = $('#rangeKmPrint');
             var checkBoxes = $("input[name='option']");
@@ -114,18 +106,8 @@
                 geoSearch(geoArgs, printArgs, options);
             });
 
-            inputBathroom.on('change', function() {
-                geoArgs.conditions[1] = inputBathroom.val();
-                geoSearch(geoArgs, printArgs, options);
-            });
-
             inputBed.on('change', function() {
-                geoArgs.conditions[2] = inputSurface.val();
-                geoSearch(geoArgs, printArgs, options);
-            });
-
-            inputSurface.on('change', function() {
-                geoArgs.conditions[3] = inputSurface.val();
+                geoArgs.conditions[1] = inputBed.val();
                 geoSearch(geoArgs, printArgs, options);
             });
 
@@ -150,46 +132,71 @@
                 } else {
                     options.splice($.inArray(checked, options),1);
                     console.log(options.sort());
-                    
                 };
                 geoSearch(geoArgs, printArgs, options);
             });
-
     });//End of Doc Ready
 
         //Search and print
         function geoSearch(geoArgs, print, options){
-            var lat = geoArgs.lat;
-            var long = geoArgs.long;
-            var radius = geoArgs.radius;
-            var condition = geoArgs.conditions;
-            var template = print.template;
-            var context = print.context;
-            var container = print.container;
+            //Build the query and instantiate algolia
+            var query = queryBuilder(options, geoArgs.conditions);
             const client = algoliasearch('4FF6JXK2K0', '86e9c61811af66cf6fc6209ec6715464');
             const index = client.initIndex('apartments');
             index.search('', {
-                aroundLatLng : lat +','+ long, 
-                aroundRadius : radius,
+                aroundLatLng : geoArgs.lat +','+ geoArgs.long, 
+                aroundRadius : geoArgs.radius,
+                filters: query,
             }).then(({ hits }) => {
-                var data = JSON.stringify(hits);
-                cleanAll(context);
-                if (options.length != 0){
-                    for (var i = 0; i<data.length; i++){
-                        if (_.isEqual(options.sort(),hits[i]['options'].sort())){
-                            printCard(data, template, context, i, condition)
-                            var inps = 1;
+                //If there are no results, alert the user
+                if (hits.length == 0){
+                    cleanAll(print.context);
+                    var templateData = {
+                        alert: '<span>Nessun risultato</span>'
+                    };
+                    var output = print.template(templateData);
+                    print.context.append(output);
+                } else {
+                    //Parse the JSON for Script processing
+                    var data = JSON.stringify(hits);
+                    //Check if there are options selected
+                    if (options.length != 0){
+                        cleanAll(print.context);
+                        for (var i = 0; i< (data.length-1) ; i++){
+                            printCard(data, print.template, print.context, i);
                         }
                     }
-                }
-                else if (options.length == 0){
-                    var templateData = {
-                        alert: '<span>Seleziona dei servizi aggiuntivi!</span>'
-                    };
-                    var output = template(templateData);
-                    context.append(output);
+                    //If no options are selected, alert the user
+                    else if (options.length == 0){
+                        cleanAll(print.context);
+                        var templateData = {
+                            alert: '<span>Seleziona dei servizi aggiuntivi!</span>'
+                        };
+                        var output = print.template(templateData);
+                        print.context.append(output);
+                    }
+                    console.log(options.length);
                 }
             });
+        }
+
+        //Query builder
+        function queryBuilder(options, conditions){
+            var query = ""; 
+            options.forEach(option => {
+                if (query == ""){
+                    query += '(options:' + option;
+                }
+                else {
+                    query += ' OR options:' + option;
+                }
+            });
+            if (query == ""){
+                query = 'room_numbers >=' + conditions[0] + ' AND beds >=' + conditions[1];
+            } else {
+                query += ') AND ('+ 'room_numbers >=' + conditions[0] + ' AND beds >=' + conditions[1] +')';
+            }
+            return query;
         }
 
         //Clean the area
@@ -197,24 +204,20 @@
             destination.html('');
             
         }
+
         //Print with Handlebars
-        function printCard(data, template, destination, index, condition){
-            var thisCard = JSON.parse(data)[index];
-            if (thisCard['room_numbers'] >= condition[0] &&
-                thisCard['bathrooms'] >= condition[1] &&
-                thisCard['beds'] >= condition[2] &&
-                thisCard['square_meters'] >= condition[3]){
+        function printCard(data, template, destination, index){
+            var card = JSON.parse(data)[index];
             var templateData = {
-                cardName: thisCard['name'],
-                cardDescription: thisCard['description'],
-                cardOptions: thisCard['options'],
-                imgConstructor: '<img src="/storage/'+ thisCard['img'] + '" alt="">',
-                routeConstructor: '<a href="/user/apartment/'+ thisCard['id'] +'">Visualizza</a>',
+                cardName: card['name'],
+                cardDescription: card['description'],
+                cardOptions: card['options'],
+                imgConstructor: '<img src="/storage/'+ card['img'] + '" alt="">',
+                routeConstructor: '<a href="/guest/apartment/'+ card['id'] +'">Visualizza</a>',
                 };
             var output = template(templateData);
             destination.append(output);
-            }
+            //}
         }
-
     </script>
 @endsection
