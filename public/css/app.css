@@ -13488,6 +13488,7 @@ main {
 }
 
 .discover-page .discover-top h1 {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -13606,6 +13607,7 @@ main {
   }
 
   .discover-page .discover-top h1 {
+    display: block;
     position: absolute;
     font-size: 180px;
     background-color: #5da2d582;
