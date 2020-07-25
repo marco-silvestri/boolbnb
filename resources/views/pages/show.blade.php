@@ -5,7 +5,7 @@
         @include('shared.components.ShowFeedback')
  
         <div class="box-img">
-            @include('shared.components.Img');
+            @include('shared.components.Img')
         </div>
 
         <div class="container">

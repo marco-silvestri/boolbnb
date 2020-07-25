@@ -3,42 +3,66 @@
 @include('shared.components.Leaflet-include')
 
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="search-page">
+
             <h1>Pagina di ricerca</h1>
-        </div>
-
-        <form action="{{ route('guest.search') }}" method="POST">
-            @csrf
-            @method('POST')
-            <input type="text" name="address" id="address-input" placeholder="Trova un appartamento... o lascia il campo vuoto per trovare appartamenti intorno a te">
-            <input type="submit" value="Cerca">
-        </form>
-
-        <div class="container">
-            <div class="form-group">
-                <label for="roomNumber">Numero minimo stanze:</label>
-                <input type="number" class="form-control" id="roomNumber" min="1" max="10" placeholder="Stanze">
-                <label for="bathroomNumber">Numero minimo di bagni:</label>
-                <input type="number" class="form-control" id="bathroomNumber" min="1" max="5" placeholder="Bagni">
-                <label for="bedNumber">Numero minimo letti:</label>
-                <input type="number" class="form-control" id="bedNumber" min="1" max="10" placeholder="Letti">
-                <label for="squareMeter">Numero minimo di metri quadri:</label>
-                <input type="number" class="form-control" id="squareMeter" min="20" max="300"placeholder="Metri quadri">
-                <label for="volumeKm">Distanza:</label>
-                <input type="range" id="rangeKm" name="rangeKm" min="1" max="50" value="20" step="1"> 
-                <span id="rangeKmPrint"></span>
-                <span>Km</span>
-                {{-- Checkboxes for options --}}
-                @foreach ($options as $option)
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="option" id="box{{ $option->name }}" value="{{ $option->name }}">
-                        <label class="form-check-label" for="box{{ $option->name }}">{{ $option->name }}</label>
-                    </div>    
-                @endforeach
+            
+            <form action="{{ route('guest.search') }}" method="POST">
+                @csrf
+                @method('POST')
+                <input type="text" name="address" id="address-input" placeholder="Trova un appartamento...">
+                <input class="submit" type="submit" value="Cerca">
+            </form>
+    
+            <div class="form-group services">
+    
+                <div class="range">
+                    <input type="range" id="rangeKm" name="rangeKm" min="1" max="50" value="20" step="1"> 
+    
+                    <div class="range-span">
+                        <span id="rangeKmPrint"></span>
+                    <span>Km</span>
+                    </div>
+                </div>
+    
+                <div class="services-input">
+                    <input type="number" class="form-control" id="roomNumber" min="1" max="10" placeholder="Stanze">
                 
+                    <input type="number" class="form-control" id="bathroomNumber" min="1" max="5" placeholder="Bagni">
+                    
+                    <input type="number" class="form-control" id="bedNumber" min="1" max="10" placeholder="Letti">
+                    
+                    <input type="number" class="form-control" id="squareMeter" min="20" max="300"placeholder="Metri quadri">
+                </div>
+            
+                <div class="options">
+                    
+                    @foreach ($options as $option)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="option" id="box{{ $option->name }}" value="{{ $option->name }}">
+                            <label class="form-check-label" for="box{{ $option->name }}">{{ $option->name }}</label>
+                        </div>    
+                    @endforeach
+                </div>
+    
             </div>
         </div>
     </div>
+
+    <div class="sponsored">
+        <section class="vetrina">
+            <div class="container">
+                <h2>Appartamenti in Evidenza</h2>
+                <div class="row apartment d-flex flex-wrap">
+                    @foreach ($sponsoredApartments as $apartment)
+                        @include('shared.components.Card')
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    
 
     {{-- Handlebars will be printed here --}}
     @include('shared.components.Search-result')

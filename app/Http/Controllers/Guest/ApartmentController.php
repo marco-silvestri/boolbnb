@@ -34,6 +34,8 @@ class ApartmentController extends Controller
 
     public function searchApartment(Request $request){
         
+        $sponsoredApartments = Apartment::where('sponsorship_expiration', '>', Carbon::now())->get();
+
         //Invoke helper geoCode
         $latLong = geoCode('plZON97PJS4T', 
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
@@ -44,7 +46,7 @@ class ApartmentController extends Controller
 
         //Invoke helper geoSearch
         $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
-        return view('pages.search', compact('apartments', 'latLong', 'options'));
+        return view('pages.search', compact('apartments', 'latLong', 'options','sponsoredApartments'));
     }
 
     public function searchCity(Request $request){
