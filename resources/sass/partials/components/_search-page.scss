@@ -103,7 +103,100 @@
     background-color: $blue; 
     padding: 10px 0;
     margin-top: 25px;
+}
 
+.search-apt {
+    margin: 70px auto 100px;
+
+    #context {
+        .u-card-apt {
+            height: 500px;
+            margin: 10px 0;
+            padding: 15px 35px;
+            
+            .apt {
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+                /* border: 1px solid black; */
+                border-radius: 7px;
+                overflow: hidden;
+                height: 500px;
+
+                span {
+                    font-size: 65px;
+                    text-align: center;
+                }
+                
+                .img {
+                    position: relative;
+    
+                    img{
+                        width: 100%;
+                        height: 270px;
+                    }
+        
+                    a {
+                        font-size: 20px;
+                        border: none;
+                        border-radius: 0 5px 0 0;
+                        background-color: $yellow;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        padding: 10px 20px;
+                    }
+                }
+
+                .info {
+                    @include flex-row-or-column(column);
+                    width: 100%;
+                    height: 100%;
+                    padding: 20px;
+    
+                    h3 {
+                        color: $blue;
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+    
+                    p {
+                        width: 90%;
+                        height: 100%;
+                        font-size: 18px;
+                    }
+                    
+        
+                    .info-options {
+                        width: 40%;
+                        @include flex-row-or-column(column);
+    
+                        h5 {
+                            font-weight: bold;
+                            color: $blue;
+                        }
+                        
+                        div {
+                            text-align: left;
+    
+                            i {
+                                color:$blue;
+                                font-size: 17px;
+                                width: 22px;
+                            }
+    
+                            span {
+                                padding-left: 2px;
+                                font-size: 17px;
+                            }
+                        }
+    
+                    }
+                }
+        
+            }
+        }
+    }
 }
 
 
@@ -139,6 +232,111 @@
             }  
         }
     }
+
+    .search-apt {
+        margin: 70px auto 100px;
+    
+        #context {
+            width: 100%;
+            @include flex-row-or-column(column);
+
+            span {
+                width: 100%;
+                font-size: 65px;
+                text-align: center;
+                position: absolute;
+            }
+
+            .u-card-apt {
+                width: 100%;
+                height: 260px;
+                margin: 10px 0;
+                padding: 15px 35px;
+                
+                .apt {
+                    position: relative;
+                    @include flex-row-or-column(row);
+                    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+                    /* border: 1px solid black; */
+                    border-radius: 7px;
+                    overflow: hidden;
+                    height: 260px;
+    
+                    
+                    
+                    .img {
+                        position: relative;
+                        width: 50%;
+        
+                        img{
+                            width: 100%;
+                            height: 270px;
+                        }
+            
+                        a {
+                            font-size: 20px;
+                            border: none;
+                            border-radius: 0 5px 0 0;
+                            background-color: $yellow;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            padding: 10px 20px;
+                        }
+                    }
+    
+                    .info {
+                        @include flex-row-or-column(column);
+                        width: 50%;
+                        height: 100%;
+                        padding: 20px;
+        
+                        h3 {
+                            color: $blue;
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
+        
+                        p {
+                            width: 90%;
+                            height: 100%;
+                            font-size: 18px;
+                        }
+                        
+            
+                        .info-options {
+                            width: 40%;
+                            @include flex-row-or-column(column);
+        
+                            h5 {
+                                font-weight: bold;
+                                color: $blue;
+                            }
+                            
+                            div {
+                                text-align: left;
+        
+                                i {
+                                    color:$blue;
+                                    font-size: 17px;
+                                    width: 22px;
+                                }
+        
+                                span {
+                                    padding-left: 2px;
+                                    font-size: 17px;
+                                }
+                            }
+        
+                        }
+                    }
+            
+                }
+            }
+        }
+    }
+    
+    
 }
 
 // Large devices (desktops, 992px and up)

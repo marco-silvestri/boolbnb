@@ -9,13 +9,10 @@
     </div>
     
     <div class="w1/2 pt-8">
-        {!! $statisticChart->container() !!}  
-        
+        {!! $statisticChart->container() !!}   
     </div>
-
     <div class="w1/2 pt-8">
-        {!! $statisticView->container() !!}    
-        
+        {!! $statisticView->container() !!}      
     </div> 
 </div>
 		       
