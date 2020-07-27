@@ -27,6 +27,8 @@
             <textarea id="body" class="form-control" name="body" rows="5" placeholder="Scrivi un messaggio per l'host dell'appartamento"></textarea>
         </div>           
 
-        <input class ="button-black" type="submit" value="Invia">
+        <div class="submit">
+            <input class ="btn btn-info" type="submit" value="Invia">
+        </div>
     </form>
 </div>

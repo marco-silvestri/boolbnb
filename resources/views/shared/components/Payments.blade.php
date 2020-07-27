@@ -27,7 +27,9 @@
             <label>{{$sponsorship->price}}€ per {{$sponsorship->duration}} ore</label>
         </div>
         @endforeach
-        <input type="hidden" name="id" value="{{$apartment->id}}">
+        <div class="submit">
+            <input type="hidden" name="id" value="{{$apartment->id}}">
+        </div>
     </div>
     <button class="go-to-payment btn btn-primary">Sponsorizza</button>
 </div>

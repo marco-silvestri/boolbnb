@@ -1,16 +1,17 @@
 /****************** 
   Message
 ******************/
-.message {
 
-    h1 {
+.msx {
+    h1{
         font-size: 35px;
         font-weight: bold;
         color: $blue;
         margin: 25px;
         text-align: center;
-    }
+    }     
 }
+
 
 .messagecard {
     border: 1px solid $lightblue;
