@@ -5,10 +5,11 @@
     margin: 55px 0;
 
     h2 {
-        font-size: 25px;
+        font-size: 35px;
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 20px;
+        color: #4A4A4A;
     }
 
     .card-apt {
@@ -25,6 +26,7 @@
             overflow: hidden;
             height: 200px;
             position: relative;
+            background-color: white;
 
             .img {
                 width: 50%;
@@ -63,7 +65,7 @@
     
                     p {
                         width: 100%;
-                        height: 80%;
+                        height: 90%;
                         font-size: 15px;
                     }
                 }
@@ -144,14 +146,7 @@
 @media (min-width: 768px) { 
     .vetrina {
         margin: 55px 0;
-    
-        h2 {
-            font-size: 25px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-    
+   
         .card-apt {
             height: 250px;
             margin: 10px 0;
@@ -166,6 +161,7 @@
                 overflow: hidden;
                 height: 250px;
                 position: relative;
+                
 
                 .img {
                     width: 50%;
@@ -267,14 +263,7 @@
 
     .vetrina {
         margin: 55px 0;
-    
-        h2 {
-            font-size: 25px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-    
+   
         .card-apt {
             height: 200px;
             margin: 10px 0;

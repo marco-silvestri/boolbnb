@@ -20,7 +20,10 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::orderBy('created_at', 'desc')->paginate(6);
         $sponsoredApartments = Apartment::where('sponsorship_expiration', '>', Carbon::now())->get();
+        
+        
         return view('pages.index', compact('apartments','sponsoredApartments'));
+
     }
 
     public function show(Apartment $apartment)
@@ -29,11 +32,15 @@ class ApartmentController extends Controller
             abort('404');
         }
 
+
+
         return view('pages.show', compact('apartment'));
     }
 
     public function searchApartment(Request $request){
         
+        $sponsoredApartments = Apartment::where('sponsorship_expiration', '>', Carbon::now())->get();
+
         //Invoke helper geoCode
         $latLong = geoCode('plZON97PJS4T', 
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
@@ -44,7 +51,7 @@ class ApartmentController extends Controller
 
         //Invoke helper geoSearch
         $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
-        return view('pages.search', compact('apartments', 'latLong', 'options'));
+        return view('pages.search', compact('apartments', 'latLong', 'options','sponsoredApartments'));
     }
 
     public function searchCity(Request $request){
@@ -54,14 +61,14 @@ class ApartmentController extends Controller
         '485e6334a610b0b3d89ac65d5c4ca0a4', 
         $request['cityName']);
 
-        dd($latLong);
-
         $cityName = $request['cityName'];
-
         //Invoke helper geoSearch
         $apartments = geoSearch($latLong['lat'], $latLong['lng'], 20000);
-        return view('pages.city', compact('apartments', 'cityName'));
+        $firstApartments = fourGeoSearch($latLong['lat'], $latLong['lng'], 20000);
+        return view('pages.city', compact('apartments', 'cityName' , 'firstApartments'));
     }
+
+    
 
 }
 

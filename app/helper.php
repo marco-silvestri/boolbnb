@@ -32,4 +32,28 @@ if(!function_exists('geoSearch')){
     }
 }
 
+//Geo search 4
+if(!function_exists('fourGeoSearch')){
+    function fourGeoSearch($lat, $lng, $radius){
+        $apartments = Apartment::search()
+            ->with([
+                'aroundLatLng' => $lat . ',' . $lng ,
+                'aroundRadius' => $radius,
+            ])->take(4)->get();
+        return $apartments;
+    }
+}
+
+
+if(!function_exists('truncate')){
+    function truncate($text, $length) {
+        $length = abs((int)$length);
+        if(strlen($text) > $length) {
+            $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
+        }
+        return($text);
+    }
+}
+
+
 ?>

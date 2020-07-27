@@ -5,12 +5,12 @@
         @include('shared.components.ShowFeedback')
  
         <div class="box-img">
-            @include('shared.components.Img');
+            @include('shared.components.Img')
         </div>
 
         <div class="container">
             <div class="link">
-                <a href="{{route('index')}}"><i class="fas fa-long-arrow-alt-left"></i>Torna ai risultati</a>
+                <a href="{{route('index')}}"><i class="fas fa-long-arrow-alt-left"></i>Torna alla home</a>
             </div>
             <div class="info container">
                 <div class="info-box">

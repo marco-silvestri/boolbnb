@@ -9,8 +9,8 @@
             </div>
         </div>
         <div class="right-side">
-            <img class = "iphone" src= "{{asset('img/iphone.png')}}" alt="">
-            <img class ="samsung" src= "{{asset('img/samsung.png')}}" alt="">
+            <img class = "iphone" src= "{{asset('img/iphonemockup.png')}}" alt="">
+            <img class ="samsung" src= "{{asset('img/samsungmockup.png')}}" alt="">
         </div>
     </div>
 </div>

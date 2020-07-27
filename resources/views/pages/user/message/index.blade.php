@@ -4,32 +4,11 @@
 <div class="container text-center"> 
     @if($totalMex > 0)
     
-    <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
+    
     <div class="container">
-        {{-- <table class="table">
-            <thead>
-                <tr class="text-primary">
-                    <th>Mittente:</th>
-                    <th>Appartamento:</th>
-                    <th>Title:</th>
-                    <th>Contenuto:</th>
-                    <th>Ricevuto:</th>
-                </tr> 
-            </thead>
-            <tbody>
-                @foreach ($messageForApartment as $message)
-                        @foreach ($message as $item)
-                        <tr>
-                            <td>{{ $item->email }}</td>
-                            <td>{{ $item->apartment->name }}</td>
-                            <td>{{ $item['title'] }}</td>
-                            <td>{{ $item['body'] }}</td>
-                            <td>{{ $item['created_at']->diffForHumans()}}</td>
-                        </tr>
-                    @endforeach
-                @endforeach
-            </tbody>
-        </table> --}}
+        
+        <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
+
         <div class="message">
             @foreach ($messageForApartment as $message)
             @foreach ($message as $item)
@@ -48,10 +27,13 @@
                     </div>
                     <div class="messagebody">
                         <h6>Contenuto:</h6>
-                        <span>{{ $item['body'] }}</span>
+                        <p>{{ $item['body'] }}</p>
                     </div>
                     <div class="creationdate">
                         <em>Ricevuto {{ $item['created_at']->diffForHumans()}}</em>
+                    </div>
+                    <div class="reply">
+                        <a href="mailto:{{ $item->email }}">Rispondi al messaggio</a>
                     </div>
                 </div>
             @endforeach

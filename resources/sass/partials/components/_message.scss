@@ -1,7 +1,16 @@
 /****************** 
   Message
 ******************/
+.message {
 
+    h1 {
+        font-size: 35px;
+        font-weight: bold;
+        color: $blue;
+        margin: 25px;
+        text-align: center;
+    }
+}
 
 .messagecard {
     border: 1px solid $lightblue;
@@ -22,6 +31,15 @@
     div {
         margin-bottom: 15px;
     }
+    .messagebody {
+        
+        p {
+            width: 90%;
+            height: 170px;
+            overflow-y: auto;
+        }
+        
+    }
     .creationdate {
         position: absolute;
         bottom: 0;
@@ -29,6 +47,34 @@
         width: 120px;
         font-size: 13px;
         margin: 20px;
+    }
+    
+    .reply {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 160px;
+        font-size: 13px;
+        margin: 20px 5px;
+        color: white;
+        width: 150px;
+        height: 30px;
+        line-height: 30px;
+        background-color: $yellow;
+        transition: background-color .4s linear;
+        
+        &:hover {
+            background-color:$lightblue;
+            
+            a  {
+                color:$yellow;
+            }
+        }
+        a {
+            text-decoration: none; 
+            transition: color .4s linear;  
+        }
+        
     }
 }
 
@@ -53,6 +99,13 @@
 }
 
 @media (min-width: 1200px) { 
+    .message {
+       
+        .messagecard {
+            flex-basis: 30%;
+            margin-right: 2%;
+        }
+    }
 
     
 }

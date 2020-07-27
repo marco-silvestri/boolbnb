@@ -6,8 +6,8 @@
         </div>
     @endif
     <div class="container">
-
         <div class="dashboard">
+            <h1>Ciao {{ $user_name }}, ecco i tuoi appartamenti:</h1>
             @foreach ($apartmentsForUser as $apartment)
             <div class="box">
                 <div class="img">
