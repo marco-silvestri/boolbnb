@@ -159,12 +159,44 @@ class ApartmentController extends Controller
 		$statisticChart = new StatisticChart;
         $statisticChart->labels($labels, 'highcharts');
         $statisticChart->dataset('Message', 'bar', $tot_mex_for_month)
-        ->BackgroundColor(['red','red','red','red','red','red','red','red','red','red','red','red',]);
+        ->BackgroundColor(['#5DA2D5','','#F3d250','#5DA2D5','#F3d250','#5DA2D5','#F3d250','#5DA2D5','#F3d250','#5DA2D5','#F3d250','#5DA2D5',]);
+        $statisticChart->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'display'=>false,
+                        'gridLines' => [
+                        'display' => false
+                        ]
+                    ]
+                ],
+                'xAxes' => [
+                    [
+                        'gridLines' => [
+                            'display' => false
+                        ]
+                    ]
+                ]
+            ]
+        ]);
+       
 
         $statisticView = new StatisticChart;
         $statisticView->labels(['views of your apartment','views of all apartments']);
         $statisticView->dataset('Views', 'pie', [$total_views,$tot_view_count - $total_views])
-        ->BackgroundColor(['green','blue']);
+        ->BackgroundColor(['#5DA2D5','#F3d250']);
+        $statisticView->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'display'=>false,
+                        'gridLines' => [
+                            'display' => false
+                        ]
+                    ]
+                ]
+            ]
+        ]);
         
         return view('pages.show', compact('apartment', 'sponsorships','message','payments','statisticChart','statisticView'));
 		
