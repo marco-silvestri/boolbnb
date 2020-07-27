@@ -1,6 +1,6 @@
-<h1 class="text-center pt-4">Statistiche dell'Appartamento</h1>
 
-<div class="display-flex flex-direction-column">
+<div class="display-flex flex-direction-column my-5">
+    <h1 class="text-center pt-4">Statistiche dell'Appartamento</h1>
     <h2 class="font-bold text-center text-2xl px-24 pt-8">Descrizione:</h2>
     <p class="text-center pt-3">Il primo grafico rappresenta le statistiche dei messaggi, 
         che l' appartamento riceve in un anno. 
