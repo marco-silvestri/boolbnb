@@ -1,4 +1,4 @@
-<h1 class="text-center text-5xl font-bold pt-4">Statistiche dell'Appartamento</h1>
+<h1 class="text-center pt-4">Statistiche dell'Appartamento</h1>
 
 <div class="display-flex flex-direction-column">
     <h2 class="font-bold text-center text-2xl px-24 pt-8">Descrizione:</h2>

@@ -7,7 +7,7 @@
     
     <div class="container">
         
-        <h1 class="mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
+        <h1 class="title-message mb-5">Ciao {{ $user_name }}, hai {{ $totalMex }} messaggi:</h1>
 
         <div class="message">
             @foreach ($messageForApartment as $message)
