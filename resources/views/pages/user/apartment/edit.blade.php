@@ -62,7 +62,7 @@
 
                 <div class="img">
                     <label for="path-img">
-                        <span class="d-block">Post img</span>
+                        <span class="d-block">Immagine Appartamento</span>
                         @include('shared.components.Img')
                         <span class="mt-4">Scegli una nuova immagine</span>
                     </label>
