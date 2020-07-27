@@ -18,7 +18,7 @@
 
             <div class="info-box">
                 <h3>{{ $apartment->name }}</h3>
-                <p>{{ $apartment->description }}</p>
+                <p>{{truncate($apartment->description,120)}}</p>
             </div>
 
 
