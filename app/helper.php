@@ -44,4 +44,16 @@ if(!function_exists('fourGeoSearch')){
     }
 }
 
+
+if(!function_exists('truncate')){
+    function truncate($text, $length) {
+        $length = abs((int)$length);
+        if(strlen($text) > $length) {
+            $text = preg_replace("/^(.{1,$length})(\s.*|$)/s", '\\1...', $text);
+        }
+        return($text);
+    }
+}
+
+
 ?>

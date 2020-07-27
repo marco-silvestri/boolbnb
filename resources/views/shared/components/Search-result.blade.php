@@ -15,12 +15,21 @@
                 @{{{  imgConstructor  }}}
                 @{{{  routeConstructor  }}}
             </div>
-            
-            <div class="info">
-                <h3> @{{ cardName }}</@> </h3>
-                <p> @{{ cardDescription }}</p>
-                
+
+            <div class="info-options">
+                <div class="info">
+                    <h3> @{{ cardName }}</@> </h3>
+                    <p>@{{ cardDescription }}</p>
+                </div>
+    
+                <div class="options">
+                    @{{#each cardOptions}}
+                    <p>@{{this}} </p>
+                    @{{/each}}
+                </div>
             </div>
+            
+            
             
         </div>
         

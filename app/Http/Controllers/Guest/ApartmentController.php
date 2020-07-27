@@ -20,7 +20,10 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::orderBy('created_at', 'desc')->paginate(6);
         $sponsoredApartments = Apartment::where('sponsorship_expiration', '>', Carbon::now())->get();
+        
+        
         return view('pages.index', compact('apartments','sponsoredApartments'));
+
     }
 
     public function show(Apartment $apartment)
@@ -28,6 +31,8 @@ class ApartmentController extends Controller
         if (empty($apartment)) {
             abort('404');
         }
+
+
 
         return view('pages.show', compact('apartment'));
     }
@@ -62,6 +67,8 @@ class ApartmentController extends Controller
         $firstApartments = fourGeoSearch($latLong['lat'], $latLong['lng'], 20000);
         return view('pages.city', compact('apartments', 'cityName' , 'firstApartments'));
     }
+
+    
 
 }
 
