@@ -30,7 +30,7 @@
         color: $black;
       
         h2 {
-            color: $white;
+            color: $blue;
             font-weight: bold;
             font-size: 30px;
             margin-bottom: 15px;
@@ -112,6 +112,10 @@
             padding-top: 220px;
             z-index: 2;
             color: $gray;
+
+            h2 {
+                color: $white;
+            }
     
             .u-jumbotron {
                 background-color: white;
