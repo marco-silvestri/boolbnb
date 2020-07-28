@@ -10,6 +10,16 @@
         margin: 25px;
         text-align: center;
     }     
+
+    .submit {
+        background-color: $blue;
+        border: 1px solid $blue;
+        a {
+            background-color: $blue;
+            border: 1px solid $blue;
+            text-decoration: none;
+        }
+    }
 }
 
 
