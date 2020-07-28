@@ -46,8 +46,8 @@
 
     @elseif($feedBack==1)
     <h1 class="mb-5">Ciao {{ $user_name }}, inserisci il tuo primo appartamento per poter ricevere messaggi!</h1>
-    <button type="button" class="btn btn-primary">
-         <a class ="text-white"href="{{ route('user.apartment.create')}}">Aggiungi Appartamento</a>
+    <button type="button" class="submit btn btn-primary">
+         <a class ="text-white" href="{{ route('user.apartment.create')}}">Aggiungi Appartamento</a>
     </button>
        
     @endif
