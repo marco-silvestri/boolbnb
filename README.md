@@ -1,3 +1,5 @@
+##stale - questa app non rieceve aggiornamenti ne supporto.
+
 # BoolBnB
 
 BoolBnB è una applicazione per trovare e gestire gli annunci relativi all’affitto di appartamenti in tutta Italia.
